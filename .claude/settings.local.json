@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(ralph-loop:ralph-loop)",
+      "Bash(which zbarimg zbar-tool python3 node npm 2>/dev/null; python3 -c \"import cv2; print\\('cv2 ok'\\)\" 2>/dev/null; python3 -c \"import pyzbar; print\\('pyzbar ok'\\)\" 2>/dev/null; python3 -c \"from PIL import Image; print\\('PIL ok'\\)\" 2>/dev/null)",
+      "Bash(python3 -c \"import cv2; print\\('cv2 ok'\\)\" 2>/dev/null; python3 -c \"from pyzbar.pyzbar import decode; print\\('pyzbar ok'\\)\" 2>/dev/null; python3 -c \"from PIL import Image; print\\('PIL ok'\\)\" 2>/dev/null; pip3 list 2>/dev/null | grep -iE \"pyzbar|opencv|pillow|qr\")"
+    ]
+  }
+}

@@ -1,0 +1,347 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SearchResults from "@/components/react/SearchResults";
+import TopicTimeline from "@/components/react/TopicTimeline";
+import { supabase } from "@/lib/supabase";
+
+// Fetch data at build time
+const { data: episodes } = await supabase
+  .from("episodes")
+  .select("id, glt_id, episode_number, title, pub_date, duration_seconds, summary, topics_json")
+  .order("pub_date", { ascending: false })
+  .limit(60);
+
+const { count: episodeCount } = await supabase
+  .from("episodes")
+  .select("id", { count: "exact", head: true });
+
+const { count: chunkCount } = await supabase
+  .from("chunks")
+  .select("id", { count: "exact", head: true });
+
+const { count: topicCount } = await supabase
+  .from("topics")
+  .select("id", { count: "exact", head: true });
+
+// Use count query for total hours since we limit episodes above
+const { data: allEps } = await supabase
+  .from("episodes")
+  .select("duration_seconds");
+const totalMinutes = (allEps ?? []).reduce((sum, ep) => sum + (ep.duration_seconds || 0), 0) / 60;
+const totalHours = Math.round(totalMinutes / 60);
+
+function formatDate(dateStr: string): string {
+  return new Date(dateStr).toLocaleDateString("de-DE", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "2-digit",
+  });
+}
+
+function formatDuration(seconds: number): string {
+  return `${Math.floor(seconds / 60)} min`;
+}
+---
+
+<BaseLayout title="Startseite">
+
+  <!-- ========== HERO ========== -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Background image -->
+    <div class="absolute inset-0">
+      <img
+        src="/background.jpg"
+        alt=""
+        class="w-full h-full object-cover object-center"
+        loading="eager"
+      />
+      <!-- Radial vignette + bottom fade -->
+      <div class="hero-overlay absolute inset-0"></div>
+    </div>
+
+    <!-- Hero content -->
+    <div class="relative z-10 text-center px-6 pt-12">
+      <!-- Marquee sign with chase lights -->
+      <div class="inline-block relative mb-10" aria-hidden="true">
+        <div class="marquee-lights" id="marquee-lights"></div>
+        <div class="marquee-sign">
+          <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white whitespace-nowrap" style="letter-spacing: -0.02em; line-height: 1.05;">
+            GEMISCHTES <span class="text-accent">HACK</span>
+          </h1>
+        </div>
+      </div>
+
+      <p class="text-gray-300 text-sm tracking-[0.25em] uppercase font-display mb-2">
+        Felix Lobrecht & Tommi Schmitt
+      </p>
+      <p class="text-gray-500 text-base tracking-wide font-light">
+        Insights aus jeder Folge
+      </p>
+
+      <!-- Scroll indicator -->
+      <div class="mt-16">
+        <a href="#stats" aria-label="Zu den Statistiken scrollen" class="scroll-arrow text-gray-600 hover:text-accent transition-colors inline-block">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== STATS ========== -->
+  <section id="stats" class="py-24 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 border border-surface-300">
+        <div class="p-8 md:p-10 text-center border-r border-b md:border-b-0 border-surface-300">
+          <div class="stat-number" data-count={episodeCount ?? 0}>{episodeCount ?? 0}</div>
+          <div class="stat-label">Episoden</div>
+        </div>
+        <div class="p-8 md:p-10 text-center border-b md:border-b-0 md:border-r border-surface-300">
+          <div class="stat-number" data-count={totalHours}>{totalHours}+</div>
+          <div class="stat-label">Stunden</div>
+        </div>
+        <div class="p-8 md:p-10 text-center border-r border-surface-300">
+          <div class="stat-number" data-count={chunkCount ?? 0}>{chunkCount ? (chunkCount / 1000).toFixed(1) + "k" : "0"}</div>
+          <div class="stat-label">Segmente</div>
+        </div>
+        <div class="p-8 md:p-10 text-center">
+          <div class="stat-number" data-count={topicCount ?? 0}>{topicCount ?? 0}</div>
+          <div class="stat-label">Themen</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider max-w-5xl mx-auto"></div>
+
+  <!-- ========== SEARCH ========== -->
+  <section id="suche" class="py-28 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-8">
+        <h2 class="font-display text-5xl md:text-6xl font-bold uppercase text-white mb-2" style="letter-spacing: -0.02em;">Suche</h2>
+        <p class="text-gray-600 text-xs tracking-[0.2em] uppercase">Semantisch — alle transkribierten Episoden</p>
+      </div>
+      <SearchResults client:load />
+    </div>
+  </section>
+
+  <div class="section-divider max-w-5xl mx-auto"></div>
+
+  <!-- ========== EPISODES ========== -->
+  <section id="episoden" class="py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-8">
+        <h2 class="font-display text-5xl md:text-6xl font-bold uppercase text-white mb-2" style="letter-spacing: -0.02em;">Episoden</h2>
+        <p class="text-gray-600 text-xs tracking-[0.2em] uppercase">{episodeCount ?? 0} Folgen transkribiert</p>
+      </div>
+
+      {episodes && episodes.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3" id="episode-grid">
+          {episodes.map((ep) => (
+            <div class="card card-reveal">
+              <div class="flex items-start justify-between gap-3 mb-2">
+                <h3 class="font-medium text-gray-200 line-clamp-2 text-sm leading-snug">
+                  {ep.title}
+                </h3>
+                {ep.episode_number && (
+                  <span class="text-[11px] text-gray-600 font-mono shrink-0">#{ep.episode_number}</span>
+                )}
+              </div>
+              <div class="flex items-center gap-3 text-[11px] text-gray-600 mb-3">
+                <span>{formatDate(ep.pub_date)}</span>
+                <span class="text-surface-400">|</span>
+                <span>{formatDuration(ep.duration_seconds)}</span>
+              </div>
+              {ep.summary && (
+                <p class="text-xs text-gray-500 line-clamp-3 leading-relaxed mb-3">{ep.summary}</p>
+              )}
+              {ep.topics_json && (ep.topics_json as string[]).length > 0 && (
+                <div class="flex flex-wrap gap-1.5">
+                  {(ep.topics_json as string[]).slice(0, 3).map((topic: string) => (
+                    <span class="text-[10px] bg-surface-300/30 text-gray-600 px-2 py-0.5" style="border-radius: 1px;">
+                      {topic}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div class="text-center py-16">
+          <p class="text-gray-500 text-sm">Noch keine Episoden in der Datenbank.</p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <div class="section-divider max-w-5xl mx-auto"></div>
+
+  <!-- ========== TOPICS ========== -->
+  <section id="themen" class="py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-8 text-center">
+        <h2 class="font-display text-5xl md:text-6xl font-bold uppercase text-white mb-2" style="letter-spacing: -0.02em;">Themen</h2>
+        <p class="text-gray-600 text-xs tracking-[0.2em] uppercase">Automatisch extrahiert aus allen Episoden</p>
+      </div>
+      <TopicTimeline client:load />
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .hero-overlay {
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 40%, transparent 30%, rgba(10,10,10,0.85) 100%),
+      linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.6) 60%, rgba(10,10,10,1) 100%);
+  }
+
+  /* Cards start hidden, revealed by IntersectionObserver */
+  .card-reveal {
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 300ms ease, transform 300ms ease;
+  }
+
+  .card-reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Scroll arrow float */
+  .scroll-arrow {
+    animation: float-down 2.5s ease-in-out infinite;
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .card-reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    .scroll-arrow {
+      animation: none;
+    }
+  }
+</style>
+
+<!-- Marquee chase lights (debounced resize) -->
+<script>
+  let resizeTimer: ReturnType<typeof setTimeout>;
+
+  function createMarqueeLights() {
+    // Respect reduced motion
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const container = document.getElementById("marquee-lights");
+    if (!container) return;
+
+    const sign = container.parentElement;
+    if (!sign) return;
+
+    const rect = sign.getBoundingClientRect();
+    const spacing = 28;
+    const dots: { x: number; y: number }[] = [];
+
+    for (let x = 0; x <= rect.width; x += spacing) dots.push({ x, y: -6 });
+    for (let y = 0; y <= rect.height; y += spacing) dots.push({ x: rect.width + 6, y });
+    for (let x = rect.width; x >= 0; x -= spacing) dots.push({ x, y: rect.height + 6 });
+    for (let y = rect.height; y >= 0; y -= spacing) dots.push({ x: -6, y });
+
+    const totalDots = dots.length;
+    container.innerHTML = "";
+    dots.forEach((dot, i) => {
+      const el = document.createElement("div");
+      el.className = "marquee-dot";
+      el.style.left = `${dot.x}px`;
+      el.style.top = `${dot.y}px`;
+      el.style.animationDelay = `${(i / totalDots) * 1600}ms`;
+      container.appendChild(el);
+    });
+  }
+
+  document.fonts.ready.then(createMarqueeLights);
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(createMarqueeLights, 150);
+  });
+</script>
+
+<!-- Stat counter animation on scroll -->
+<script>
+  function animateCounters() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const stats = document.querySelectorAll<HTMLElement>(".stat-number[data-count]");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target as HTMLElement;
+        const target = parseInt(el.dataset.count ?? "0", 10);
+        if (target === 0) return;
+
+        const originalText = el.textContent ?? "";
+        const suffix = originalText.includes("+") ? "+" : originalText.includes("k") ? "k" : "";
+        const displayTarget = originalText.includes("k") ? parseFloat(originalText) : target;
+        const isFloat = originalText.includes("k");
+        const duration = 800;
+        const start = performance.now();
+
+        function update(now: number) {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+
+          if (isFloat) {
+            el.textContent = (displayTarget * eased).toFixed(1) + suffix;
+          } else {
+            el.textContent = Math.round(target * eased) + suffix;
+          }
+
+          if (progress < 1) {
+            requestAnimationFrame(update);
+          } else {
+            el.textContent = originalText;
+          }
+        }
+
+        el.textContent = isFloat ? "0.0" + suffix : "0" + suffix;
+        requestAnimationFrame(update);
+        observer.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+
+    stats.forEach((stat) => observer.observe(stat));
+  }
+
+  animateCounters();
+</script>
+
+<!-- Card reveal on scroll (IntersectionObserver, not all-at-once animation) -->
+<script>
+  function initCardReveal() {
+    const cards = document.querySelectorAll<HTMLElement>(".card-reveal");
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      cards.forEach((card) => card.classList.add("visible"));
+      return;
+    }
+
+    let delay = 0;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target as HTMLElement;
+        setTimeout(() => el.classList.add("visible"), delay);
+        delay += 30;
+        observer.unobserve(el);
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+
+    cards.forEach((card) => observer.observe(card));
+  }
+
+  initCardReveal();
+</script>

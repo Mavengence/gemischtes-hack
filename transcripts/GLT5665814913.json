@@ -1,0 +1,766 @@
+{
+  "meta": {
+    "episode_number": null,
+    "title": "Hack fällt aus",
+    "pub_date": "Tue, 05 Oct 2021 21:47:00 -0000",
+    "filename": "GLT5665814913.mp3",
+    "glt_id": "GLT5665814913",
+    "model": "mlx-community/whisper-large-v3-turbo",
+    "language": "de",
+    "transcribed_at": "2026-02-28T21:12:27.867052+00:00",
+    "duration_seconds": 219,
+    "processing_seconds": 23.3,
+    "num_speakers": 2,
+    "has_diarization": true
+  },
+  "text": " Hallo Freunde, na, alles klar? So, Profis unter euch haben schon anhand der Folgenlänge erkannt, dass irgendwas nicht stimmt, denn diese Woche gibt es leider kein gemischtes Hack. Das liegt schlicht und einfach daran, dass Felix immer noch zu krank ist. Keine Sorge, er wird es locker überleben, aber diese Woche ist es ihm einfach noch nicht möglich zu sprechen. Ihr habt es ja mitbekommen, schon beim Comedypreis hat er deshalb ja mit Abwesenheit glänzen müssen und ich saß da komplett alleine in diesem Studio. Apropos Comedypreis, danke euch fürs Voten, ob per Telefon, vorher online oder im Saal. Der Preis freut uns wirklich sehr. Der zweite in Folge, vielen, vielen Dank. Freut uns vor allem, weil er von euch kommt. Ja, das ist nicht selbstverständlich. Dankeschön. Und ja, nächste Woche gibt es dann auch sehr, sehr, sehr wahrscheinlich wieder gemischtes Hack und wir freuen uns auch drauf. Achso, ja, und ich soll euch von Felix grüßen. Er hat mir einen Text geschrieben mit seiner Krankheitsgenese, also dem Verlauf, den ich jetzt hier mal vorlesen möchte. Er hat es original so geschrieben. Also wenn ich jetzt irgendwie schlecht berlinerisch klinge, liegt es daran, dass das genau so da steht. Also folgende WhatsApp habe ich bekommen, die ich jetzt vorlese. Gut, folgendermaßen. Letzte Hackfolge, Dienstag aufgenommen, ich schon leicht am Kränkeln. Wird nicht besser. Donnerstagmorgen Arzt. Ich hin mit Fett, Hals und Ohrenschmerzen. Arzt sagt Mandelentzündung, gibt Antibiotikum. Ich nach Köln, auf dem Weg, ich auf einmal Fieber und Schwindel. Ich angekommen und völlig ausgenockt. Ich schüttel Frost. Freitag. Ich Hals- und Ohrenschmerzen meines Lebens, heiß-kalt-schübe, ganze Zeit am Schwitzen. Ich komme die Preis abgesagt. Ich Samstag zurück. Jed noch schlimmer als Freitag. Ich zu Hause angekommen, auf einmal 40,4 Fieber. Ich Waden wickel und irgendwie schlafen. Sonntag nicht besser. Ich ruf Arzt zu mir nach Hause. Arzt sagt, kann sein, dass keine Mandelentzündung ist, weil Antibiotikum schon längst wirken müsste. Verdacht auf Abszess unter den Lymphknoten. Ich muss sofort in die Charité. Sonntagabend, ich hin, Blut abnehmen, Schläuche und Geräte in den Hals. Wissen immer noch nichts. Ich CT und Ultraschall. Kein Abszess. Neue Diagnose, Rachen- und Kehlkopfentzündung mit Mandel- und Lymphknotenbeteiligung. Ich neues Antibiotikum bekommen. Soll zwei Wochen ganz Piano machen und so wenig wie möglich sprechen. Ich Tommy geschrieben, müssen Hack ausfallen lassen. Neue Medis wirken langsam. Ich trotzdem noch am Arsch, aber wird besser. So, das war der Text von Felix. Gute Besserung auch nochmal von mir hier an der Stelle, auch wenn wir eben miteinander geschrieben haben. Ich denke auch von allen Hörerinnen und Hörern gute Besserung. Ja, das war Hack für diese Woche. Die letzten Worte hat wie immer, ja ich, Tschüss, Tschüss, ihr Lieben. Danke für euer Verständnis. Und ich als Kalli, ich gehe mir jetzt die Mandeln holen vom Lobrecht. Aber ihr brandt 48 Kilo, ihr brannte Mandeln. Dat is à la bonneur. Dat is lecker schmecker. Die werde ich mir jetzt rein verzehren. In der Wartezeit. Im Drive-in. In Leverkusen. In der Ausnäckung. Ich höre schon auf. Ich höre schon auf. Aber geil, dass er mich jetzt echt nicht unterbrechen kann. Deswegen sage ich jetzt einfach nochmal als Helmut Kohl Tschüss. Aber ich habe Bock. Ich habe lange Weile. Keiner hat Bock auf Kiefen zu fassen. I don't know what you heard about me. But the beach. Ich höre jetzt auf. So, tschüss, ihr Lieben. Macht's gut. Nächste Woche drückt ihn bitte irgendwie virtuell und digital ganz lieb, dass er wieder gesund wird. Und wir nächste Woche wieder hier Quatsch zum Besten geben können. Seid lieb zueinander. Achtet auf euch. Und ganz liebe Grüße. Und eine schöne Woche. Tschüss.",
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.26,
+      "end": 3.06,
+      "text": " Hallo Freunde, na, alles klar?",
+      "avg_logprob": -0.1016167702434732,
+      "no_speech_prob": 2.2707814795186465e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 1,
+      "start": 3.88,
+      "end": 8.1,
+      "text": " So, Profis unter euch haben schon anhand der Folgenlänge erkannt, dass irgendwas nicht stimmt,",
+      "avg_logprob": -0.1016167702434732,
+      "no_speech_prob": 2.2707814795186465e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 2,
+      "start": 8.18,
+      "end": 10.58,
+      "text": " denn diese Woche gibt es leider kein gemischtes Hack.",
+      "avg_logprob": -0.1016167702434732,
+      "no_speech_prob": 2.2707814795186465e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 3,
+      "start": 11.32,
+      "end": 14.14,
+      "text": " Das liegt schlicht und einfach daran, dass Felix immer noch zu krank ist.",
+      "avg_logprob": -0.1016167702434732,
+      "no_speech_prob": 2.2707814795186465e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 4,
+      "start": 14.72,
+      "end": 19.1,
+      "text": " Keine Sorge, er wird es locker überleben, aber diese Woche ist es ihm einfach noch nicht möglich zu sprechen.",
+      "avg_logprob": -0.1016167702434732,
+      "no_speech_prob": 2.2707814795186465e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 5,
+      "start": 20.16,
+      "end": 24.18,
+      "text": " Ihr habt es ja mitbekommen, schon beim Comedypreis hat er deshalb ja mit Abwesenheit glänzen müssen",
+      "avg_logprob": -0.1016167702434732,
+      "no_speech_prob": 2.2707814795186465e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 6,
+      "start": 24.18,
+      "end": 26.96,
+      "text": " und ich saß da komplett alleine in diesem Studio.",
+      "avg_logprob": -0.1016167702434732,
+      "no_speech_prob": 2.2707814795186465e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 7,
+      "start": 26.96,
+      "end": 32.32,
+      "text": " Apropos Comedypreis, danke euch fürs Voten, ob per Telefon, vorher online oder im Saal.",
+      "avg_logprob": -0.13408684545709182,
+      "no_speech_prob": 1.3888704422648779e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 8,
+      "start": 32.38,
+      "end": 33.78,
+      "text": " Der Preis freut uns wirklich sehr.",
+      "avg_logprob": -0.13408684545709182,
+      "no_speech_prob": 1.3888704422648779e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 9,
+      "start": 34.24,
+      "end": 35.78,
+      "text": " Der zweite in Folge, vielen, vielen Dank.",
+      "avg_logprob": -0.13408684545709182,
+      "no_speech_prob": 1.3888704422648779e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 10,
+      "start": 36.84,
+      "end": 38.86,
+      "text": " Freut uns vor allem, weil er von euch kommt.",
+      "avg_logprob": -0.13408684545709182,
+      "no_speech_prob": 1.3888704422648779e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 11,
+      "start": 40.34,
+      "end": 42.4,
+      "text": " Ja, das ist nicht selbstverständlich. Dankeschön.",
+      "avg_logprob": -0.13408684545709182,
+      "no_speech_prob": 1.3888704422648779e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 12,
+      "start": 42.7,
+      "end": 48.22,
+      "text": " Und ja, nächste Woche gibt es dann auch sehr, sehr, sehr wahrscheinlich wieder gemischtes Hack",
+      "avg_logprob": -0.13408684545709182,
+      "no_speech_prob": 1.3888704422648779e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 13,
+      "start": 48.22,
+      "end": 49.620000000000005,
+      "text": " und wir freuen uns auch drauf.",
+      "avg_logprob": -0.13408684545709182,
+      "no_speech_prob": 1.3888704422648779e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 14,
+      "start": 50.400000000000006,
+      "end": 52.64,
+      "text": " Achso, ja, und ich soll euch von Felix grüßen.",
+      "avg_logprob": -0.13408684545709182,
+      "no_speech_prob": 1.3888704422648779e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 15,
+      "start": 52.64,
+      "end": 58.88,
+      "text": " Er hat mir einen Text geschrieben mit seiner Krankheitsgenese, also dem Verlauf, den ich jetzt hier mal vorlesen möchte.",
+      "avg_logprob": -0.10787044252668108,
+      "no_speech_prob": 2.6098250296979764e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 16,
+      "start": 59.5,
+      "end": 60.78,
+      "text": " Er hat es original so geschrieben.",
+      "avg_logprob": -0.10787044252668108,
+      "no_speech_prob": 2.6098250296979764e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 17,
+      "start": 60.96,
+      "end": 65.94,
+      "text": " Also wenn ich jetzt irgendwie schlecht berlinerisch klinge, liegt es daran, dass das genau so da steht.",
+      "avg_logprob": -0.10787044252668108,
+      "no_speech_prob": 2.6098250296979764e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 18,
+      "start": 66.12,
+      "end": 69.38,
+      "text": " Also folgende WhatsApp habe ich bekommen, die ich jetzt vorlese.",
+      "avg_logprob": -0.10787044252668108,
+      "no_speech_prob": 2.6098250296979764e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 19,
+      "start": 69.38,
+      "end": 74.67999999999999,
+      "text": " Gut, folgendermaßen. Letzte Hackfolge, Dienstag aufgenommen, ich schon leicht am Kränkeln.",
+      "avg_logprob": -0.14418433563053956,
+      "no_speech_prob": 2.5794240007814828e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 20,
+      "start": 75.58,
+      "end": 77.72,
+      "text": " Wird nicht besser. Donnerstagmorgen Arzt.",
+      "avg_logprob": -0.14418433563053956,
+      "no_speech_prob": 2.5794240007814828e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 21,
+      "start": 78.02,
+      "end": 80.34,
+      "text": " Ich hin mit Fett, Hals und Ohrenschmerzen.",
+      "avg_logprob": -0.14418433563053956,
+      "no_speech_prob": 2.5794240007814828e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 22,
+      "start": 80.56,
+      "end": 83.17999999999999,
+      "text": " Arzt sagt Mandelentzündung, gibt Antibiotikum.",
+      "avg_logprob": -0.14418433563053956,
+      "no_speech_prob": 2.5794240007814828e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 23,
+      "start": 83.34,
+      "end": 86.44,
+      "text": " Ich nach Köln, auf dem Weg, ich auf einmal Fieber und Schwindel.",
+      "avg_logprob": -0.14418433563053956,
+      "no_speech_prob": 2.5794240007814828e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 24,
+      "start": 86.8,
+      "end": 88.97999999999999,
+      "text": " Ich angekommen und völlig ausgenockt.",
+      "avg_logprob": -0.14418433563053956,
+      "no_speech_prob": 2.5794240007814828e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 25,
+      "start": 89.08,
+      "end": 89.82,
+      "text": " Ich schüttel Frost.",
+      "avg_logprob": -0.14418433563053956,
+      "no_speech_prob": 2.5794240007814828e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 26,
+      "start": 90.32,
+      "end": 90.84,
+      "text": " Freitag.",
+      "avg_logprob": -0.14418433563053956,
+      "no_speech_prob": 2.5794240007814828e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 27,
+      "start": 91.3,
+      "end": 95.53999999999999,
+      "text": " Ich Hals- und Ohrenschmerzen meines Lebens, heiß-kalt-schübe, ganze Zeit am Schwitzen.",
+      "avg_logprob": -0.14418433563053956,
+      "no_speech_prob": 2.5794240007814828e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 28,
+      "start": 96.0,
+      "end": 97.47999999999999,
+      "text": " Ich komme die Preis abgesagt.",
+      "avg_logprob": -0.14418433563053956,
+      "no_speech_prob": 2.5794240007814828e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 29,
+      "start": 97.48,
+      "end": 98.94,
+      "text": " Ich Samstag zurück.",
+      "avg_logprob": -0.15151900363106258,
+      "no_speech_prob": 1.8043707153414523e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 30,
+      "start": 99.74000000000001,
+      "end": 101.4,
+      "text": " Jed noch schlimmer als Freitag.",
+      "avg_logprob": -0.15151900363106258,
+      "no_speech_prob": 1.8043707153414523e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 31,
+      "start": 101.54,
+      "end": 104.62,
+      "text": " Ich zu Hause angekommen, auf einmal 40,4 Fieber.",
+      "avg_logprob": -0.15151900363106258,
+      "no_speech_prob": 1.8043707153414523e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 32,
+      "start": 105.04,
+      "end": 106.84,
+      "text": " Ich Waden wickel und irgendwie schlafen.",
+      "avg_logprob": -0.15151900363106258,
+      "no_speech_prob": 1.8043707153414523e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 33,
+      "start": 107.28,
+      "end": 108.18,
+      "text": " Sonntag nicht besser.",
+      "avg_logprob": -0.15151900363106258,
+      "no_speech_prob": 1.8043707153414523e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 34,
+      "start": 108.5,
+      "end": 109.84,
+      "text": " Ich ruf Arzt zu mir nach Hause.",
+      "avg_logprob": -0.15151900363106258,
+      "no_speech_prob": 1.8043707153414523e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 35,
+      "start": 109.98,
+      "end": 114.16,
+      "text": " Arzt sagt, kann sein, dass keine Mandelentzündung ist, weil Antibiotikum schon längst wirken müsste.",
+      "avg_logprob": -0.15151900363106258,
+      "no_speech_prob": 1.8043707153414523e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 36,
+      "start": 114.7,
+      "end": 117.74000000000001,
+      "text": " Verdacht auf Abszess unter den Lymphknoten.",
+      "avg_logprob": -0.15151900363106258,
+      "no_speech_prob": 1.8043707153414523e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 37,
+      "start": 118.04,
+      "end": 119.4,
+      "text": " Ich muss sofort in die Charité.",
+      "avg_logprob": -0.15151900363106258,
+      "no_speech_prob": 1.8043707153414523e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 38,
+      "start": 120.36,
+      "end": 123.64,
+      "text": " Sonntagabend, ich hin, Blut abnehmen, Schläuche und Geräte in den Hals.",
+      "avg_logprob": -0.15151900363106258,
+      "no_speech_prob": 1.8043707153414523e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 39,
+      "start": 124.34,
+      "end": 125.24000000000001,
+      "text": " Wissen immer noch nichts.",
+      "avg_logprob": -0.15151900363106258,
+      "no_speech_prob": 1.8043707153414523e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 40,
+      "start": 125.24000000000001,
+      "end": 126.86,
+      "text": " Ich CT und Ultraschall.",
+      "avg_logprob": -0.15151900363106258,
+      "no_speech_prob": 1.8043707153414523e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 41,
+      "start": 126.86,
+      "end": 128.16,
+      "text": " Kein Abszess.",
+      "avg_logprob": -0.1308041878466336,
+      "no_speech_prob": 1.850749935250473e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 42,
+      "start": 128.72,
+      "end": 133.0,
+      "text": " Neue Diagnose, Rachen- und Kehlkopfentzündung mit Mandel- und Lymphknotenbeteiligung.",
+      "avg_logprob": -0.1308041878466336,
+      "no_speech_prob": 1.850749935250473e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 43,
+      "start": 133.42,
+      "end": 135.0,
+      "text": " Ich neues Antibiotikum bekommen.",
+      "avg_logprob": -0.1308041878466336,
+      "no_speech_prob": 1.850749935250473e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 44,
+      "start": 135.52,
+      "end": 138.42,
+      "text": " Soll zwei Wochen ganz Piano machen und so wenig wie möglich sprechen.",
+      "avg_logprob": -0.1308041878466336,
+      "no_speech_prob": 1.850749935250473e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 45,
+      "start": 138.98,
+      "end": 141.06,
+      "text": " Ich Tommy geschrieben, müssen Hack ausfallen lassen.",
+      "avg_logprob": -0.1308041878466336,
+      "no_speech_prob": 1.850749935250473e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 46,
+      "start": 141.34,
+      "end": 142.6,
+      "text": " Neue Medis wirken langsam.",
+      "avg_logprob": -0.1308041878466336,
+      "no_speech_prob": 1.850749935250473e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 47,
+      "start": 142.82,
+      "end": 144.82,
+      "text": " Ich trotzdem noch am Arsch, aber wird besser.",
+      "avg_logprob": -0.1308041878466336,
+      "no_speech_prob": 1.850749935250473e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 48,
+      "start": 144.82,
+      "end": 148.07999999999998,
+      "text": " So, das war der Text von Felix.",
+      "avg_logprob": -0.09479730171069764,
+      "no_speech_prob": 2.5737885780974246e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 49,
+      "start": 148.64,
+      "end": 152.66,
+      "text": " Gute Besserung auch nochmal von mir hier an der Stelle, auch wenn wir eben miteinander geschrieben haben.",
+      "avg_logprob": -0.09479730171069764,
+      "no_speech_prob": 2.5737885780974246e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 50,
+      "start": 152.78,
+      "end": 154.78,
+      "text": " Ich denke auch von allen Hörerinnen und Hörern gute Besserung.",
+      "avg_logprob": -0.09479730171069764,
+      "no_speech_prob": 2.5737885780974246e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 51,
+      "start": 154.78,
+      "end": 157.04,
+      "text": " Ja, das war Hack für diese Woche.",
+      "avg_logprob": -0.23485679211823837,
+      "no_speech_prob": 2.5933779429498927e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 52,
+      "start": 157.58,
+      "end": 161.54,
+      "text": " Die letzten Worte hat wie immer, ja ich, Tschüss, Tschüss, ihr Lieben.",
+      "avg_logprob": -0.23485679211823837,
+      "no_speech_prob": 2.5933779429498927e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 53,
+      "start": 161.92000000000002,
+      "end": 163.02,
+      "text": " Danke für euer Verständnis.",
+      "avg_logprob": -0.23485679211823837,
+      "no_speech_prob": 2.5933779429498927e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 54,
+      "start": 163.02,
+      "end": 170.9,
+      "text": " Und ich als Kalli, ich gehe mir jetzt die Mandeln holen vom Lobrecht.",
+      "avg_logprob": -0.28762953820889886,
+      "no_speech_prob": 2.4613491800273835e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 55,
+      "start": 171.22,
+      "end": 174.46,
+      "text": " Aber ihr brandt 48 Kilo, ihr brannte Mandeln.",
+      "avg_logprob": -0.28762953820889886,
+      "no_speech_prob": 2.4613491800273835e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 56,
+      "start": 174.60000000000002,
+      "end": 175.98000000000002,
+      "text": " Dat is à la bonneur.",
+      "avg_logprob": -0.28762953820889886,
+      "no_speech_prob": 2.4613491800273835e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 57,
+      "start": 176.08,
+      "end": 177.28,
+      "text": " Dat is lecker schmecker.",
+      "avg_logprob": -0.28762953820889886,
+      "no_speech_prob": 2.4613491800273835e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 58,
+      "start": 177.70000000000002,
+      "end": 179.44,
+      "text": " Die werde ich mir jetzt rein verzehren.",
+      "avg_logprob": -0.28762953820889886,
+      "no_speech_prob": 2.4613491800273835e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 59,
+      "start": 179.8,
+      "end": 180.78,
+      "text": " In der Wartezeit.",
+      "avg_logprob": -0.28762953820889886,
+      "no_speech_prob": 2.4613491800273835e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 60,
+      "start": 180.9,
+      "end": 181.78,
+      "text": " Im Drive-in.",
+      "avg_logprob": -0.28762953820889886,
+      "no_speech_prob": 2.4613491800273835e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 61,
+      "start": 181.88,
+      "end": 182.84,
+      "text": " In Leverkusen.",
+      "avg_logprob": -0.28762953820889886,
+      "no_speech_prob": 2.4613491800273835e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 62,
+      "start": 182.96,
+      "end": 183.8,
+      "text": " In der Ausnäckung.",
+      "avg_logprob": -0.28762953820889886,
+      "no_speech_prob": 2.4613491800273835e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 63,
+      "start": 183.84,
+      "end": 184.48000000000002,
+      "text": " Ich höre schon auf.",
+      "avg_logprob": -0.28762953820889886,
+      "no_speech_prob": 2.4613491800273835e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 64,
+      "start": 184.72,
+      "end": 185.20000000000002,
+      "text": " Ich höre schon auf.",
+      "avg_logprob": -0.28762953820889886,
+      "no_speech_prob": 2.4613491800273835e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 65,
+      "start": 186.20000000000002,
+      "end": 188.02,
+      "text": " Aber geil, dass er mich jetzt echt nicht unterbrechen kann.",
+      "avg_logprob": -0.28762953820889886,
+      "no_speech_prob": 2.4613491800273835e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 66,
+      "start": 188.02,
+      "end": 191.28,
+      "text": " Deswegen sage ich jetzt einfach nochmal als Helmut Kohl Tschüss.",
+      "avg_logprob": -0.32527497096091323,
+      "no_speech_prob": 1.9470836401525027e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 67,
+      "start": 192.36,
+      "end": 193.26000000000002,
+      "text": " Aber ich habe Bock.",
+      "avg_logprob": -0.32527497096091323,
+      "no_speech_prob": 1.9470836401525027e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 68,
+      "start": 193.42000000000002,
+      "end": 194.44,
+      "text": " Ich habe lange Weile.",
+      "avg_logprob": -0.32527497096091323,
+      "no_speech_prob": 1.9470836401525027e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 69,
+      "start": 194.60000000000002,
+      "end": 196.26000000000002,
+      "text": " Keiner hat Bock auf Kiefen zu fassen.",
+      "avg_logprob": -0.32527497096091323,
+      "no_speech_prob": 1.9470836401525027e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 70,
+      "start": 196.86,
+      "end": 198.68,
+      "text": " I don't know what you heard about me.",
+      "avg_logprob": -0.32527497096091323,
+      "no_speech_prob": 1.9470836401525027e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 71,
+      "start": 198.9,
+      "end": 199.5,
+      "text": " But the beach.",
+      "avg_logprob": -0.32527497096091323,
+      "no_speech_prob": 1.9470836401525027e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 72,
+      "start": 199.78,
+      "end": 201.26000000000002,
+      "text": " Ich höre jetzt auf.",
+      "avg_logprob": -0.32527497096091323,
+      "no_speech_prob": 1.9470836401525027e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 73,
+      "start": 201.52,
+      "end": 203.14000000000001,
+      "text": " So, tschüss, ihr Lieben.",
+      "avg_logprob": -0.32527497096091323,
+      "no_speech_prob": 1.9470836401525027e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 74,
+      "start": 203.46,
+      "end": 203.9,
+      "text": " Macht's gut.",
+      "avg_logprob": -0.32527497096091323,
+      "no_speech_prob": 1.9470836401525027e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 75,
+      "start": 203.98000000000002,
+      "end": 208.08,
+      "text": " Nächste Woche drückt ihn bitte irgendwie virtuell und digital ganz lieb,",
+      "avg_logprob": -0.32527497096091323,
+      "no_speech_prob": 1.9470836401525027e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 76,
+      "start": 208.12,
+      "end": 208.96,
+      "text": " dass er wieder gesund wird.",
+      "avg_logprob": -0.32527497096091323,
+      "no_speech_prob": 1.9470836401525027e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 77,
+      "start": 209.44,
+      "end": 212.20000000000002,
+      "text": " Und wir nächste Woche wieder hier Quatsch zum Besten geben können.",
+      "avg_logprob": -0.32527497096091323,
+      "no_speech_prob": 1.9470836401525027e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 78,
+      "start": 212.56,
+      "end": 213.54000000000002,
+      "text": " Seid lieb zueinander.",
+      "avg_logprob": -0.32527497096091323,
+      "no_speech_prob": 1.9470836401525027e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 79,
+      "start": 214.44,
+      "end": 215.4,
+      "text": " Achtet auf euch.",
+      "avg_logprob": -0.32527497096091323,
+      "no_speech_prob": 1.9470836401525027e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 80,
+      "start": 215.4,
+      "end": 217.08,
+      "text": " Und ganz liebe Grüße.",
+      "avg_logprob": -0.32527497096091323,
+      "no_speech_prob": 1.9470836401525027e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 81,
+      "start": 217.08,
+      "end": 218.0,
+      "text": " Und eine schöne Woche.",
+      "avg_logprob": -0.22969653056218073,
+      "no_speech_prob": 2.1341773834282485e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 82,
+      "start": 218.60000000000002,
+      "end": 218.86,
+      "text": " Tschüss.",
+      "avg_logprob": -0.22969653056218073,
+      "no_speech_prob": 2.1341773834282485e-11,
+      "speaker": "Speaker A"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Insights aus \u00fcber 350 Folgen Gemischtes Hack" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="de" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} | Gemischtes Hack</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="min-h-screen bg-surface">
+    <!-- Minimal nav — Berghain sparse -->
+    <nav id="main-nav" class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-surface-300/20">
+      <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+        <a href="#hero" class="block h-5">
+          <img
+            src="/logo.svg"
+            alt="Gemischtes Hack"
+            class="h-full w-auto invert opacity-70 hover:opacity-100 transition-opacity"
+          />
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#suche" class="nav-link" data-section="suche">Suche</a>
+          <a href="#episoden" class="nav-link" data-section="episoden">Episoden</a>
+          <a href="#themen" class="nav-link" data-section="themen">Themen</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <slot />
+    </main>
+
+    <!-- Footer with plaid stripe -->
+    <footer>
+      <div class="section-divider"></div>
+      <div class="max-w-7xl mx-auto px-6 py-10 flex items-center justify-between text-xs text-gray-600">
+        <span>Fan-Projekt — nicht offiziell mit dem Podcast verbunden</span>
+        <span class="tracking-[0.15em] uppercase font-display">Gemischtes Hack</span>
+      </div>
+    </footer>
+
+    <!-- Nav active state on scroll -->
+    <script>
+      const sections = ["suche", "episoden", "themen"];
+      const links = document.querySelectorAll<HTMLAnchorElement>("[data-section]");
+
+      function updateActiveNav() {
+        let current = "";
+        for (const id of sections) {
+          const el = document.getElementById(id);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= 120) current = id;
+          }
+        }
+        links.forEach((link) => {
+          if (link.dataset.section === current) {
+            link.classList.add("active");
+          } else {
+            link.classList.remove("active");
+          }
+        });
+      }
+
+      window.addEventListener("scroll", updateActiveNav, { passive: true });
+      updateActiveNav();
+    </script>
+  </body>
+</html>

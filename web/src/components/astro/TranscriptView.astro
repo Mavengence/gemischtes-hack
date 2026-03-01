@@ -1,0 +1,50 @@
+---
+interface Chunk {
+  chunk_index: number;
+  text: string;
+  start_time: number;
+  end_time: number;
+  speakers: string[];
+}
+
+interface Props {
+  chunks: Chunk[];
+}
+
+const { chunks } = Astro.props;
+
+function formatTime(seconds: number): string {
+  const m = Math.floor(seconds / 60);
+  const s = Math.floor(seconds % 60);
+  return `${m}:${s.toString().padStart(2, "0")}`;
+}
+---
+
+<div class="space-y-3">
+  {chunks.map((chunk) => {
+    const isFelix = chunk.speakers.includes("Speaker A");
+    const isTommi = chunk.speakers.includes("Speaker B");
+    const speakerClass = isFelix && !isTommi ? "speaker-a" : isTommi && !isFelix ? "speaker-b" : "";
+    const speakerLabel = isFelix && !isTommi
+      ? "Felix"
+      : isTommi && !isFelix
+        ? "Tommi"
+        : "Felix & Tommi";
+
+    return (
+      <div class={`py-2 ${speakerClass}`} id={`t-${chunk.chunk_index}`}>
+        <div class="flex items-center gap-2 mb-1">
+          <span class={`text-xs font-medium ${
+            isFelix && !isTommi ? "text-felix" : isTommi && !isFelix ? "text-tommi" : "text-gray-400"
+          }`}>
+            {speakerLabel}
+          </span>
+          <span class="text-xs text-gray-600 font-mono">
+            {formatTime(chunk.start_time)}
+          </span>
+        </div>
+        <p class="text-sm text-gray-300 leading-relaxed">{chunk.text}</p>
+      </div>
+    );
+  })}
+</div>

@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "episode_number": null,
+    "title": "HACK FÄLLT AUS",
+    "pub_date": "Tue, 07 Mar 2023 22:45:00 -0000",
+    "filename": "GLT4012279629.mp3",
+    "glt_id": "GLT4012279629",
+    "model": "mlx-community/whisper-large-v3-turbo",
+    "language": "de",
+    "transcribed_at": "2026-02-28T21:11:17.512666+00:00",
+    "duration_seconds": 145,
+    "processing_seconds": 12.8,
+    "num_speakers": 2,
+    "has_diarization": true
+  },
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "text": "Leute, ihr seht es an der Kürze der Folge. Es gibt schlechte Nachrichten und zwar muss euer Lieblings-Podcast, gemischtes Hack von Tommi Schmidt und mir, diese Woche leider entfallen und der Schuldige sitzt am Mikrofon, das bin nämlich ich, weil ich es einfach nicht schaffe, diese Woche aufzunehmen. Es ist unmöglich, ich habe kaum noch Stimme. Ich bin crank, ich bin seit 13 Tagen auf Kinotour und es gab einfach kein mögliches Zeitfenster. Die Folge fällt nicht aus, sie wird ja hinten dran gehangen, das heißt, die Sommerpause ist dafür eine Woche kürzer. Also alles in Ordnung, ist jetzt nur ein bisschen blöd, säg auch ein, tut mir auch leid, aber ihr seid ja immer ganz lieb und sagt, ey, pass auf dich auf, mach nicht zu viel, arbeite dich nicht so kaputt und ich probiere jetzt quasi genau das mal eine Woche zu machen, um ihr nicht völlig aus den Natschen zu kippen. Also seht es mir nach, seht es uns nach.",
+      "start_time": 0.0,
+      "end_time": 55.84,
+      "speakers": [
+        "Speaker A"
+      ],
+      "segment_ids": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "chunk_index": 1,
+      "text": "arbeite dich nicht so kaputt und ich probiere jetzt quasi genau das mal eine Woche zu machen, um ihr nicht völlig aus den Natschen zu kippen. Also seht es mir nach, seht es uns nach. Nächste Woche geht es ganz normal weiter mit gemischtes Hack. Vielen Dank für den krassen Support bisher von dem Kinofilm Sonne und Beton, für die tausenden lieben Nachrichten, dass ihr so zahlreich ins Kino gegangen seid. Ich weiß es sehr zu schätzen, ich freue mich da sehr rüber. Vielen Dank. Und wenn ihr richtig auf Turkey seid, ja, ich war letzte Woche bei Tommi in der Fernsehshow bei Studio Schmidt, checkt das in der Mediathek aus, guckt es euch auf YouTube an, das war sehr witzig. Ansonsten könnt ihr Tommi Donnerstag 22.10 Uhr im zweiten DF Neo sehen bei Studio Schmidt. Diese Woche zu Gast ist Katrin Bauerfeind und dann kriegen wir die Woche auch rum. Und dann ist nächste Woche, nächste Woche werden wir darüber lachen, wie traurig wir jetzt alle sind. Okay? Wir denken an euch, wir bleiben euch weiterhin treu.",
+      "start_time": 46.72,
+      "end_time": 99.44,
+      "speakers": [
+        "Speaker A"
+      ],
+      "segment_ids": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ]
+    },
+    {
+      "chunk_index": 2,
+      "text": "Und dann ist nächste Woche, nächste Woche werden wir darüber lachen, wie traurig wir jetzt alle sind. Okay? Wir denken an euch, wir bleiben euch weiterhin treu. Diese Woche ist wirklich einfach Selfcare. Ich bin Matsch, ich habe keine Stimme mehr. Und Tommi ist auch durch. Wir lieben euch trotzdem. Bleibt gesund, bleibt stabil. Seid lieb zueinander. Bis nächste Woche. Bye, bye. Bis nächste Woche.",
+      "start_time": 89.94,
+      "end_time": 145.29999999999998,
+      "speakers": [
+        "Speaker A",
+        "Speaker B"
+      ],
+      "segment_ids": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ]
+    },
+    {
+      "chunk_index": 3,
+      "text": "Bleibt gesund, bleibt stabil. Seid lieb zueinander. Bis nächste Woche. Bye, bye. Bis nächste Woche.",
+      "start_time": 111.11999999999999,
+      "end_time": 145.29999999999998,
+      "speakers": [
+        "Speaker B"
+      ],
+      "segment_ids": [
+        20,
+        21
+      ]
+    },
+    {
+      "chunk_index": 4,
+      "text": "Bis nächste Woche.",
+      "start_time": 115.32,
+      "end_time": 145.29999999999998,
+      "speakers": [
+        "Speaker B"
+      ],
+      "segment_ids": [
+        21
+      ]
+    }
+  ]
+}

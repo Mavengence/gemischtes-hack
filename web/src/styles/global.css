@@ -1,0 +1,188 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-surface text-gray-200 antialiased;
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-white;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Speaker transcript styling */
+  .speaker-a {
+    @apply text-felix-light border-l-2 border-felix pl-3;
+  }
+
+  .speaker-b {
+    @apply text-tommi-light border-l-2 border-tommi pl-3;
+  }
+
+  /* Card — sharp corners, solid dark, Berghain-minimal */
+  .card {
+    background: #161616;
+    border: 1px solid #2A2A2A;
+    border-radius: 2px;
+    padding: 1.25rem;
+    transition: border-color 200ms ease, background 200ms ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, #5B7DC8, #9C40B0);
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+
+  .card:hover {
+    border-color: #383838;
+    background: #1A1A1A;
+  }
+
+  .card:hover::before {
+    opacity: 1;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-accent hover:bg-accent-light text-black font-semibold
+           px-5 py-2.5 text-sm tracking-wide;
+    border-radius: 2px;
+  }
+
+  .btn-ghost {
+    @apply text-gray-400 hover:text-white hover:bg-surface-200
+           px-4 py-2 text-sm;
+    border-radius: 2px;
+  }
+
+  /* Input — terminal-feel, no rounding */
+  .input {
+    background: #161616;
+    border: 1px solid #2A2A2A;
+    border-radius: 0;
+    @apply text-gray-100 px-4 py-3 placeholder:text-gray-600
+           focus:outline-none focus:border-accent;
+    letter-spacing: 0.02em;
+    transition: border-color 200ms ease;
+  }
+
+  /* Marquee sign */
+  .marquee-sign {
+    position: relative;
+    border: 2px solid #F5C000;
+    padding: 2rem 4rem;
+    display: inline-block;
+  }
+
+  @media (max-width: 768px) {
+    .marquee-sign {
+      padding: 1rem 1.25rem;
+    }
+  }
+
+  .marquee-lights {
+    position: absolute;
+    inset: -6px;
+    pointer-events: none;
+  }
+
+  .marquee-dot {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #FFE066 30%, #F5C000 60%, #C49A00 100%);
+    box-shadow: 0 0 8px 3px rgba(245, 192, 0, 0.6);
+    animation: marquee-chase 1.6s ease-in-out infinite;
+  }
+
+  @media (max-width: 768px) {
+    .marquee-dot {
+      width: 8px;
+      height: 8px;
+    }
+  }
+
+  /* Plaid stripe section divider */
+  .section-divider {
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      #5B7DC8 0%,
+      #5B7DC8 25%,
+      #9C40B0 25%,
+      #9C40B0 50%,
+      #F5C000 50%,
+      #F5C000 75%,
+      #0A0A0A 75%
+    );
+    opacity: 0.35;
+    border: none;
+    margin: 0;
+  }
+
+  /* Stats */
+  .stat-number {
+    @apply text-5xl md:text-6xl font-display font-bold text-accent tabular-nums;
+    letter-spacing: -0.03em;
+  }
+
+  .stat-label {
+    @apply uppercase text-gray-500 mt-2 font-sans font-normal;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+  }
+
+  /* Nav */
+  .nav-link {
+    @apply text-gray-500 hover:text-gray-200 transition-colors text-sm tracking-wide;
+  }
+
+  .nav-link.active {
+    @apply text-accent;
+  }
+
+}
+
+/* Respect reduced motion globally */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-dot {
+    animation: none !important;
+    opacity: 0.5;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Marquee chase — bulbs light up sequentially */
+@keyframes marquee-chase {
+  0%   { opacity: 0.12; box-shadow: none; }
+  45%  { opacity: 0.12; box-shadow: none; }
+  50%  { opacity: 1;    box-shadow: 0 0 8px 3px rgba(245, 192, 0, 0.7); }
+  55%  { opacity: 0.12; box-shadow: none; }
+  100% { opacity: 0.12; box-shadow: none; }
+}
+
+/* Scroll arrow float */
+@keyframes float-down {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(5px); }
+}
