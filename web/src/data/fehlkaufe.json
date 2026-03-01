@@ -1,0 +1,72 @@
+[
+  {
+    "guest": "Simon Böhnlein",
+    "glt_id": "GLT4214683359",
+    "pub_date": "2020-05-01",
+    "fehlkauf_answer": "Simon hat sich einen neuen Staubsauger gekauft, dessen Kabel 30 Zentimeter zu kurz für seine gesamte Wohnung war.",
+    "fehlkauf_context": "Ich hab mir einen neuen Staubsauger gekauft und der hat ein 30 Zentimeter zu kurzes Kabel für meine ganze Wohnung."
+  },
+  {
+    "guest": "Juju",
+    "glt_id": "GLT1609001577",
+    "pub_date": "2020-05-08",
+    "fehlkauf_answer": "Juju kauft regelmäßig teure Klamotten, die sie dann nie anzieht — und schickt sie auch nie zurück.",
+    "fehlkauf_context": "Der letzte Fehlkauf waren auf jeden Fall irgendwelche teuren Klamotten, die ich niemals angezogen habe. Hundert Prozent."
+  },
+  {
+    "guest": "Christian Ulmen",
+    "glt_id": "GLT3890563300",
+    "pub_date": "2020-05-15",
+    "fehlkauf_answer": "Christian fällt regelmäßig auf Instagram-Werbung rein und bestellt Sachen aus China, die Monate später ankommen — zuletzt ein Toiletten-Reinigungsprodukt.",
+    "fehlkauf_context": "Worauf ich regelmäßig reinfalle, sind diese Werbungen auf Instagram, da werden einem Sachen angedreht, die kommen dann aus China, Monate später."
+  },
+  {
+    "guest": "Linda Zervakis",
+    "glt_id": "GLT5686885911",
+    "pub_date": "2020-05-22",
+    "fehlkauf_answer": "Linda hat einen teuren Dyson-Akkustaubsauger gekauft. Der Akku ist nach acht Minuten leer und man kann ihn nicht beim Laden benutzen.",
+    "fehlkauf_context": "Das ist ein Akkustaubsauger, der sehr teuer war. Ein Dyson. Nach acht Minuten ist der Akku leer, aber du kannst nicht den Stecker in die Steckdose und ans Gerät."
+  },
+  {
+    "guest": "Sara Nuru",
+    "glt_id": "GLT7917409170",
+    "pub_date": "2020-10-16",
+    "fehlkauf_answer": "Sara hat sich im Urlaub eine Plastikschürze mit Blumenmuster zum Töpfern gekauft — und sie nie benutzt.",
+    "fehlkauf_context": "Im Urlaub habe ich mir so eine Plastikschürze gekauft, so mit so Blumen. Ich habe ihn noch nie benutzt, aber ich habe das Töpfern angefangen."
+  },
+  {
+    "guest": "Raul Krauthausen",
+    "glt_id": "GLT8075539635",
+    "pub_date": "2020-10-23",
+    "fehlkauf_answer": "Raul hat sich für 200 Euro einen Greenscreen gekauft, den er über seine Rollstuhllehne machen wollte. Viermal so groß wie er, liegt unbenutzt in der Ecke.",
+    "fehlkauf_context": "Einen Greenscreen, den man über die Rollstuhllehne machen kann. Der ist viermal so groß wie ich, hat 200 Euro gekostet und liegt jetzt in der Ecke."
+  },
+  {
+    "guest": "$ick",
+    "glt_id": "GLT6136933416",
+    "pub_date": "2020-10-30",
+    "fehlkauf_answer": "$ick hat sich ein riesiges Gesundheitskissen für 50 Euro gekauft. Wenn er es ans Kopfende legt, gucken seine Füße am Ende raus.",
+    "fehlkauf_context": "Ein Gesundheitskissen, aber guck mal, wie viel Kissen das ist. Wenn du dir das ans Kopfende legst, dann gucken deine Füße am Ende raus."
+  },
+  {
+    "guest": "Rin",
+    "glt_id": "GLT1447802275",
+    "pub_date": "2020-10-09",
+    "fehlkauf_answer": "Rin schätzt, dass er über die Jahre 50.000 bis 100.000 Euro in Klamotten versenkt hat, die er nie wieder angezogen hat.",
+    "fehlkauf_context": "Ich werde locker 50.000 bis 100.000 Euro in Textil versenkt haben, was ich nie wieder angehabt habe. Über die Jahre so. Easy."
+  },
+  {
+    "guest": "Luisa Neubauer",
+    "glt_id": "GLT6413779869",
+    "pub_date": "2020-11-06",
+    "fehlkauf_answer": "Luisa hat eine Corona-Maske mit \"I warmly smile underneath this mask\" gekauft — ungünstig auf Fotos mit Politikern.",
+    "fehlkauf_context": "Eine Corona-Maske, auf der steht \"I warmly smile underneath this mask\". In der Arbeit, die ich mache, ist es nicht immer hilfreich, wenn man annimmt, dass ich gerade lächle."
+  },
+  {
+    "guest": "Hassan Akkouch",
+    "glt_id": "GLT9348455459",
+    "pub_date": "2020-11-13",
+    "fehlkauf_answer": "Hassan hat sich bunte K1X-Schuhe mit Farbklecksen für 80-100 Euro gekauft und sie kein einziges Mal getragen.",
+    "fehlkauf_context": "Schuhe von K1X, da waren so Farbkleckse drauf. Die haben 80 oder 100 Euro gekostet. Und ich hab die nie getragen. Nicht einmal, Digga."
+  }
+]
