@@ -33,7 +33,10 @@ const { title, description = "Insights aus \u00fcber 350 Folgen Gemischtes Hack"
             class="h-full w-auto invert opacity-70 hover:opacity-100 transition-opacity"
           />
         </a>
-        <div class="hidden md:flex items-center gap-8">
+        <div class="hidden md:flex items-center gap-6">
+          <a href="#quiz" class="nav-link" data-section="quiz">Quiz</a>
+          <a href="#roulette" class="nav-link" data-section="roulette">Roulette</a>
+          <a href="#duel" class="nav-link" data-section="duel">Duell</a>
           <a href="#suche" class="nav-link" data-section="suche">Suche</a>
           <a href="#episoden" class="nav-link" data-section="episoden">Episoden</a>
           <a href="#themen" class="nav-link" data-section="themen">Themen</a>
@@ -56,7 +59,7 @@ const { title, description = "Insights aus \u00fcber 350 Folgen Gemischtes Hack"
 
     <!-- Nav active state on scroll -->
     <script>
-      const sections = ["suche", "episoden", "themen"];
+      const sections = ["quiz", "roulette", "duel", "evolution", "suche", "episoden", "themen"];
       const links = document.querySelectorAll<HTMLAnchorElement>("[data-section]");
 
       function updateActiveNav() {

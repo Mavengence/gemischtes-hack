@@ -2,6 +2,10 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import SearchResults from "@/components/react/SearchResults";
 import TopicTimeline from "@/components/react/TopicTimeline";
+import WerHatsSagt from "@/components/react/WerHatsSagt";
+import ZitatRoulette from "@/components/react/ZitatRoulette";
+import SpeakerDuel from "@/components/react/SpeakerDuel";
+import EpisodeEvolution from "@/components/react/EpisodeEvolution";
 import { supabase } from "@/lib/supabase";
 
 // Fetch data at build time
@@ -115,8 +119,68 @@ function formatDuration(seconds: number): string {
 
   <div class="section-divider max-w-5xl mx-auto"></div>
 
+  <!-- ========== WER HAT'S GESAGT? QUIZ ========== -->
+  <section id="quiz" class="py-28 px-6 section-reveal">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-10 text-center">
+        <h2 class="font-display text-5xl md:text-6xl font-bold uppercase text-white mb-2" style="letter-spacing: -0.02em;">
+          Wer hat's <span class="text-accent">gesagt</span>?
+        </h2>
+        <p class="text-gray-600 text-xs tracking-[0.2em] uppercase">Rate ob Felix oder Tommi das gesagt hat</p>
+      </div>
+      <WerHatsSagt client:visible />
+    </div>
+  </section>
+
+  <div class="section-divider max-w-5xl mx-auto"></div>
+
+  <!-- ========== ZITAT ROULETTE ========== -->
+  <section id="roulette" class="py-28 px-6 section-reveal">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-10 text-center">
+        <h2 class="font-display text-5xl md:text-6xl font-bold uppercase text-white mb-2" style="letter-spacing: -0.02em;">
+          Zitat-<span class="text-accent">Roulette</span>
+        </h2>
+        <p class="text-gray-600 text-xs tracking-[0.2em] uppercase">Dreh und entdecke zufällige Podcast-Zitate</p>
+      </div>
+      <ZitatRoulette client:visible />
+    </div>
+  </section>
+
+  <div class="section-divider max-w-5xl mx-auto"></div>
+
+  <!-- ========== SPEAKER DUEL ========== -->
+  <section id="duel" class="py-28 px-6 section-reveal">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-10 text-center">
+        <h2 class="font-display text-5xl md:text-6xl font-bold uppercase text-white mb-2" style="letter-spacing: -0.02em;">
+          Felix <span class="text-accent">vs</span> Tommi
+        </h2>
+        <p class="text-gray-600 text-xs tracking-[0.2em] uppercase">Wer redet mehr? Die Daten lügen nicht.</p>
+      </div>
+      <SpeakerDuel client:visible />
+    </div>
+  </section>
+
+  <div class="section-divider max-w-5xl mx-auto"></div>
+
+  <!-- ========== EPISODE EVOLUTION ========== -->
+  <section id="evolution" class="py-28 px-6 section-reveal">
+    <div class="max-w-5xl mx-auto">
+      <div class="mb-10 text-center">
+        <h2 class="font-display text-5xl md:text-6xl font-bold uppercase text-white mb-2" style="letter-spacing: -0.02em;">
+          <span class="text-accent">Evolution</span>
+        </h2>
+        <p class="text-gray-600 text-xs tracking-[0.2em] uppercase">Wie sich der Podcast über die Jahre verändert hat</p>
+      </div>
+      <EpisodeEvolution client:visible />
+    </div>
+  </section>
+
+  <div class="section-divider max-w-5xl mx-auto"></div>
+
   <!-- ========== SEARCH ========== -->
-  <section id="suche" class="py-28 px-6">
+  <section id="suche" class="py-28 px-6 section-reveal">
     <div class="max-w-5xl mx-auto">
       <div class="mb-8">
         <h2 class="font-display text-5xl md:text-6xl font-bold uppercase text-white mb-2" style="letter-spacing: -0.02em;">Suche</h2>
@@ -210,6 +274,18 @@ function formatDuration(seconds: number): string {
     transform: none;
   }
 
+  /* Section reveal on scroll */
+  .section-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 600ms ease, transform 600ms ease;
+  }
+
+  .section-reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
   /* Scroll arrow float */
   .scroll-arrow {
     animation: float-down 2.5s ease-in-out infinite;
@@ -217,7 +293,8 @@ function formatDuration(seconds: number): string {
 
   /* Respect reduced motion */
   @media (prefers-reduced-motion: reduce) {
-    .card-reveal {
+    .card-reveal,
+    .section-reveal {
       opacity: 1;
       transform: none;
       transition: none;
@@ -320,28 +397,46 @@ function formatDuration(seconds: number): string {
   animateCounters();
 </script>
 
-<!-- Card reveal on scroll (IntersectionObserver, not all-at-once animation) -->
+<!-- Card and section reveal on scroll -->
 <script>
-  function initCardReveal() {
+  function initRevealAnimations() {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // Card reveals (staggered)
     const cards = document.querySelectorAll<HTMLElement>(".card-reveal");
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (reducedMotion) {
       cards.forEach((card) => card.classList.add("visible"));
-      return;
+    } else {
+      let delay = 0;
+      const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target as HTMLElement;
+          setTimeout(() => el.classList.add("visible"), delay);
+          delay += 30;
+          cardObserver.unobserve(el);
+        });
+      }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+
+      cards.forEach((card) => cardObserver.observe(card));
     }
 
-    let delay = 0;
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target as HTMLElement;
-        setTimeout(() => el.classList.add("visible"), delay);
-        delay += 30;
-        observer.unobserve(el);
-      });
-    }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+    // Section reveals
+    const sections = document.querySelectorAll<HTMLElement>(".section-reveal");
+    if (reducedMotion) {
+      sections.forEach((s) => s.classList.add("visible"));
+    } else {
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("visible");
+          sectionObserver.unobserve(entry.target);
+        });
+      }, { threshold: 0.05, rootMargin: "0px 0px -60px 0px" });
 
-    cards.forEach((card) => observer.observe(card));
+      sections.forEach((s) => sectionObserver.observe(s));
+    }
   }
 
-  initCardReveal();
+  initRevealAnimations();
 </script>
