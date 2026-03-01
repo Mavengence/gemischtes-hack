@@ -5,7 +5,7 @@ import vercel from "@astrojs/vercel";
 
 export default defineConfig({
   adapter: vercel(),
-  integrations: [react(), tailwind()],
+  integrations: [react(), tailwind({ applyBaseStyles: false })],
   i18n: {
     defaultLocale: "de",
     locales: ["de"],

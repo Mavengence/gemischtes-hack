@@ -1,10 +1,12 @@
 ---
+import "@/styles/global.css";
+
 interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = "Insights aus \u00fcber 350 Folgen Gemischtes Hack" } = Astro.props;
+const { title, description = "Insights aus über 350 Folgen Gemischtes Hack" } = Astro.props;
 ---
 
 <!doctype html>
@@ -15,52 +17,347 @@ const { title, description = "Insights aus \u00fcber 350 Folgen Gemischtes Hack"
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title} | Gemischtes Hack</title>
+    <!-- Open Graph -->
+    <meta property="og:title" content={`${title} | Gemischtes Hack`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/background.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | Gemischtes Hack`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/background.jpg" />
+    <meta name="theme-color" content="#0A0A0A" />
+    <link rel="preload" href="/background.jpg" as="image" />
+    <!-- Structured data for rich search results -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "Gemischtes Hack — Podcast Insights",
+          "description": "Insights aus über 350 Folgen Gemischtes Hack. Alle Episoden transkribiert, analysiert und durchsuchbar mit KI.",
+          "inLanguage": "de",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "/?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "PodcastSeries",
+          "name": "Gemischtes Hack",
+          "description": "Comedy-Podcast von Felix Lobrecht und Tommi Schmitt — seit 2017, wöchentlich neue Folgen.",
+          "inLanguage": "de",
+          "author": [
+            { "@type": "Person", "name": "Felix Lobrecht" },
+            { "@type": "Person", "name": "Tommi Schmitt" }
+          ],
+          "genre": "Comedy"
+        }
+      ]
+    })} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&family=JetBrains+Mono:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
   </head>
   <body class="min-h-screen bg-surface">
+    <!-- Ambient glow orbs — cinematic depth -->
+    <div class="fixed inset-0 pointer-events-none z-[-1]" aria-hidden="true">
+      <div style="position: absolute; top: 10%; left: -5%; width: 600px; height: 600px; border-radius: 50%; background: #5B7DC8; filter: blur(120px); opacity: 0.035;"></div>
+      <div style="position: absolute; bottom: 15%; right: -8%; width: 500px; height: 500px; border-radius: 50%; background: #9C40B0; filter: blur(120px); opacity: 0.03;"></div>
+    </div>
+
+    <!-- Scroll progress bar -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-[2px] z-[60] pointer-events-none" style="width: 0%; background: linear-gradient(90deg, #F5C000, #FFD740); transition: width 50ms linear;"></div>
+
     <!-- Minimal nav — Berghain sparse -->
     <nav id="main-nav" class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-surface-300/20">
       <div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
-        <a href="#hero" class="block h-5">
+        <a href="#hero" class="block h-5 shrink-0">
           <img
             src="/logo.svg"
             alt="Gemischtes Hack"
             class="h-full w-auto invert opacity-70 hover:opacity-100 transition-opacity"
           />
         </a>
-        <div class="hidden md:flex items-center gap-5">
+        <div id="nav-links" class="hidden md:flex items-center gap-5 relative">
+          <a href="#chat" class="nav-link" data-section="chat">Chat</a>
           <a href="#rapzitate" class="nav-link" data-section="rapzitate">Rapzitate</a>
-          <a href="#fehlkauf" class="nav-link" data-section="fehlkauf">5 Fragen</a>
-          <a href="#quiz" class="nav-link" data-section="quiz">Quiz</a>
           <a href="#duel" class="nav-link" data-section="duel">Duell</a>
-          <a href="#suche" class="nav-link" data-section="suche">Suche</a>
+          <a href="#roulette" class="nav-link" data-section="roulette">Roulette</a>
+          <a href="#fehlkauf" class="nav-link" data-section="fehlkauf">5 Fragen</a>
+          <a href="#evolution" class="nav-link" data-section="evolution">Evolution</a>
           <a href="#episoden" class="nav-link" data-section="episoden">Episoden</a>
+          <div id="nav-indicator" class="absolute bottom-0 h-[2px] bg-accent transition-all duration-300 ease-out" style="width: 0; opacity: 0;"></div>
         </div>
+        <!-- Compact nav search (desktop only) -->
+        <form id="nav-search-form" class="hidden lg:flex items-center nav-search-form" autocomplete="off">
+          <svg class="w-3.5 h-3.5 text-gray-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+          </svg>
+          <input
+            id="nav-search-input"
+            type="text"
+            class="nav-search-input"
+            placeholder="Frag den Podcast..."
+            aria-label="Schnellsuche"
+          />
+        </form>
+        <!-- Mobile nav toggle -->
+        <button id="mobile-nav-toggle" class="md:hidden text-gray-400 hover:text-white transition-colors" aria-label="Navigation öffnen">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
       </div>
     </nav>
+
+    <!-- Mobile nav drawer -->
+    <div id="mobile-nav" class="fixed inset-0 z-40 hidden" aria-hidden="true">
+      <div id="mobile-nav-backdrop" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+      <nav class="absolute right-0 top-0 bottom-0 w-64 bg-surface-50 border-l border-surface-300/30 p-8 pt-20 flex flex-col gap-1">
+        <a href="#chat" class="mobile-nav-link" data-section="chat">Frag den Podcast</a>
+        <a href="#rapzitate" class="mobile-nav-link" data-section="rapzitate">Rapzitate</a>
+        <a href="#duel" class="mobile-nav-link" data-section="duel">Felix vs Tommi</a>
+        <a href="#roulette" class="mobile-nav-link" data-section="roulette">Zitat-Roulette</a>
+        <a href="#fehlkauf" class="mobile-nav-link" data-section="fehlkauf">5 Schnelle Fragen</a>
+        <a href="#evolution" class="mobile-nav-link" data-section="evolution">Evolution</a>
+        <a href="#episoden" class="mobile-nav-link" data-section="episoden">Episoden</a>
+        <a href="#themen" class="mobile-nav-link" data-section="themen">Themen</a>
+      </nav>
+    </div>
 
     <main>
       <slot />
     </main>
 
-    <!-- Footer with plaid stripe -->
+    <!-- Mobile bottom nav (icons only, 768px and below) -->
+    <nav id="mobile-bottom-nav" class="fixed bottom-0 left-0 right-0 z-50 md:hidden" style="background: rgba(10,10,10,0.95); backdrop-filter: blur(12px); border-top: 1px solid #1F1F1F; transition: transform 300ms ease;">
+      <div class="flex items-center justify-around h-14">
+        <a href="#chat" class="mobile-bottom-link" data-section="chat" aria-label="Chat">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+        </a>
+        <a href="#rapzitate" class="mobile-bottom-link" data-section="rapzitate" aria-label="Rapzitate">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z" /></svg>
+        </a>
+        <a href="#roulette" class="mobile-bottom-link" data-section="roulette" aria-label="Roulette">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
+        </a>
+        <a href="#episoden" class="mobile-bottom-link" data-section="episoden" aria-label="Episoden">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+        </a>
+        <a href="#themen" class="mobile-bottom-link" data-section="themen" aria-label="Themen">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" /></svg>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Floating back-to-top button -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-6 right-6 z-50 w-10 h-10 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300"
+      style="background: #161616; border: 1px solid #2A2A2A; border-radius: 2px;"
+      aria-label="Nach oben scrollen"
+      onmouseover="this.style.borderColor='rgba(245,192,0,0.3)';this.querySelector('svg').style.color='#F5C000'"
+      onmouseout="this.style.borderColor='#2A2A2A';this.querySelector('svg').style.color='#999'"
+    >
+      <svg class="w-4 h-4 text-gray-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+      </svg>
+    </button>
+
+    <!-- Web Audio micro-sounds -->
+    <script>
+      const SOUND_KEY = "gh_sounds_enabled";
+      let audioCtx: AudioContext | null = null;
+      let soundsEnabled = (() => {
+        try {
+          const stored = localStorage.getItem(SOUND_KEY);
+          if (stored !== null) return stored === "1";
+          // Default muted if reduced motion
+          return !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        } catch { return false; }
+      })();
+
+      function getAudioCtx(): AudioContext | null {
+        if (!soundsEnabled) return null;
+        if (!audioCtx) {
+          try { audioCtx = new AudioContext(); } catch { return null; }
+        }
+        if (audioCtx.state === "suspended") audioCtx.resume();
+        return audioCtx;
+      }
+
+      function playTink() {
+        const ctx = getAudioCtx();
+        if (!ctx) return;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.frequency.value = 800;
+        osc.type = "sine";
+        gain.gain.setValueAtTime(0.08, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.1);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.1);
+      }
+
+      function playDing() {
+        const ctx = getAudioCtx();
+        if (!ctx) return;
+        [523, 659, 784].forEach((freq, i) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.frequency.value = freq;
+          osc.type = "sine";
+          const t = ctx.currentTime + i * 0.08;
+          gain.gain.setValueAtTime(0.06, t);
+          gain.gain.exponentialRampToValueAtTime(0.001, t + 0.12);
+          osc.start(t);
+          osc.stop(t + 0.12);
+        });
+      }
+
+      function playClick() {
+        const ctx = getAudioCtx();
+        if (!ctx) return;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.frequency.value = 600;
+        osc.type = "sine";
+        gain.gain.setValueAtTime(0.05, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.05);
+      }
+
+      // Expose globally
+      (window as unknown as Record<string, unknown>).__sounds = { tink: playTink, ding: playDing, click: playClick };
+      (window as unknown as Record<string, unknown>).__toggleSounds = () => {
+        soundsEnabled = !soundsEnabled;
+        try { localStorage.setItem(SOUND_KEY, soundsEnabled ? "1" : "0"); } catch {}
+        const icon = document.getElementById("sound-toggle-icon");
+        if (icon) icon.textContent = soundsEnabled ? "🔊" : "🔇";
+        return soundsEnabled;
+      };
+    </script>
+
+    <!-- Share CTA -->
+    <div class="py-12 px-6 text-center">
+      <p class="text-gray-500 text-xs tracking-[0.15em] uppercase mb-4">Gefällt dir die Seite?</p>
+      <button
+        id="share-site-btn"
+        class="inline-flex items-center gap-2.5 px-8 py-3 text-sm font-bold tracking-[0.1em] uppercase transition-all duration-200 hover:brightness-110 active:scale-[0.98]"
+        style="background: rgba(245,192,0,0.08); border: 1px solid rgba(245,192,0,0.2); color: #F5C000; border-radius: 2px;"
+      >
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+        </svg>
+        <span id="share-site-text">Mit Hack-Fans teilen</span>
+      </button>
+    </div>
+
+    <script>
+      const shareSiteBtn = document.getElementById("share-site-btn");
+      const shareSiteText = document.getElementById("share-site-text");
+      shareSiteBtn?.addEventListener("click", async () => {
+        const shareData = {
+          title: "Gemischtes Hack — Podcast Insights",
+          text: "Über 350 Folgen Gemischtes Hack — transkribiert, analysiert und durchsuchbar mit KI. Rapzitate, Speaker Duel, Zitat-Roulette und mehr!",
+          url: window.location.href,
+        };
+        if (navigator.share) {
+          try { await navigator.share(shareData); return; } catch {}
+        }
+        try {
+          await navigator.clipboard.writeText(`${shareData.text}\n${shareData.url}`);
+          if (shareSiteText) {
+            const orig = shareSiteText.textContent;
+            shareSiteText.textContent = "Link kopiert!";
+            setTimeout(() => { if (shareSiteText) shareSiteText.textContent = orig; }, 2000);
+          }
+        } catch {}
+      });
+    </script>
+
+    <!-- Footer -->
     <footer>
       <div class="section-divider"></div>
-      <div class="max-w-7xl mx-auto px-6 py-10 flex items-center justify-between text-xs text-gray-600">
-        <span>Fan-Projekt — nicht offiziell mit dem Podcast verbunden</span>
-        <span class="tracking-[0.15em] uppercase font-display">Gemischtes Hack</span>
+      <div class="max-w-7xl mx-auto px-6 py-12">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+          <!-- Left: branding + info -->
+          <div>
+            <div class="font-display text-lg font-bold tracking-[0.05em] uppercase text-gray-400 mb-2">
+              Gemischtes <span class="text-accent/60">Hack</span>
+            </div>
+            <p class="text-xs text-gray-600 max-w-sm leading-relaxed">
+              Fan-Projekt — nicht offiziell mit dem Podcast verbunden.
+              Alle Episoden transkribiert, analysiert und durchsuchbar mit KI.
+            </p>
+          </div>
+          <!-- Center: quick nav -->
+          <div class="flex flex-wrap gap-x-6 gap-y-2">
+            <a href="#chat" class="text-xs text-gray-600 hover:text-gray-300 transition-colors">Chat</a>
+            <a href="#rapzitate" class="text-xs text-gray-600 hover:text-gray-300 transition-colors">Rapzitate</a>
+            <a href="#duel" class="text-xs text-gray-600 hover:text-gray-300 transition-colors">Felix vs Tommi</a>
+            <a href="#roulette" class="text-xs text-gray-600 hover:text-gray-300 transition-colors">Roulette</a>
+            <a href="#episoden" class="text-xs text-gray-600 hover:text-gray-300 transition-colors">Episoden</a>
+            <a href="#themen" class="text-xs text-gray-600 hover:text-gray-300 transition-colors">Themen</a>
+          </div>
+          <!-- Right: back to top -->
+          <a
+            href="#hero"
+            class="text-[11px] text-gray-600 hover:text-accent transition-colors uppercase tracking-[0.15em] flex items-center gap-1.5 shrink-0"
+          >
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
+            Nach oben
+          </a>
+        </div>
+        <div class="mt-8 pt-6 border-t border-surface-300/10 flex items-center justify-between flex-wrap gap-2">
+          <span class="text-[10px] text-gray-700">Felix Lobrecht & Tommi Schmitt — seit 2017</span>
+          <span id="live-visitors" class="text-[10px] text-gray-600 flex items-center gap-1.5">
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-green-500" style="box-shadow: 0 0 4px rgba(34,197,94,0.4); animation: visitor-pulse 2s ease-in-out infinite;"></span>
+            <span id="visitor-count"></span> Fans gerade online
+          </span>
+          <span class="text-[10px] text-gray-700 hidden md:inline">
+            <kbd class="px-1 py-0.5 bg-surface-200 text-gray-500 font-mono" style="border-radius: 2px; border: 1px solid #2A2A2A;">?</kbd>
+            <span class="ml-1 text-gray-600">Tastaturkürzel</span>
+          </span>
+          <span class="text-[10px] text-gray-700 font-mono">RAG + mlx-whisper + pgvector</span>
+          <button
+            id="sound-toggle"
+            class="text-[10px] text-gray-600 hover:text-gray-400 transition-colors"
+            title="Sounds ein/aus"
+            aria-label="Sounds umschalten"
+          >
+            <span id="sound-toggle-icon">🔇</span>
+          </button>
+        </div>
       </div>
     </footer>
 
-    <!-- Nav active state on scroll -->
+    <!-- Nav active state + mobile nav + scroll progress + nav search -->
     <script>
-      const sections = ["rapzitate", "fehlkauf", "quiz", "roulette", "duel", "evolution", "suche", "episoden", "themen"];
+      const sections = ["chat", "rapzitate", "duel", "roulette", "fehlkauf", "evolution", "episoden", "themen"];
       const links = document.querySelectorAll<HTMLAnchorElement>("[data-section]");
+      const progressBar = document.getElementById("scroll-progress");
+      const navIndicator = document.getElementById("nav-indicator");
+      const navLinksContainer = document.getElementById("nav-links");
 
       function updateActiveNav() {
         let current = "";
@@ -71,17 +368,434 @@ const { title, description = "Insights aus \u00fcber 350 Folgen Gemischtes Hack"
             if (rect.top <= 120) current = id;
           }
         }
+        let activeLink: HTMLAnchorElement | null = null;
         links.forEach((link) => {
           if (link.dataset.section === current) {
             link.classList.add("active");
+            if (navLinksContainer?.contains(link)) activeLink = link;
           } else {
             link.classList.remove("active");
           }
         });
+        // Position the sliding indicator
+        if (navIndicator && navLinksContainer) {
+          if (activeLink) {
+            const containerRect = navLinksContainer.getBoundingClientRect();
+            const linkRect = (activeLink as HTMLElement).getBoundingClientRect();
+            navIndicator.style.left = `${linkRect.left - containerRect.left}px`;
+            navIndicator.style.width = `${linkRect.width}px`;
+            navIndicator.style.opacity = "1";
+          } else {
+            navIndicator.style.opacity = "0";
+          }
+        }
       }
 
-      window.addEventListener("scroll", updateActiveNav, { passive: true });
+      function updateScrollProgress() {
+        if (!progressBar) return;
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        progressBar.style.width = `${Math.min(progress, 100)}%`;
+      }
+
+      // Mobile bottom nav — hide on scroll down, show on scroll up
+      const mobileBottomNav = document.getElementById("mobile-bottom-nav");
+      let lastScrollY = 0;
+
+      function updateMobileBottomNav() {
+        if (!mobileBottomNav) return;
+        const currentScrollY = window.scrollY;
+        if (currentScrollY > lastScrollY && currentScrollY > 300) {
+          mobileBottomNav.style.transform = "translateY(100%)";
+        } else {
+          mobileBottomNav.style.transform = "translateY(0)";
+        }
+        lastScrollY = currentScrollY;
+      }
+
+      // Back to top button
+      const backToTopBtn = document.getElementById("back-to-top");
+
+      function updateBackToTop() {
+        if (!backToTopBtn) return;
+        if (window.scrollY > window.innerHeight) {
+          backToTopBtn.style.opacity = "1";
+          backToTopBtn.style.pointerEvents = "auto";
+        } else {
+          backToTopBtn.style.opacity = "0";
+          backToTopBtn.style.pointerEvents = "none";
+        }
+      }
+
+      backToTopBtn?.addEventListener("click", () => {
+        document.getElementById("hero")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      window.addEventListener("scroll", () => {
+        updateActiveNav();
+        updateScrollProgress();
+        updateBackToTop();
+        updateMobileBottomNav();
+      }, { passive: true });
       updateActiveNav();
+      updateScrollProgress();
+      updateBackToTop();
+
+      // Mobile nav
+      const mobileNav = document.getElementById("mobile-nav");
+      const mobileToggle = document.getElementById("mobile-nav-toggle");
+      const mobileBackdrop = document.getElementById("mobile-nav-backdrop");
+      const mobileLinks = mobileNav?.querySelectorAll("a") ?? [];
+
+      function closeMobileNav() {
+        mobileNav?.classList.add("hidden");
+        mobileNav?.setAttribute("aria-hidden", "true");
+      }
+
+      mobileToggle?.addEventListener("click", () => {
+        const isHidden = mobileNav?.classList.contains("hidden");
+        if (isHidden) {
+          mobileNav?.classList.remove("hidden");
+          mobileNav?.setAttribute("aria-hidden", "false");
+        } else {
+          closeMobileNav();
+        }
+      });
+
+      mobileBackdrop?.addEventListener("click", closeMobileNav);
+      mobileLinks.forEach((link) => link.addEventListener("click", closeMobileNav));
+
+      // Keyboard section navigation (J/K)
+      const sectionIds = ["hero", "chat", "rapzitate", "duel", "roulette", "fehlkauf", "evolution", "episoden", "themen"];
+      document.addEventListener("keydown", (e) => {
+        // Don't intercept when typing in inputs
+        const tag = (e.target as HTMLElement).tagName;
+        if (tag === "INPUT" || tag === "TEXTAREA" || (e.target as HTMLElement).isContentEditable) return;
+
+        if (e.key === "j" || e.key === "k") {
+          e.preventDefault();
+          let currentSectionIdx = 0;
+          for (let i = sectionIds.length - 1; i >= 0; i--) {
+            const el = document.getElementById(sectionIds[i]);
+            if (el && el.getBoundingClientRect().top <= 120) {
+              currentSectionIdx = i;
+              break;
+            }
+          }
+          const nextIdx = e.key === "j"
+            ? Math.min(currentSectionIdx + 1, sectionIds.length - 1)
+            : Math.max(currentSectionIdx - 1, 0);
+          const nextEl = document.getElementById(sectionIds[nextIdx]);
+          if (nextEl) nextEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+
+      // Nav search — submit dispatches hero-ask and scrolls to chat
+      const navSearchForm = document.getElementById("nav-search-form");
+      const navSearchInput = document.getElementById("nav-search-input") as HTMLInputElement | null;
+
+      navSearchForm?.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const q = navSearchInput?.value.trim();
+        if (!q) return;
+        const chatEl = document.getElementById("chat");
+        if (chatEl) chatEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        setTimeout(() => {
+          window.dispatchEvent(new CustomEvent("hero-ask", { detail: q }));
+        }, 400);
+        if (navSearchInput) navSearchInput.value = "";
+        navSearchInput?.blur();
+      });
+      // Konami code easter egg (↑↑↓↓←→←→BA)
+      const konamiSeq = ["ArrowUp","ArrowUp","ArrowDown","ArrowDown","ArrowLeft","ArrowRight","ArrowLeft","ArrowRight","b","a"];
+      let konamiIdx = 0;
+      document.addEventListener("keydown", (e) => {
+        if (e.key === konamiSeq[konamiIdx]) {
+          konamiIdx++;
+          if (konamiIdx === konamiSeq.length) {
+            konamiIdx = 0;
+            triggerConfetti();
+          }
+        } else {
+          konamiIdx = e.key === konamiSeq[0] ? 1 : 0;
+        }
+      });
+
+      function triggerConfetti() {
+        const canvas = document.createElement("canvas");
+        canvas.style.cssText = "position:fixed;inset:0;z-index:99999;pointer-events:none;";
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        document.body.appendChild(canvas);
+        const ctx = canvas.getContext("2d");
+        if (!ctx) return;
+
+        const particles: { x: number; y: number; vx: number; vy: number; size: number; color: string; rot: number; rv: number }[] = [];
+        const colors = ["#F5C000", "#FFE066", "#5B7DC8", "#9C40B0", "#FFFFFF"];
+        for (let i = 0; i < 120; i++) {
+          particles.push({
+            x: Math.random() * canvas.width,
+            y: -20 - Math.random() * 200,
+            vx: (Math.random() - 0.5) * 4,
+            vy: Math.random() * 3 + 2,
+            size: Math.random() * 6 + 3,
+            color: colors[Math.floor(Math.random() * colors.length)],
+            rot: Math.random() * Math.PI * 2,
+            rv: (Math.random() - 0.5) * 0.2,
+          });
+        }
+
+        let frame = 0;
+        function draw() {
+          if (!ctx) return;
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          let alive = false;
+          for (const p of particles) {
+            p.x += p.vx;
+            p.vy += 0.08;
+            p.y += p.vy;
+            p.rot += p.rv;
+            if (p.y < canvas.height + 20) alive = true;
+            ctx.save();
+            ctx.translate(p.x, p.y);
+            ctx.rotate(p.rot);
+            ctx.fillStyle = p.color;
+            ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+            ctx.restore();
+          }
+          frame++;
+          if (alive && frame < 300) {
+            requestAnimationFrame(draw);
+          } else {
+            canvas.remove();
+          }
+        }
+        requestAnimationFrame(draw);
+      }
+
+      // Keyboard shortcut overlay (? key)
+      document.addEventListener("keydown", (e) => {
+        const tag = (e.target as HTMLElement).tagName;
+        if (tag === "INPUT" || tag === "TEXTAREA" || (e.target as HTMLElement).isContentEditable) return;
+        if (e.key === "?" || (e.key === "/" && e.shiftKey)) {
+          e.preventDefault();
+          toggleShortcutOverlay();
+        }
+        // S to focus search
+        if (e.key === "s" && !e.metaKey && !e.ctrlKey) {
+          const heroInput = document.getElementById("hero-search-input") as HTMLInputElement | null;
+          const navInput = document.getElementById("nav-search-input") as HTMLInputElement | null;
+          if (heroInput && heroInput.getBoundingClientRect().top > 0) {
+            e.preventDefault();
+            heroInput.focus();
+          } else if (navInput) {
+            e.preventDefault();
+            navInput.focus();
+          }
+        }
+        // R for random episode
+        if (e.key === "r" && !e.metaKey && !e.ctrlKey) {
+          const rBtn = document.getElementById("random-episode-btn");
+          if (rBtn) { e.preventDefault(); rBtn.click(); }
+        }
+        // Number keys 1-8 for section jump
+        if (e.key >= "1" && e.key <= "8") {
+          const idx = parseInt(e.key) - 1;
+          const target = sectionIds[idx + 1]; // skip hero
+          if (target) {
+            e.preventDefault();
+            document.getElementById(target)?.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
+      });
+
+      let shortcutOverlayVisible = false;
+      function toggleShortcutOverlay() {
+        let overlay = document.getElementById("shortcut-overlay");
+        if (overlay) {
+          overlay.remove();
+          shortcutOverlayVisible = false;
+          return;
+        }
+        shortcutOverlayVisible = true;
+        overlay = document.createElement("div");
+        overlay.id = "shortcut-overlay";
+        overlay.style.cssText = "position:fixed;inset:0;z-index:99998;background:rgba(0,0,0,0.8);display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);";
+        overlay.innerHTML = `
+          <div style="background:#161616;border:1px solid #2A2A2A;border-radius:2px;padding:2rem 2.5rem;max-width:360px;width:90%;">
+            <div style="display:flex;align-items:center;justify-content:between;margin-bottom:1.25rem;">
+              <span style="font-size:13px;color:#F5C000;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Tastaturkürzel</span>
+            </div>
+            <div style="display:grid;gap:0.6rem;font-size:12px;">
+              <div style="display:flex;justify-content:space-between;"><span style="color:#999;">Suche öffnen</span><kbd style="color:#F5C000;font-family:monospace;background:#1F1F1F;padding:2px 8px;border-radius:2px;font-size:11px;">S</kbd></div>
+              <div style="display:flex;justify-content:space-between;"><span style="color:#999;">Zufällige Folge</span><kbd style="color:#F5C000;font-family:monospace;background:#1F1F1F;padding:2px 8px;border-radius:2px;font-size:11px;">R</kbd></div>
+              <div style="display:flex;justify-content:space-between;"><span style="color:#999;">Nächste Sektion</span><kbd style="color:#F5C000;font-family:monospace;background:#1F1F1F;padding:2px 8px;border-radius:2px;font-size:11px;">J</kbd></div>
+              <div style="display:flex;justify-content:space-between;"><span style="color:#999;">Vorherige Sektion</span><kbd style="color:#F5C000;font-family:monospace;background:#1F1F1F;padding:2px 8px;border-radius:2px;font-size:11px;">K</kbd></div>
+              <div style="display:flex;justify-content:space-between;"><span style="color:#999;">Sektion 1–8</span><kbd style="color:#F5C000;font-family:monospace;background:#1F1F1F;padding:2px 8px;border-radius:2px;font-size:11px;">1-8</kbd></div>
+              <div style="display:flex;justify-content:space-between;"><span style="color:#999;">Diese Hilfe</span><kbd style="color:#F5C000;font-family:monospace;background:#1F1F1F;padding:2px 8px;border-radius:2px;font-size:11px;">?</kbd></div>
+            </div>
+            <p style="margin-top:1rem;font-size:10px;color:#555;text-align:center;">Esc oder Klick zum Schließen</p>
+          </div>
+        `;
+        overlay.addEventListener("click", (e) => {
+          if (e.target === overlay) { overlay?.remove(); shortcutOverlayVisible = false; }
+        });
+        document.body.appendChild(overlay);
+      }
+
+      // Esc closes shortcut overlay
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && shortcutOverlayVisible) {
+          document.getElementById("shortcut-overlay")?.remove();
+          shortcutOverlayVisible = false;
+        }
+      });
     </script>
+
+    <!-- Keyboard hint button (desktop only) -->
+    <button
+      id="kbd-hint-btn"
+      class="hidden md:flex fixed bottom-6 left-6 z-40 items-center justify-center w-8 h-8 text-gray-600 hover:text-accent transition-colors"
+      style="background: #161616; border: 1px solid #2A2A2A; border-radius: 2px;"
+      aria-label="Tastaturkürzel anzeigen"
+      title="Tastaturkürzel (?)"
+    >
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    </button>
+
+    <script>
+      document.getElementById("kbd-hint-btn")?.addEventListener("click", () => {
+        const overlay = document.getElementById("shortcut-overlay");
+        if (overlay) { overlay.remove(); return; }
+        // Dispatch ? key to trigger the overlay
+        document.dispatchEvent(new KeyboardEvent("keydown", { key: "?", shiftKey: true }));
+      });
+    </script>
+
+    <!-- Sound toggle handler -->
+    <script>
+      const soundToggle = document.getElementById("sound-toggle");
+      const soundIcon = document.getElementById("sound-toggle-icon");
+      // Set initial icon
+      if (soundIcon) {
+        try {
+          const enabled = localStorage.getItem("gh_sounds_enabled");
+          const defaultOn = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          soundIcon.textContent = (enabled === "1" || (enabled === null && defaultOn)) ? "🔊" : "🔇";
+        } catch {}
+      }
+      soundToggle?.addEventListener("click", () => {
+        const toggle = (window as unknown as Record<string, () => boolean>).__toggleSounds;
+        if (toggle) toggle();
+      });
+    </script>
+
+    <!-- Simulated visitor count (deterministic based on time of day) -->
+    <script>
+      const vcEl = document.getElementById("visitor-count");
+      if (vcEl) {
+        function getVisitorCount(): number {
+          const now = new Date();
+          const hour = now.getHours();
+          // German evening peak: 19-22h = higher count
+          const baseCurve: Record<number, number> = {
+            0: 12, 1: 8, 2: 5, 3: 4, 4: 3, 5: 4, 6: 7, 7: 10, 8: 15,
+            9: 18, 10: 20, 11: 22, 12: 25, 13: 23, 14: 20, 15: 22,
+            16: 25, 17: 28, 18: 35, 19: 48, 20: 55, 21: 52, 22: 40, 23: 25,
+          };
+          const base = baseCurve[hour] ?? 20;
+          // Add minute-based jitter (deterministic per 5-minute window)
+          const minuteSeed = Math.floor(now.getMinutes() / 5);
+          const jitter = ((minuteSeed * 7 + hour * 13) % 11) - 5;
+          return Math.max(3, base + jitter);
+        }
+        vcEl.textContent = String(getVisitorCount());
+        setInterval(() => { vcEl.textContent = String(getVisitorCount()); }, 30000);
+      }
+    </script>
+
+    <!-- Cursor trail (desktop only, no touch) -->
+    <script>
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && !("ontouchstart" in window)) {
+        const TRAIL_LEN = 8;
+        const SPEED = 0.25;
+        const dots: { el: HTMLElement; x: number; y: number }[] = [];
+        const mouse = { x: -100, y: -100 };
+
+        for (let i = 0; i < TRAIL_LEN; i++) {
+          const el = document.createElement("div");
+          el.style.cssText = `position:fixed;pointer-events:none;width:${6 - i * 0.5}px;height:${6 - i * 0.5}px;border-radius:50%;background:rgba(245,192,0,${0.4 - i * 0.04});z-index:99997;will-change:transform;transition:none;`;
+          document.body.appendChild(el);
+          dots.push({ el, x: -100, y: -100 });
+        }
+
+        document.addEventListener("mousemove", (e) => {
+          mouse.x = e.clientX;
+          mouse.y = e.clientY;
+        });
+
+        function animateTrail() {
+          let x = mouse.x;
+          let y = mouse.y;
+          for (const dot of dots) {
+            dot.x += (x - dot.x) * SPEED;
+            dot.y += (y - dot.y) * SPEED;
+            dot.el.style.transform = `translate3d(${dot.x - 3}px, ${dot.y - 3}px, 0)`;
+            x = dot.x;
+            y = dot.y;
+          }
+          requestAnimationFrame(animateTrail);
+        }
+        requestAnimationFrame(animateTrail);
+      }
+    </script>
+
+    <!-- Section badge counter animation -->
+    <script>
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        const badgeObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const badge = entry.target as HTMLElement;
+            const text = badge.textContent ?? "";
+            const match = text.match(/^(\d+)\s*(.*)$/);
+            if (!match) return;
+            const target = parseInt(match[1], 10);
+            const suffix = match[2];
+            if (!target) return;
+            badgeObserver.unobserve(badge);
+            const duration = 1200;
+            const start = performance.now();
+            function tick(now: number) {
+              const progress = Math.min((now - start) / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              badge.textContent = `${Math.round(eased * target)} ${suffix}`;
+              if (progress < 1) requestAnimationFrame(tick);
+            }
+            badge.textContent = `0 ${suffix}`;
+            requestAnimationFrame(tick);
+          });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll(".section-badge").forEach((badge) => {
+          if (/^\d+/.test(badge.textContent?.trim() ?? "")) {
+            badgeObserver.observe(badge);
+          }
+        });
+      }
+    </script>
+
+    <style>
+      @keyframes visitor-pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #live-visitors span:first-child { animation: none !important; }
+      }
+    </style>
   </body>
 </html>

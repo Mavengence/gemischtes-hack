@@ -20,6 +20,7 @@ export default function EpisodeEvolution() {
   const [loading, setLoading] = useState(true);
   const [animated, setAnimated] = useState(false);
   const [hoveredBar, setHoveredBar] = useState<number | null>(null);
+  const [hoveredEp, setHoveredEp] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -52,15 +53,34 @@ export default function EpisodeEvolution() {
 
   if (loading) {
     return (
-      <div className="flex justify-center py-16">
-        <div className="w-5 h-5 border-2 border-accent/30 border-t-accent rounded-full animate-spin" />
+      <div className="max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
+          <div className="space-y-2.5">
+            <div className="h-3 bg-surface-200 animate-pulse rounded-sm w-48 mb-5" />
+            {[...Array(7)].map((_, i) => (
+              <div key={i} className="flex items-center gap-3">
+                <div className="h-3 bg-surface-200 animate-pulse rounded-sm w-10" />
+                <div className="flex-1 h-7 bg-surface-200 animate-pulse" style={{ borderRadius: "1px", width: `${80 - i * 8}%` }} />
+              </div>
+            ))}
+          </div>
+          <div className="space-y-2.5">
+            <div className="h-3 bg-surface-200 animate-pulse rounded-sm w-36 mb-5" />
+            {[...Array(7)].map((_, i) => (
+              <div key={i} className="flex items-center gap-3">
+                <div className="h-3 bg-surface-200 animate-pulse rounded-sm w-10" />
+                <div className="flex-1 h-7 bg-surface-200 animate-pulse" style={{ borderRadius: "1px", width: `${70 - i * 6}%` }} />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     );
   }
 
   if (yearStats.length === 0) {
     return (
-      <p className="text-gray-600 text-center py-12 text-sm">
+      <p className="text-gray-500 text-center py-12 text-sm">
         Keine Episoden-Daten verfügbar.
       </p>
     );
@@ -72,13 +92,14 @@ export default function EpisodeEvolution() {
   return (
     <div ref={containerRef} className="max-w-4xl mx-auto">
       {/* Year-by-year stats */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14">
         {/* Average duration per year */}
         <div>
-          <h3 className="text-[10px] text-gray-600 uppercase tracking-[0.25em] mb-4">
+          <h3 className="text-[11px] text-gray-500 uppercase tracking-[0.15em] mb-5 flex items-center gap-2">
+            <span className="inline-block w-3 h-0.5" style={{ background: "linear-gradient(90deg, #5B7DC8, #9C40B0)" }} />
             Durchschnittliche Länge pro Jahr
           </h3>
-          <div className="space-y-2">
+          <div className="space-y-2.5">
             {yearStats.map((year, i) => (
               <div
                 key={year.year}
@@ -86,11 +107,11 @@ export default function EpisodeEvolution() {
                 onMouseEnter={() => setHoveredBar(i)}
                 onMouseLeave={() => setHoveredBar(null)}
               >
-                <span className="text-xs text-gray-500 font-mono w-10 shrink-0">
+                <span className="text-xs text-gray-500 font-mono w-10 shrink-0 group-hover:text-gray-300 transition-colors">
                   {year.year}
                 </span>
                 <div
-                  className="flex-1 h-6 overflow-hidden relative"
+                  className="flex-1 h-7 overflow-hidden relative"
                   style={{ background: "#1F1F1F", borderRadius: "1px" }}
                 >
                   <div
@@ -106,7 +127,10 @@ export default function EpisodeEvolution() {
                           : "linear-gradient(90deg, #5B7DC8, #9C40B0)",
                     }}
                   >
-                    <span className="text-[10px] font-mono text-white/80 pl-2 whitespace-nowrap">
+                    <span
+                      className="text-[11px] font-mono pl-2.5 whitespace-nowrap font-medium transition-colors"
+                      style={{ color: hoveredBar === i ? "#0A0A0A" : "rgba(255,255,255,0.8)" }}
+                    >
                       {year.avgMinutes} min
                     </span>
                   </div>
@@ -118,53 +142,85 @@ export default function EpisodeEvolution() {
 
         {/* Episodes per year */}
         <div>
-          <h3 className="text-[10px] text-gray-600 uppercase tracking-[0.25em] mb-4">
+          <h3 className="text-[11px] text-gray-500 uppercase tracking-[0.15em] mb-5 flex items-center gap-2">
+            <span className="inline-block w-3 h-0.5" style={{ background: "#F5C000" }} />
             Episoden pro Jahr
           </h3>
-          <div className="space-y-2">
-            {yearStats.map((year, i) => (
-              <div key={year.year} className="flex items-center gap-3 group cursor-default">
-                <span className="text-xs text-gray-500 font-mono w-10 shrink-0">
-                  {year.year}
-                </span>
-                <div
-                  className="flex-1 h-6 overflow-hidden relative"
-                  style={{ background: "#1F1F1F", borderRadius: "1px" }}
-                >
+          <div className="space-y-2.5">
+            {yearStats.map((year, i) => {
+              const barWidth = (year.count / maxCount) * 100;
+              const showLabelInside = barWidth > 20;
+              return (
+                <div key={year.year} className="flex items-center gap-3 group cursor-default">
+                  <span className="text-xs text-gray-500 font-mono w-10 shrink-0 group-hover:text-gray-300 transition-colors">
+                    {year.year}
+                  </span>
                   <div
-                    className="h-full flex items-center transition-all ease-out"
-                    style={{
-                      width: animated
-                        ? `${(year.count / maxCount) * 100}%`
-                        : "0%",
-                      transitionDuration: `${800 + i * 150}ms`,
-                      background: "linear-gradient(90deg, #F5C000, #C49A00)",
-                    }}
+                    className="flex-1 h-7 overflow-hidden relative"
+                    style={{ background: "#1F1F1F", borderRadius: "1px" }}
                   >
-                    <span className="text-[10px] font-mono text-black/70 pl-2 whitespace-nowrap font-medium">
-                      {year.count}
-                    </span>
+                    <div
+                      className="h-full flex items-center transition-all ease-out"
+                      style={{
+                        width: animated ? `${barWidth}%` : "0%",
+                        transitionDuration: `${800 + i * 150}ms`,
+                        background: "linear-gradient(90deg, #F5C000, #C49A00)",
+                      }}
+                    >
+                      {showLabelInside && (
+                        <span className="text-[11px] font-mono text-black/80 pl-2.5 whitespace-nowrap font-bold">
+                          {year.count}
+                        </span>
+                      )}
+                    </div>
+                    {!showLabelInside && animated && (
+                      <span
+                        className="absolute top-1/2 -translate-y-1/2 text-[11px] font-mono text-gray-400 font-bold"
+                        style={{ left: `calc(${barWidth}% + 8px)` }}
+                      >
+                        {year.count}
+                      </span>
+                    )}
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
 
       {/* Episode duration scatter/timeline */}
       {timeline.length > 0 && (
-        <div>
-          <h3 className="text-[10px] text-gray-600 uppercase tracking-[0.25em] mb-4 text-center">
+        <div
+          className="p-6 md:p-8"
+          style={{
+            background: "#161616",
+            border: "1px solid #2A2A2A",
+            borderRadius: "2px",
+          }}
+        >
+          <h3 className="text-[11px] text-gray-500 uppercase tracking-[0.15em] mb-6 text-center">
             Jede Episode — Länge in Minuten
           </h3>
+
+          {/* Tooltip */}
+          {hoveredEp !== null && timeline[hoveredEp] && (
+            <div className="text-center mb-3 transition-opacity duration-150">
+              <span className="text-xs text-gray-400">
+                {timeline[hoveredEp].title}
+                <span className="text-gray-600 mx-2">—</span>
+                <span className="font-mono text-accent">{timeline[hoveredEp].minutes} min</span>
+              </span>
+            </div>
+          )}
+
           <div
-            className="relative overflow-x-auto pb-4"
-            style={{ scrollbarWidth: "thin", scrollbarColor: "#2A2A2A #0A0A0A" }}
+            className="relative overflow-x-auto pb-2"
+            style={{ scrollbarWidth: "thin", scrollbarColor: "#2A2A2A #161616" }}
           >
             <div
               className="flex items-end gap-px"
-              style={{ minWidth: `${timeline.length * 4}px`, height: "120px" }}
+              style={{ minWidth: `${timeline.length * 4}px`, height: "140px" }}
             >
               {timeline.map((ep, i) => {
                 const maxMin = Math.max(...timeline.map((e) => e.minutes));
@@ -172,48 +228,53 @@ export default function EpisodeEvolution() {
                 return (
                   <div
                     key={i}
-                    className="flex-1 min-w-[2px] max-w-[6px] transition-all duration-500 group relative"
+                    className="flex-1 min-w-[2px] max-w-[6px] transition-all group cursor-default"
                     style={{
                       height: animated ? `${height}%` : "0%",
+                      transitionDuration: "500ms",
                       transitionDelay: `${Math.min(i * 8, 2000)}ms`,
                       background:
-                        ep.minutes > 90
-                          ? "#F5C000"
-                          : ep.minutes > 60
-                            ? "#9C40B0"
-                            : "#5B7DC8",
+                        hoveredEp === i
+                          ? "#FFFFFF"
+                          : ep.minutes > 90
+                            ? "#F5C000"
+                            : ep.minutes > 60
+                              ? "#9C40B0"
+                              : "#5B7DC8",
                       borderRadius: "1px 1px 0 0",
+                      opacity: hoveredEp !== null && hoveredEp !== i ? 0.4 : 1,
                     }}
-                    title={`${ep.title} — ${ep.minutes} min`}
+                    onMouseEnter={() => setHoveredEp(i)}
+                    onMouseLeave={() => setHoveredEp(null)}
                   />
                 );
               })}
             </div>
+          </div>
 
-            {/* Legend */}
-            <div className="flex items-center justify-center gap-6 mt-4">
-              <span className="flex items-center gap-1.5">
-                <span
-                  className="inline-block w-2 h-2"
-                  style={{ background: "#5B7DC8", borderRadius: "1px" }}
-                />
-                <span className="text-[10px] text-gray-600">&lt; 60 min</span>
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span
-                  className="inline-block w-2 h-2"
-                  style={{ background: "#9C40B0", borderRadius: "1px" }}
-                />
-                <span className="text-[10px] text-gray-600">60-90 min</span>
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span
-                  className="inline-block w-2 h-2"
-                  style={{ background: "#F5C000", borderRadius: "1px" }}
-                />
-                <span className="text-[10px] text-gray-600">&gt; 90 min</span>
-              </span>
-            </div>
+          {/* Legend */}
+          <div className="flex items-center justify-center gap-6 mt-5 pt-4 border-t border-surface-300/20">
+            <span className="flex items-center gap-1.5">
+              <span
+                className="inline-block w-2.5 h-2.5"
+                style={{ background: "#5B7DC8", borderRadius: "1px" }}
+              />
+              <span className="text-[11px] text-gray-500">&lt; 60 min</span>
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span
+                className="inline-block w-2.5 h-2.5"
+                style={{ background: "#9C40B0", borderRadius: "1px" }}
+              />
+              <span className="text-[11px] text-gray-500">60–90 min</span>
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span
+                className="inline-block w-2.5 h-2.5"
+                style={{ background: "#F5C000", borderRadius: "1px" }}
+              />
+              <span className="text-[11px] text-gray-500">&gt; 90 min</span>
+            </span>
           </div>
         </div>
       )}

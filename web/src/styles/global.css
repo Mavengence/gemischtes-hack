@@ -4,7 +4,20 @@
 
 @layer base {
   body {
-    @apply bg-surface text-gray-200 antialiased;
+    @apply bg-surface text-gray-200 antialiased font-light;
+  }
+
+  /* Subtle grain overlay for cinematic dark feel */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 200px 200px;
   }
 
   ::selection {
@@ -13,6 +26,26 @@
 
   html {
     scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #2A2A2A #0A0A0A;
+  }
+
+  /* Webkit scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0A0A0A;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2A2A2A;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3A3A3A;
   }
 }
 
@@ -32,7 +65,7 @@
     border: 1px solid #2A2A2A;
     border-radius: 2px;
     padding: 1.25rem;
-    transition: border-color 200ms ease, background 200ms ease;
+    transition: border-color 200ms ease, background 200ms ease, transform 200ms ease, box-shadow 200ms ease;
     position: relative;
     overflow: hidden;
   }
@@ -52,9 +85,31 @@
   .card:hover {
     border-color: #383838;
     background: #1A1A1A;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(245, 192, 0, 0.04);
   }
 
   .card:hover::before {
+    opacity: 1;
+  }
+
+  /* Mouse-tracking spotlight (Stripe-style) */
+  .card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle 180px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(245, 192, 0, 0.06) 0%,
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 300ms ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .card:hover::after {
     opacity: 1;
   }
 
@@ -63,6 +118,16 @@
     @apply bg-accent hover:bg-accent-light text-black font-semibold
            px-5 py-2.5 text-sm tracking-wide;
     border-radius: 2px;
+    transition: background 200ms ease, transform 100ms ease, box-shadow 200ms ease;
+  }
+
+  .btn-primary:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 12px rgba(245, 192, 0, 0.2);
+  }
+
+  .btn-primary:active {
+    transform: scale(0.98);
   }
 
   .btn-ghost {
@@ -76,7 +141,7 @@
     background: #161616;
     border: 1px solid #2A2A2A;
     border-radius: 0;
-    @apply text-gray-100 px-4 py-3 placeholder:text-gray-600
+    @apply text-gray-100 px-4 py-3 placeholder:text-gray-500
            focus:outline-none focus:border-accent;
     letter-spacing: 0.02em;
     transition: border-color 200ms ease;
@@ -88,6 +153,15 @@
     border: 2px solid #F5C000;
     padding: 2rem 4rem;
     display: inline-block;
+  }
+
+  .marquee-sign::before {
+    content: '';
+    position: absolute;
+    inset: -40px;
+    background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(245, 192, 0, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -1;
   }
 
   @media (max-width: 768px) {
@@ -104,19 +178,56 @@
 
   .marquee-dot {
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background: radial-gradient(circle, #FFE066 30%, #F5C000 60%, #C49A00 100%);
-    box-shadow: 0 0 8px 3px rgba(245, 192, 0, 0.6);
-    animation: marquee-chase 1.6s ease-in-out infinite;
+    animation: marquee-chase 2.4s ease-in-out infinite;
   }
 
   @media (max-width: 768px) {
     .marquee-dot {
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
     }
+  }
+
+  /* Section header with badge */
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-badge {
+    display: inline-block;
+    @apply text-[11px] text-accent/80 uppercase tracking-[0.25em] font-medium mb-4 px-3 py-1;
+    background: rgba(245, 192, 0, 0.06);
+    border: 1px solid rgba(245, 192, 0, 0.12);
+    border-radius: 1px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-badge::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(245, 192, 0, 0.12), transparent);
+    animation: badge-shimmer 3s ease-in-out infinite;
+  }
+
+  /* Alternating section background for visual rhythm */
+  .section-alt {
+    background: linear-gradient(
+      to bottom,
+      #0A0A0A 0px,
+      #0D0D0D 60px,
+      #0D0D0D calc(100% - 60px),
+      #0A0A0A 100%
+    );
   }
 
   /* Plaid stripe section divider */
@@ -137,16 +248,10 @@
     margin: 0;
   }
 
-  /* Stats */
+  /* Stat cards (legacy — kept for compatibility) */
   .stat-number {
-    @apply text-5xl md:text-6xl font-display font-bold text-accent tabular-nums;
+    @apply text-4xl md:text-5xl font-display font-bold text-accent tabular-nums;
     letter-spacing: -0.03em;
-  }
-
-  .stat-label {
-    @apply uppercase text-gray-500 mt-2 font-sans font-normal;
-    font-size: 10px;
-    letter-spacing: 0.3em;
   }
 
   /* Nav */
@@ -158,7 +263,76 @@
     @apply text-accent;
   }
 
+  /* Mobile nav links */
+  .mobile-nav-link {
+    @apply text-gray-400 hover:text-white transition-colors text-sm py-2.5 px-3 block;
+    border-radius: 2px;
+  }
+
+  .mobile-nav-link:hover {
+    background: #1F1F1F;
+  }
+
+  .mobile-nav-link.active {
+    @apply text-accent;
+    background: rgba(245, 192, 0, 0.06);
+  }
+
+  /* Nav compact search */
+  .nav-search-form {
+    gap: 0.375rem;
+    padding: 0.375rem 0.75rem;
+    background: #161616;
+    border: 1px solid #2A2A2A;
+    border-radius: 2px;
+    transition: border-color 200ms ease, width 300ms ease, box-shadow 200ms ease;
+    width: 160px;
+  }
+
+  .nav-search-form:focus-within {
+    width: 240px;
+    border-color: rgba(245, 192, 0, 0.25);
+    box-shadow: 0 0 0 1px rgba(245, 192, 0, 0.06);
+  }
+
+  .nav-search-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #e5e5e5;
+    font-size: 0.75rem;
+    width: 100%;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-search-input::placeholder {
+    color: #555;
+  }
+
+  /* Mobile bottom nav */
+  .mobile-bottom-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    color: #666;
+    transition: color 200ms ease;
+  }
+
+  .mobile-bottom-link.active {
+    color: #F5C000;
+  }
+
+  /* Add bottom padding on mobile for the fixed bottom nav */
+  @media (max-width: 768px) {
+    body {
+      padding-bottom: 3.5rem;
+    }
+  }
+
 }
+
 
 /* Respect reduced motion globally */
 @media (prefers-reduced-motion: reduce) {
@@ -167,22 +341,148 @@
     opacity: 0.5;
   }
 
+  .section-badge::after {
+    animation: none;
+  }
+
   html {
     scroll-behavior: auto;
   }
 }
 
-/* Marquee chase — bulbs light up sequentially */
+/* Marquee chase — bulbs light up sequentially with soft glow */
 @keyframes marquee-chase {
-  0%   { opacity: 0.12; box-shadow: none; }
-  45%  { opacity: 0.12; box-shadow: none; }
-  50%  { opacity: 1;    box-shadow: 0 0 8px 3px rgba(245, 192, 0, 0.7); }
-  55%  { opacity: 0.12; box-shadow: none; }
-  100% { opacity: 0.12; box-shadow: none; }
+  0%   { opacity: 0.08; box-shadow: none; }
+  35%  { opacity: 0.08; box-shadow: none; }
+  45%  { opacity: 0.6;  box-shadow: 0 0 6px 2px rgba(245, 192, 0, 0.3); }
+  50%  { opacity: 1;    box-shadow: 0 0 10px 4px rgba(245, 192, 0, 0.5); }
+  55%  { opacity: 0.6;  box-shadow: 0 0 6px 2px rgba(245, 192, 0, 0.3); }
+  65%  { opacity: 0.08; box-shadow: none; }
+  100% { opacity: 0.08; box-shadow: none; }
+}
+
+/* Badge shimmer sweep */
+@keyframes badge-shimmer {
+  0%   { left: -100%; }
+  50%  { left: 100%; }
+  100% { left: 100%; }
 }
 
 /* Scroll arrow float */
 @keyframes float-down {
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(5px); }
+}
+
+/* Chat section — subtle accent glow to draw attention */
+.chat-section {
+  position: relative;
+}
+
+.chat-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(600px, 80%);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(245, 192, 0, 0.15), transparent);
+}
+
+/* Chat message fade-in */
+@keyframes chat-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Chat typing dots */
+.chat-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(245, 192, 0, 0.5);
+  animation: chat-bounce 700ms ease-in-out infinite;
+}
+
+@keyframes chat-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50%      { transform: translateY(-4px); opacity: 1; }
+}
+
+/* Streaming cursor — blinking caret */
+.chat-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: #F5C000;
+  margin-left: 1px;
+  vertical-align: text-bottom;
+  animation: chat-cursor-blink 800ms step-end infinite;
+}
+
+@keyframes chat-cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+/* Status dot — green with subtle pulse when active */
+.chat-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  transition: background 300ms ease;
+}
+
+.chat-status-dot--active {
+  background: #F5C000;
+  animation: chat-status-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes chat-status-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 192, 0, 0.4); }
+  50%      { box-shadow: 0 0 0 4px rgba(245, 192, 0, 0); }
+}
+
+/* Suggestion chip base style */
+.chat-suggestion {
+  background: #161616;
+  border: 1px solid #2A2A2A;
+  border-radius: 2px;
+  transition: border-color 200ms ease, background 200ms ease, transform 100ms ease;
+}
+
+.chat-suggestion:hover {
+  border-color: rgba(245, 192, 0, 0.2);
+  background: #1A1A1A;
+}
+
+.chat-suggestion:active {
+  transform: scale(0.985);
+}
+
+/* Subtle icon pulse on empty state */
+.chat-icon-pulse {
+  animation: chat-icon-breathe 3s ease-in-out infinite;
+}
+
+@keyframes chat-icon-breathe {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.7; }
+}
+
+/* Reduced motion — disable all chat animations */
+@media (prefers-reduced-motion: reduce) {
+  .chat-cursor,
+  .chat-dot,
+  .chat-status-dot--active,
+  .chat-icon-pulse,
+  .chat-suggestion {
+    animation: none !important;
+  }
+
+  .chat-cursor {
+    opacity: 1;
+  }
 }

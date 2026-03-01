@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import fehlkaufeData from "@/data/fehlkaufe.json";
 
 type Fehlkauf = {
@@ -15,6 +15,7 @@ export default function FehlkaufCards() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [flipped, setFlipped] = useState(false);
   const [direction, setDirection] = useState<"left" | "right" | null>(null);
+  const touchStartX = useRef(0);
 
   const current = fehlkaufe[currentIndex];
 
@@ -44,32 +45,52 @@ export default function FehlkaufCards() {
     });
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      try { navigator?.vibrate?.(20); } catch {}
+      if (diff > 0) goNext();
+      else goPrev();
+    }
+  };
+
   return (
     <div className="max-w-xl mx-auto">
       {/* Counter */}
       <div className="flex items-center justify-between mb-6">
-        <span className="text-[10px] text-gray-600 uppercase tracking-[0.2em]">
+        <span className="text-xs text-gray-500 uppercase tracking-[0.15em]">
           Gast {currentIndex + 1} von {fehlkaufe.length}
         </span>
-        <span className="text-[10px] text-gray-600">Klick zum Umdrehen</span>
+        <span className="text-xs text-gray-400 italic">
+          {flipped ? "Nochmal klicken zum Zurückdrehen" : "Klick zum Umdrehen"}
+        </span>
       </div>
 
       {/* Card */}
       <div
         className="relative cursor-pointer select-none"
-        style={{ perspective: "1000px", minHeight: "320px" }}
+        style={{ perspective: "1000px", minHeight: "340px" }}
         onClick={() => setFlipped((prev) => !prev)}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
         role="button"
         aria-label={flipped ? "Antwort verbergen" : "Antwort zeigen"}
         tabIndex={0}
         onKeyDown={(e) => {
-          if (e.key === "Enter" || e.key === " ") setFlipped((prev) => !prev);
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            setFlipped((prev) => !prev);
+          }
           if (e.key === "ArrowRight") goNext();
           if (e.key === "ArrowLeft") goPrev();
         }}
       >
         <div
-          className="relative w-full transition-all duration-500"
+          className="relative w-full"
           style={{
             transformStyle: "preserve-3d",
             transform: flipped ? "rotateY(180deg)" : "rotateY(0)",
@@ -87,24 +108,30 @@ export default function FehlkaufCards() {
               background: "#161616",
               border: "1px solid #2A2A2A",
               borderRadius: "2px",
-              minHeight: "320px",
+              minHeight: "340px",
             }}
           >
-            <div className="flex flex-col h-full justify-between" style={{ minHeight: "260px" }}>
+            <div className="flex flex-col h-full justify-between" style={{ minHeight: "280px" }}>
               <div>
-                <div className="text-[10px] text-accent/60 uppercase tracking-[0.25em] mb-6">
+                <div className="text-[11px] text-accent/70 uppercase tracking-[0.25em] mb-6">
                   5 Schnelle Fragen an
                 </div>
                 <h3 className="font-display text-3xl md:text-4xl font-bold text-white mb-3">
                   {current.guest}
                 </h3>
-                <p className="text-xs text-gray-600">{formatDate(current.pub_date)}</p>
+                <p className="text-xs text-gray-500">{formatDate(current.pub_date)}</p>
               </div>
 
               <div className="mt-8">
-                <p className="font-display text-xl md:text-2xl font-semibold text-accent">
-                  Was war dein letzter Fehlkauf?
+                <p className="font-display text-xl md:text-2xl font-semibold text-accent leading-snug">
+                  &ldquo;Was war dein letzter Fehlkauf?&rdquo;
                 </p>
+                <div className="mt-4 flex items-center gap-2 text-xs text-gray-600">
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                  Tippe zum Umdrehen
+                </div>
               </div>
             </div>
           </div>
@@ -118,17 +145,17 @@ export default function FehlkaufCards() {
               background: "#161616",
               border: "1px solid #2A2A2A",
               borderRadius: "2px",
-              minHeight: "320px",
+              minHeight: "340px",
             }}
           >
-            <div className="flex flex-col h-full justify-between" style={{ minHeight: "260px" }}>
+            <div className="flex flex-col h-full justify-between" style={{ minHeight: "280px" }}>
               <div>
                 <div className="flex items-center gap-2 mb-6">
-                  <span className="text-[10px] text-gray-600 uppercase tracking-[0.2em]">
+                  <span className="text-[11px] text-gray-400 uppercase tracking-[0.2em]">
                     {current.guest}
                   </span>
-                  <span className="text-[10px] text-gray-700">|</span>
-                  <span className="text-[10px] text-gray-700">Fehlkauf</span>
+                  <span className="text-[11px] text-gray-600">|</span>
+                  <span className="text-[11px] text-accent/60 uppercase tracking-[0.15em]">Fehlkauf</span>
                 </div>
 
                 <blockquote
@@ -138,7 +165,7 @@ export default function FehlkaufCards() {
                   &ldquo;{current.fehlkauf_context}&rdquo;
                 </blockquote>
 
-                <p className="text-sm text-gray-500 leading-relaxed">{current.fehlkauf_answer}</p>
+                <p className="text-sm text-gray-400 leading-relaxed">{current.fehlkauf_answer}</p>
               </div>
             </div>
           </div>
@@ -152,8 +179,8 @@ export default function FehlkaufCards() {
             e.stopPropagation();
             goPrev();
           }}
-          className="flex items-center gap-2 py-2 px-4 text-sm text-gray-500 hover:text-white transition-colors"
-          style={{ background: "#161616", border: "1px solid #2A2A2A", borderRadius: "2px" }}
+          className="flex items-center gap-2 py-2.5 px-4 text-sm text-gray-400 hover:text-white transition-all duration-200 bg-surface-100 hover:bg-surface-200"
+          style={{ border: "1px solid #2A2A2A", borderRadius: "2px" }}
           aria-label="Vorheriger Gast"
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -163,8 +190,8 @@ export default function FehlkaufCards() {
         </button>
 
         {/* Dots */}
-        <div className="flex items-center gap-1.5">
-          {fehlkaufe.map((_, i) => (
+        <div className="flex items-center gap-2">
+          {fehlkaufe.map((f, i) => (
             <button
               key={i}
               onClick={(e) => {
@@ -172,12 +199,13 @@ export default function FehlkaufCards() {
                 setFlipped(false);
                 setCurrentIndex(i);
               }}
-              className="w-2 h-2 transition-all duration-200"
+              className="w-2 h-2 transition-all duration-300"
               style={{
                 background: i === currentIndex ? "#F5C000" : "#2A2A2A",
                 borderRadius: "1px",
+                transform: i === currentIndex ? "scale(1.3)" : "scale(1)",
               }}
-              aria-label={`Gast ${i + 1}: ${fehlkaufe[i].guest}`}
+              aria-label={`Gast ${i + 1}: ${f.guest}`}
             />
           ))}
         </div>
@@ -187,8 +215,8 @@ export default function FehlkaufCards() {
             e.stopPropagation();
             goNext();
           }}
-          className="flex items-center gap-2 py-2 px-4 text-sm text-gray-500 hover:text-white transition-colors"
-          style={{ background: "#161616", border: "1px solid #2A2A2A", borderRadius: "2px" }}
+          className="flex items-center gap-2 py-2.5 px-4 text-sm text-gray-400 hover:text-white transition-all duration-200 bg-surface-100 hover:bg-surface-200"
+          style={{ border: "1px solid #2A2A2A", borderRadius: "2px" }}
           aria-label="Nächster Gast"
         >
           Weiter

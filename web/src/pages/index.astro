@@ -1,13 +1,13 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import SearchResults from "@/components/react/SearchResults";
 import TopicTimeline from "@/components/react/TopicTimeline";
-import WerHatsSagt from "@/components/react/WerHatsSagt";
 import ZitatRoulette from "@/components/react/ZitatRoulette";
 import SpeakerDuel from "@/components/react/SpeakerDuel";
 import EpisodeEvolution from "@/components/react/EpisodeEvolution";
 import FehlkaufCards from "@/components/react/FehlkaufCards";
 import RapZitate from "@/components/react/RapZitate";
+import ChatBot from "@/components/react/ChatBot";
+import EpisodeViewer from "@/components/react/EpisodeViewer";
 import { supabase } from "@/lib/supabase";
 
 // Fetch data at build time
@@ -21,15 +21,6 @@ const { count: episodeCount } = await supabase
   .from("episodes")
   .select("id", { count: "exact", head: true });
 
-const { count: chunkCount } = await supabase
-  .from("chunks")
-  .select("id", { count: "exact", head: true });
-
-const { count: topicCount } = await supabase
-  .from("topics")
-  .select("id", { count: "exact", head: true });
-
-// Use count query for total hours since we limit episodes above
 const { data: allEps } = await supabase
   .from("episodes")
   .select("duration_seconds");
@@ -37,7 +28,18 @@ const totalMinutes = (allEps ?? []).reduce((sum, ep) => sum + (ep.duration_secon
 const totalHours = Math.round(totalMinutes / 60);
 
 function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString("de-DE", {
+  const date = new Date(dateStr);
+  const now = new Date();
+  const diffMs = now.getTime() - date.getTime();
+  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+  if (diffDays === 0) return "Heute";
+  if (diffDays === 1) return "Gestern";
+  if (diffDays < 7) return `vor ${diffDays} Tagen`;
+  if (diffDays < 14) return "vor 1 Woche";
+  if (diffDays < 60) return `vor ${Math.floor(diffDays / 7)} Wochen`;
+
+  return date.toLocaleDateString("de-DE", {
     day: "2-digit",
     month: "2-digit",
     year: "2-digit",
@@ -53,41 +55,73 @@ function formatDuration(seconds: number): string {
 
   <!-- ========== HERO ========== -->
   <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <!-- Background image -->
-    <div class="absolute inset-0">
+    <!-- Background image with parallax -->
+    <div class="absolute inset-0 overflow-hidden">
       <img
+        id="hero-bg"
         src="/background.jpg"
         alt=""
-        class="w-full h-full object-cover object-center"
+        class="w-full h-[120%] object-cover object-center will-change-transform"
         loading="eager"
       />
-      <!-- Radial vignette + bottom fade -->
       <div class="hero-overlay absolute inset-0"></div>
     </div>
 
     <!-- Hero content -->
     <div class="relative z-10 text-center px-6 pt-12">
       <!-- Marquee sign with chase lights -->
-      <div class="inline-block relative mb-10" aria-hidden="true">
+      <div class="inline-block relative mb-10 hero-enter hero-enter-1" aria-hidden="true">
         <div class="marquee-lights" id="marquee-lights"></div>
         <div class="marquee-sign">
-          <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-bold text-white whitespace-nowrap" style="letter-spacing: -0.02em; line-height: 1.05;">
+          <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-extrabold text-white whitespace-nowrap" style="letter-spacing: -0.02em; line-height: 1.05;">
             GEMISCHTES <span class="text-accent">HACK</span>
           </h1>
         </div>
       </div>
 
-      <p class="text-gray-300 text-sm tracking-[0.25em] uppercase font-display mb-2">
+      <p class="text-gray-300 text-sm tracking-[0.25em] uppercase font-display mb-2 hero-enter hero-enter-2">
         Felix Lobrecht & Tommi Schmitt
       </p>
-      <p class="text-gray-500 text-base tracking-wide font-light">
-        Insights aus jeder Folge
+
+      <!-- Stats as prose sentence -->
+      <p class="hero-prose mt-6 mb-8 hero-enter hero-enter-3">
+        Über <strong><span class="counter" data-target={episodeCount ?? 0}>0</span> Folgen</strong> und <strong><span class="counter" data-target={totalHours}>0</span>+ Stunden</strong> — jedes Wort transkribiert und durchsuchbar.
       </p>
 
+      <!-- Hero search input — the Perplexity pattern -->
+      <div class="hero-search-wrap hero-enter hero-enter-4">
+        <form id="hero-search-form" class="hero-search hero-search-glow" autocomplete="off">
+          <svg class="hero-search-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+          </svg>
+          <div class="hero-search-input-wrap">
+            <input
+              id="hero-search-input"
+              type="text"
+              class="hero-search-input"
+              placeholder=" "
+              aria-label="Frag den Podcast"
+            />
+            <span id="hero-placeholder" class="hero-search-placeholder">Was willst du über Gemischtes Hack wissen?</span>
+          </div>
+          <button type="submit" class="hero-search-btn" aria-label="Frage stellen">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+        </form>
+        <div class="hero-search-hints" id="hero-search-hints">
+          <span class="text-gray-600 text-[11px]">z.B.</span>
+          <button class="hero-hint-chip" data-question="Worüber reden Felix und Tommi am meisten?">Beliebteste Themen</button>
+          <button class="hero-hint-chip" data-question="Was war der lustigste Moment im Podcast?">Lustigster Moment</button>
+          <button class="hero-hint-chip" data-question="Erzähl mir über die Running Gags">Running Gags</button>
+        </div>
+      </div>
+
       <!-- Scroll indicator -->
-      <div class="mt-16">
-        <a href="#stats" aria-label="Zu den Statistiken scrollen" class="scroll-arrow text-gray-600 hover:text-accent transition-colors inline-block">
-          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+      <div class="mt-10 hero-enter hero-enter-5">
+        <a href="#chat" aria-label="Zum Chat scrollen" class="scroll-arrow text-gray-600 hover:text-accent transition-colors inline-block">
+          <svg class="w-8 h-8 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7" />
           </svg>
         </a>
@@ -95,55 +129,71 @@ function formatDuration(seconds: number): string {
     </div>
   </section>
 
-  <!-- ========== STATS ========== -->
-  <section id="stats" class="py-24 px-6">
-    <div class="max-w-4xl mx-auto">
-      <div class="grid grid-cols-2 md:grid-cols-4 border border-surface-300">
-        <div class="p-8 md:p-10 text-center border-r border-b md:border-b-0 border-surface-300">
-          <div class="stat-number" data-count={episodeCount ?? 0}>{episodeCount ?? 0}</div>
-          <div class="stat-label">Episoden</div>
-        </div>
-        <div class="p-8 md:p-10 text-center border-b md:border-b-0 md:border-r border-surface-300">
-          <div class="stat-number" data-count={totalHours}>{totalHours}+</div>
-          <div class="stat-label">Stunden</div>
-        </div>
-        <div class="p-8 md:p-10 text-center border-r border-surface-300">
-          <div class="stat-number" data-count={chunkCount ?? 0}>{chunkCount ? (chunkCount / 1000).toFixed(1) + "k" : "0"}</div>
-          <div class="stat-label">Segmente</div>
-        </div>
-        <div class="p-8 md:p-10 text-center">
-          <div class="stat-number" data-count={topicCount ?? 0}>{topicCount ?? 0}</div>
-          <div class="stat-label">Themen</div>
-        </div>
+  <!-- ========== CHATBOT (first section — hero feature) ========== -->
+  <section id="chat" class="py-20 px-6 chat-section reveal">
+    <div class="max-w-5xl mx-auto">
+      <div class="section-header">
+        <div class="section-badge">RAG</div>
+        <h2 class="font-display text-5xl md:text-6xl font-extrabold uppercase text-white mb-3" style="letter-spacing: -0.02em;">
+          Frag den <span class="text-accent">Podcast</span>
+        </h2>
+        <p class="text-gray-400 text-sm tracking-[0.15em] uppercase">Stell eine Frage — die KI durchsucht alle Transkripte</p>
       </div>
+      <ChatBot client:visible />
     </div>
   </section>
 
-  <div class="section-divider max-w-5xl mx-auto"></div>
-
   <!-- ========== RAP ZITATE ========== -->
-  <section id="rapzitate" class="py-28 px-6 section-reveal">
+  <section id="rapzitate" class="py-20 px-6 section-alt reveal">
     <div class="max-w-5xl mx-auto">
-      <div class="mb-10 text-center">
-        <h2 class="font-display text-5xl md:text-6xl font-bold uppercase text-white mb-2" style="letter-spacing: -0.02em;">
+      <div class="section-header">
+        <div class="section-badge">66 Zitate</div>
+        <h2 class="font-display text-5xl md:text-6xl font-extrabold uppercase text-white mb-3" style="letter-spacing: -0.02em;">
           Rap<span class="text-accent">zitate</span>
         </h2>
-        <p class="text-gray-600 text-xs tracking-[0.2em] uppercase">Jede Folge startet mit einem Rap-Zitat — 66 dokumentiert</p>
+        <p class="text-gray-400 text-sm tracking-[0.15em] uppercase">Jede Folge beginnt mit einem Rap-Zitat — entdecke sie alle</p>
       </div>
       <RapZitate client:visible />
     </div>
   </section>
 
-  <div class="section-divider max-w-5xl mx-auto"></div>
-
-  <!-- ========== 5 SCHNELLE FRAGEN — FEHLKÄUFE ========== -->
-  <section id="fehlkauf" class="py-28 px-6 section-reveal">
+  <!-- ========== SPEAKER DUEL ========== -->
+  <section id="duel" class="py-20 px-6 reveal">
     <div class="max-w-5xl mx-auto">
-      <div class="mb-10 text-center">
-        <h2 class="font-display text-5xl md:text-6xl font-bold uppercase text-white mb-2" style="letter-spacing: -0.02em;">
+      <div class="section-header">
+        <div class="section-badge">Daten</div>
+        <h2 class="font-display text-5xl md:text-6xl font-extrabold uppercase text-white mb-3" style="letter-spacing: -0.02em;">
+          Felix <span class="text-accent">vs</span> Tommi
+        </h2>
+        <p class="text-gray-400 text-sm tracking-[0.15em] uppercase">Vergleich die Hosts in 5 Kategorien</p>
+      </div>
+      <SpeakerDuel client:visible />
+    </div>
+  </section>
+
+  <!-- ========== ZITAT ROULETTE ========== -->
+  <section id="roulette" class="py-20 px-6 section-alt reveal">
+    <div class="max-w-5xl mx-auto">
+      <div class="section-header">
+        <div class="section-badge">Zufall</div>
+        <h2 class="font-display text-5xl md:text-6xl font-extrabold uppercase text-white mb-3" style="letter-spacing: -0.02em;">
+          Zitat-<span class="text-accent">Roulette</span>
+        </h2>
+        <p class="text-gray-400 text-sm tracking-[0.15em] uppercase">Dreh und lass dich von zufälligen Zitaten überraschen</p>
+      </div>
+      <ZitatRoulette client:visible />
+    </div>
+  </section>
+
+  <!-- ========== 5 SCHNELLE FRAGEN ========== -->
+  <section id="fehlkauf" class="py-20 px-6 reveal">
+    <div class="max-w-5xl mx-auto">
+      <div class="section-header">
+        <div class="section-badge">10 Gäste</div>
+        <h2 class="font-display text-5xl md:text-6xl font-extrabold uppercase text-white mb-3" style="letter-spacing: -0.02em;">
           5 Schnelle <span class="text-accent">Fragen</span>
         </h2>
-        <p class="text-gray-600 text-xs tracking-[0.2em] uppercase">Was war dein letzter Fehlkauf? — 10 Gäste, 10 Antworten</p>
+        <p class="text-gray-400 text-sm tracking-[0.15em] uppercase">Swipe durch die Antworten der Podcast-Gäste</p>
       </div>
       <FehlkaufCards client:visible />
     </div>
@@ -151,59 +201,15 @@ function formatDuration(seconds: number): string {
 
   <div class="section-divider max-w-5xl mx-auto"></div>
 
-  <!-- ========== WER HAT'S GESAGT? QUIZ ========== -->
-  <section id="quiz" class="py-28 px-6 section-reveal">
-    <div class="max-w-5xl mx-auto">
-      <div class="mb-10 text-center">
-        <h2 class="font-display text-5xl md:text-6xl font-bold uppercase text-white mb-2" style="letter-spacing: -0.02em;">
-          Wer hat's <span class="text-accent">gesagt</span>?
-        </h2>
-        <p class="text-gray-600 text-xs tracking-[0.2em] uppercase">Rate ob Felix oder Tommi das gesagt hat</p>
-      </div>
-      <WerHatsSagt client:visible />
-    </div>
-  </section>
-
-  <div class="section-divider max-w-5xl mx-auto"></div>
-
-  <!-- ========== ZITAT ROULETTE ========== -->
-  <section id="roulette" class="py-28 px-6 section-reveal">
-    <div class="max-w-5xl mx-auto">
-      <div class="mb-10 text-center">
-        <h2 class="font-display text-5xl md:text-6xl font-bold uppercase text-white mb-2" style="letter-spacing: -0.02em;">
-          Zitat-<span class="text-accent">Roulette</span>
-        </h2>
-        <p class="text-gray-600 text-xs tracking-[0.2em] uppercase">Dreh und entdecke zufällige Podcast-Zitate</p>
-      </div>
-      <ZitatRoulette client:visible />
-    </div>
-  </section>
-
-  <div class="section-divider max-w-5xl mx-auto"></div>
-
-  <!-- ========== SPEAKER DUEL ========== -->
-  <section id="duel" class="py-28 px-6 section-reveal">
-    <div class="max-w-5xl mx-auto">
-      <div class="mb-10 text-center">
-        <h2 class="font-display text-5xl md:text-6xl font-bold uppercase text-white mb-2" style="letter-spacing: -0.02em;">
-          Felix <span class="text-accent">vs</span> Tommi
-        </h2>
-        <p class="text-gray-600 text-xs tracking-[0.2em] uppercase">Wer redet mehr? Die Daten lügen nicht.</p>
-      </div>
-      <SpeakerDuel client:visible />
-    </div>
-  </section>
-
-  <div class="section-divider max-w-5xl mx-auto"></div>
-
   <!-- ========== EPISODE EVOLUTION ========== -->
-  <section id="evolution" class="py-28 px-6 section-reveal">
+  <section id="evolution" class="py-20 px-6 section-alt reveal">
     <div class="max-w-5xl mx-auto">
-      <div class="mb-10 text-center">
-        <h2 class="font-display text-5xl md:text-6xl font-bold uppercase text-white mb-2" style="letter-spacing: -0.02em;">
+      <div class="section-header">
+        <div class="section-badge">Timeline</div>
+        <h2 class="font-display text-5xl md:text-6xl font-extrabold uppercase text-white mb-3" style="letter-spacing: -0.02em;">
           <span class="text-accent">Evolution</span>
         </h2>
-        <p class="text-gray-600 text-xs tracking-[0.2em] uppercase">Wie sich der Podcast über die Jahre verändert hat</p>
+        <p class="text-gray-400 text-sm tracking-[0.15em] uppercase">Sieh wie sich der Podcast seit 2017 verändert hat</p>
       </div>
       <EpisodeEvolution client:visible />
     </div>
@@ -211,59 +217,149 @@ function formatDuration(seconds: number): string {
 
   <div class="section-divider max-w-5xl mx-auto"></div>
 
-  <!-- ========== SEARCH ========== -->
-  <section id="suche" class="py-28 px-6 section-reveal">
-    <div class="max-w-5xl mx-auto">
-      <div class="mb-8">
-        <h2 class="font-display text-5xl md:text-6xl font-bold uppercase text-white mb-2" style="letter-spacing: -0.02em;">Suche</h2>
-        <p class="text-gray-600 text-xs tracking-[0.2em] uppercase">Semantisch — alle transkribierten Episoden</p>
-      </div>
-      <SearchResults client:load />
-    </div>
-  </section>
-
-  <div class="section-divider max-w-5xl mx-auto"></div>
-
   <!-- ========== EPISODES ========== -->
-  <section id="episoden" class="py-20 px-6">
+  <section id="episoden" class="py-20 px-6 reveal">
     <div class="max-w-6xl mx-auto">
-      <div class="mb-8">
-        <h2 class="font-display text-5xl md:text-6xl font-bold uppercase text-white mb-2" style="letter-spacing: -0.02em;">Episoden</h2>
-        <p class="text-gray-600 text-xs tracking-[0.2em] uppercase">{episodeCount ?? 0} Folgen transkribiert</p>
+      <div class="section-header">
+        <div class="section-badge">{episodeCount ?? 0} Folgen</div>
+        <h2 class="font-display text-5xl md:text-6xl font-extrabold uppercase text-white mb-3" style="letter-spacing: -0.02em;">
+          Epi<span class="text-accent">soden</span>
+        </h2>
+        <p class="text-gray-400 text-sm tracking-[0.15em] uppercase">Klick auf eine Folge und lies das Transkript</p>
+      </div>
+
+      <!-- Exploration tracker -->
+      <div id="explore-tracker" class="text-center mb-6 hidden">
+        <span class="text-[11px] text-gray-500 tracking-[0.1em]">
+          Du hast <span id="explore-count" class="text-accent font-medium">0</span> von <span class="text-gray-400">{episodeCount ?? 0}</span> Folgen erkundet
+        </span>
+        <div class="mt-2 max-w-xs mx-auto h-1 overflow-hidden" style="background: #1F1F1F; border-radius: 1px;">
+          <div id="explore-bar" class="h-full transition-all duration-700 ease-out" style="width: 0%; background: linear-gradient(90deg, #F5C000, #C49A00);"></div>
+        </div>
       </div>
 
       {episodes && episodes.length > 0 ? (
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3" id="episode-grid">
-          {episodes.map((ep) => (
-            <div class="card card-reveal">
-              <div class="flex items-start justify-between gap-3 mb-2">
-                <h3 class="font-medium text-gray-200 line-clamp-2 text-sm leading-snug">
-                  {ep.title}
-                </h3>
-                {ep.episode_number && (
-                  <span class="text-[11px] text-gray-600 font-mono shrink-0">#{ep.episode_number}</span>
+        <>
+          {/* Featured latest episode — full-width strip */}
+          {episodes[0] && (
+            <div class="featured-episode mb-8 cursor-pointer episode-card" data-glt-id={episodes[0].glt_id} data-topics={JSON.stringify(episodes[0].topics_json ?? [])}>
+              <div class="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+                <div class="shrink-0">
+                  <span class="featured-episode-number">#{episodes[0].episode_number}</span>
+                  <div class="text-[10px] text-gray-600 uppercase tracking-[0.2em] mt-1">Neueste Folge</div>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h3 class="font-display text-xl md:text-2xl font-bold text-gray-100 mb-2 leading-tight">
+                    {episodes[0].title}
+                  </h3>
+                  {episodes[0].summary && (
+                    <p class="text-sm text-gray-400 line-clamp-2 leading-relaxed">{episodes[0].summary}</p>
+                  )}
+                </div>
+                <div class="shrink-0 flex flex-row md:flex-col items-center md:items-end gap-3 md:gap-1 text-xs text-gray-500">
+                  <span>{formatDate(episodes[0].pub_date)}</span>
+                  <span>{formatDuration(episodes[0].duration_seconds)}</span>
+                </div>
+              </div>
+            </div>
+          )}
+
+          <!-- Topic filter bar (hidden by default) -->
+          <div id="topic-filter-bar" class="hidden mb-6 flex items-center gap-3">
+            <span class="text-xs text-gray-500">Thema:</span>
+            <span id="topic-filter-label" class="text-xs text-accent font-medium px-3 py-1" style="background: rgba(245,192,0,0.08); border: 1px solid rgba(245,192,0,0.2); border-radius: 1px;"></span>
+            <button id="topic-filter-clear" class="text-xs text-gray-500 hover:text-white transition-colors flex items-center gap-1">
+              <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+              Filter entfernen
+            </button>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3" id="episode-grid">
+            {episodes.slice(1, 10).map((ep) => (
+              <div class="card cursor-pointer episode-card" data-glt-id={ep.glt_id} data-topics={JSON.stringify(ep.topics_json ?? [])}>
+                <div class="flex items-start justify-between gap-3 mb-2">
+                  <h3 class="font-medium text-gray-200 line-clamp-2 text-sm leading-snug">
+                    {ep.title}
+                  </h3>
+                  {ep.episode_number && (
+                    <span class="text-xs text-gray-500 font-mono shrink-0">#{ep.episode_number}</span>
+                  )}
+                </div>
+                <div class="flex items-center gap-3 text-xs text-gray-500 mb-3">
+                  <span>{formatDate(ep.pub_date)}</span>
+                  <span class="text-surface-400">|</span>
+                  <span>{formatDuration(ep.duration_seconds)}</span>
+                </div>
+                {ep.summary && (
+                  <p class="text-xs text-gray-400 line-clamp-3 leading-relaxed mb-3">{ep.summary}</p>
+                )}
+                {ep.topics_json && (ep.topics_json as string[]).length > 0 && (
+                  <div class="flex flex-wrap gap-1.5">
+                    {(ep.topics_json as string[]).slice(0, 3).map((topic: string) => (
+                      <button class="topic-tag text-[11px] bg-surface-300/50 text-gray-400 px-2 py-0.5 hover:text-accent hover:bg-accent/10 transition-colors cursor-pointer" style="border-radius: 1px;" data-topic={topic}>
+                        {topic}
+                      </button>
+                    ))}
+                  </div>
                 )}
               </div>
-              <div class="flex items-center gap-3 text-[11px] text-gray-600 mb-3">
-                <span>{formatDate(ep.pub_date)}</span>
-                <span class="text-surface-400">|</span>
-                <span>{formatDuration(ep.duration_seconds)}</span>
-              </div>
-              {ep.summary && (
-                <p class="text-xs text-gray-500 line-clamp-3 leading-relaxed mb-3">{ep.summary}</p>
-              )}
-              {ep.topics_json && (ep.topics_json as string[]).length > 0 && (
-                <div class="flex flex-wrap gap-1.5">
-                  {(ep.topics_json as string[]).slice(0, 3).map((topic: string) => (
-                    <span class="text-[10px] bg-surface-300/30 text-gray-600 px-2 py-0.5" style="border-radius: 1px;">
-                      {topic}
-                    </span>
-                  ))}
+            ))}
+          </div>
+          <div class="hidden mt-3" id="episode-grid-more">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+              {episodes.slice(10).map((ep) => (
+                <div class="card cursor-pointer episode-card" data-glt-id={ep.glt_id} data-topics={JSON.stringify(ep.topics_json ?? [])}>
+                  <div class="flex items-start justify-between gap-3 mb-2">
+                    <h3 class="font-medium text-gray-200 line-clamp-2 text-sm leading-snug">
+                      {ep.title}
+                    </h3>
+                    {ep.episode_number && (
+                      <span class="text-xs text-gray-500 font-mono shrink-0">#{ep.episode_number}</span>
+                    )}
+                  </div>
+                  <div class="flex items-center gap-3 text-xs text-gray-500 mb-3">
+                    <span>{formatDate(ep.pub_date)}</span>
+                    <span class="text-surface-400">|</span>
+                    <span>{formatDuration(ep.duration_seconds)}</span>
+                  </div>
+                  {ep.summary && (
+                    <p class="text-xs text-gray-400 line-clamp-3 leading-relaxed mb-3">{ep.summary}</p>
+                  )}
+                  {ep.topics_json && (ep.topics_json as string[]).length > 0 && (
+                    <div class="flex flex-wrap gap-1.5">
+                      {(ep.topics_json as string[]).slice(0, 3).map((topic: string) => (
+                        <button class="topic-tag text-[11px] bg-surface-300/50 text-gray-400 px-2 py-0.5 hover:text-accent hover:bg-accent/10 transition-colors cursor-pointer" style="border-radius: 1px;" data-topic={topic}>
+                          {topic}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              )}
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+          {episodes.length > 9 && (
+            <div class="flex items-center justify-center gap-3 mt-8 flex-wrap">
+              <button
+                id="episode-expand-btn"
+                class="text-xs text-gray-500 hover:text-accent transition-colors tracking-[0.15em] uppercase py-2.5 px-8"
+                style="border: 1px solid #2A2A2A; border-radius: 2px;"
+              >
+                Alle {episodes.length} Folgen anzeigen
+              </button>
+              <button
+                id="random-episode-btn"
+                class="text-xs text-gray-500 hover:text-accent transition-colors tracking-[0.15em] uppercase py-2.5 px-6 flex items-center gap-2"
+                style="border: 1px solid #2A2A2A; border-radius: 2px;"
+              >
+                <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+                Zufällige Folge
+              </button>
+            </div>
+          )}
+        </>
       ) : (
         <div class="text-center py-16">
           <p class="text-gray-500 text-sm">Noch keine Episoden in der Datenbank.</p>
@@ -272,18 +368,22 @@ function formatDuration(seconds: number): string {
     </div>
   </section>
 
-  <div class="section-divider max-w-5xl mx-auto"></div>
-
   <!-- ========== TOPICS ========== -->
-  <section id="themen" class="py-20 px-6">
+  <section id="themen" class="py-20 px-6 section-alt reveal">
     <div class="max-w-5xl mx-auto">
-      <div class="mb-8 text-center">
-        <h2 class="font-display text-5xl md:text-6xl font-bold uppercase text-white mb-2" style="letter-spacing: -0.02em;">Themen</h2>
-        <p class="text-gray-600 text-xs tracking-[0.2em] uppercase">Automatisch extrahiert aus allen Episoden</p>
+      <div class="section-header">
+        <div class="section-badge">BERTopic</div>
+        <h2 class="font-display text-5xl md:text-6xl font-extrabold uppercase text-white mb-3" style="letter-spacing: -0.02em;">
+          The<span class="text-accent">men</span>
+        </h2>
+        <p class="text-gray-400 text-sm tracking-[0.15em] uppercase">Entdecke die häufigsten Themen aller Folgen</p>
       </div>
       <TopicTimeline client:load />
     </div>
   </section>
+
+  <!-- Episode Viewer Modal (global) -->
+  <EpisodeViewer client:load />
 
 </BaseLayout>
 
@@ -294,44 +394,302 @@ function formatDuration(seconds: number): string {
       linear-gradient(to bottom, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.6) 60%, rgba(10,10,10,1) 100%);
   }
 
-  /* Cards start hidden, revealed by IntersectionObserver */
-  .card-reveal {
-    opacity: 0;
-    transform: translateY(8px);
-    transition: opacity 300ms ease, transform 300ms ease;
-  }
-
-  .card-reveal.visible {
-    opacity: 1;
-    transform: none;
-  }
-
-  /* Section reveal on scroll */
-  .section-reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 600ms ease, transform 600ms ease;
-  }
-
-  .section-reveal.visible {
-    opacity: 1;
-    transform: none;
-  }
-
-  /* Scroll arrow float */
   .scroll-arrow {
     animation: float-down 2.5s ease-in-out infinite;
   }
 
-  /* Respect reduced motion */
+  /* Hero prose stats */
+  .hero-prose {
+    font-size: 0.95rem;
+    color: #999;
+    letter-spacing: 0.01em;
+    max-width: 28rem;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  .hero-prose strong {
+    color: #F5C000;
+    font-weight: 600;
+    background: linear-gradient(90deg, #F5C000 0%, #FFE066 50%, #F5C000 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: text-shimmer 2.5s ease-in-out 1;
+    animation-delay: 1.2s;
+  }
+
+  @keyframes text-shimmer {
+    0% { background-position: 200% center; }
+    100% { background-position: -200% center; }
+  }
+
+  /* Hero search input */
+  .hero-search-wrap {
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .hero-search {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: rgba(22,22,22,0.9);
+    border: 1px solid #2A2A2A;
+    border-radius: 2px;
+    transition: border-color 200ms ease, box-shadow 200ms ease;
+  }
+
+  .hero-search:focus-within {
+    border-color: rgba(245,192,0,0.3);
+    box-shadow: 0 0 0 1px rgba(245,192,0,0.08), 0 4px 20px rgba(0,0,0,0.3);
+  }
+
+  .hero-search-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #555;
+    flex-shrink: 0;
+  }
+
+  .hero-search-input-wrap {
+    flex: 1;
+    position: relative;
+  }
+
+  .hero-search-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #e5e5e5;
+    font-size: 0.875rem;
+    letter-spacing: 0.01em;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-search-placeholder {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #555;
+    font-size: 0.875rem;
+    letter-spacing: 0.01em;
+    pointer-events: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    transition: opacity 400ms ease;
+  }
+
+  .hero-search-placeholder.fading {
+    opacity: 0;
+  }
+
+  /* Hide custom placeholder when input has value */
+  .hero-search-input:not(:placeholder-shown) ~ .hero-search-placeholder {
+    display: none;
+  }
+
+  .hero-search-btn {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(245,192,0,0.1);
+    border: 1px solid rgba(245,192,0,0.2);
+    border-radius: 2px;
+    color: #F5C000;
+    transition: background 200ms ease, transform 100ms ease;
+    cursor: pointer;
+  }
+
+  .hero-search-btn:hover {
+    background: rgba(245,192,0,0.18);
+  }
+
+  .hero-search-btn:active {
+    transform: scale(0.95);
+  }
+
+  /* Hero hint chips */
+  .hero-search-hints {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-hint-chip {
+    font-size: 0.6875rem;
+    color: #666;
+    padding: 0.3rem 0.65rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 1px;
+    cursor: pointer;
+    transition: color 200ms ease, border-color 200ms ease, background 200ms ease;
+  }
+
+  .hero-hint-chip:hover {
+    color: #F5C000;
+    border-color: rgba(245,192,0,0.2);
+    background: rgba(245,192,0,0.04);
+  }
+
+  /* Featured latest episode strip — animated gradient border */
+  .featured-episode {
+    position: relative;
+    padding: 1.5rem 2rem;
+    background: #111111;
+    border-radius: 2px;
+    transition: background 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+    z-index: 0;
+  }
+
+  .featured-episode::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 2px;
+    padding: 1px;
+    padding-left: 3px;
+    background: linear-gradient(180deg, #F5C000, #5B7DC8, #9C40B0, #F5C000);
+    background-size: 100% 300%;
+    animation: gradient-shift 6s ease-in-out infinite;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 0%; }
+    50% { background-position: 0% 100%; }
+  }
+
+  .featured-episode:hover {
+    background: #161616;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(245, 192, 0, 0.06);
+  }
+
+  .featured-episode-number {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    color: #F5C000;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (max-width: 768px) {
+    .featured-episode {
+      padding: 1.25rem 1.5rem;
+    }
+  }
+
+  /* Hero staggered entrance */
+  .hero-enter {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: hero-fade-up 800ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .hero-enter-1 { animation-delay: 200ms; }
+  .hero-enter-2 { animation-delay: 500ms; }
+  .hero-enter-3 { animation-delay: 700ms; }
+  .hero-enter-4 { animation-delay: 900ms; }
+  .hero-enter-5 { animation-delay: 1200ms; }
+
+  @keyframes hero-fade-up {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Hero search glow pulse — 3 pulses then stop */
+  .hero-search-glow {
+    animation: search-glow-pulse 2s ease-in-out 3;
+    animation-delay: 1.5s;
+  }
+
+  @keyframes search-glow-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(245, 192, 0, 0); }
+    50% { box-shadow: 0 0 12px 2px rgba(245, 192, 0, 0.12); }
+  }
+
+  /* Scroll reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 600ms cubic-bezier(0.4, 0, 0.2, 1), transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered card reveal on grid expand */
+  .card-stagger {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: card-stagger-in 400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes card-stagger-in {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .card-reveal,
-    .section-reveal {
+    .scroll-arrow {
+      animation: none;
+    }
+
+    .reveal {
       opacity: 1;
       transform: none;
       transition: none;
     }
-    .scroll-arrow {
+
+    .hero-enter {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+
+    .hero-search-glow {
+      animation: none;
+    }
+
+    .card-stagger {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+
+    .featured-episode::before {
+      animation: none;
+    }
+
+    .hero-prose strong {
       animation: none;
     }
   }
@@ -342,7 +700,6 @@ function formatDuration(seconds: number): string {
   let resizeTimer: ReturnType<typeof setTimeout>;
 
   function createMarqueeLights() {
-    // Respect reduced motion
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const container = document.getElementById("marquee-lights");
@@ -352,7 +709,7 @@ function formatDuration(seconds: number): string {
     if (!sign) return;
 
     const rect = sign.getBoundingClientRect();
-    const spacing = 28;
+    const spacing = 36;
     const dots: { x: number; y: number }[] = [];
 
     for (let x = 0; x <= rect.width; x += spacing) dots.push({ x, y: -6 });
@@ -367,7 +724,7 @@ function formatDuration(seconds: number): string {
       el.className = "marquee-dot";
       el.style.left = `${dot.x}px`;
       el.style.top = `${dot.y}px`;
-      el.style.animationDelay = `${(i / totalDots) * 1600}ms`;
+      el.style.animationDelay = `${(i / totalDots) * 2400}ms`;
       container.appendChild(el);
     });
   }
@@ -379,96 +736,417 @@ function formatDuration(seconds: number): string {
   });
 </script>
 
-<!-- Stat counter animation on scroll -->
+<!-- Scroll reveal animation -->
 <script>
-  function animateCounters() {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    const stats = document.querySelectorAll<HTMLElement>(".stat-number[data-count]");
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target as HTMLElement;
-        const target = parseInt(el.dataset.count ?? "0", 10);
-        if (target === 0) return;
-
-        const originalText = el.textContent ?? "";
-        const suffix = originalText.includes("+") ? "+" : originalText.includes("k") ? "k" : "";
-        const displayTarget = originalText.includes("k") ? parseFloat(originalText) : target;
-        const isFloat = originalText.includes("k");
-        const duration = 800;
-        const start = performance.now();
-
-        function update(now: number) {
-          const elapsed = now - start;
-          const progress = Math.min(elapsed / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-
-          if (isFloat) {
-            el.textContent = (displayTarget * eased).toFixed(1) + suffix;
-          } else {
-            el.textContent = Math.round(target * eased) + suffix;
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            revealObserver.unobserve(entry.target);
           }
-
-          if (progress < 1) {
-            requestAnimationFrame(update);
-          } else {
-            el.textContent = originalText;
-          }
-        }
-
-        el.textContent = isFloat ? "0.0" + suffix : "0" + suffix;
-        requestAnimationFrame(update);
-        observer.unobserve(el);
-      });
-    }, { threshold: 0.5 });
-
-    stats.forEach((stat) => observer.observe(stat));
+        });
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" },
+    );
+    document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+  } else {
+    document.querySelectorAll(".reveal").forEach((el) => el.classList.add("revealed"));
   }
-
-  animateCounters();
 </script>
 
-<!-- Card and section reveal on scroll -->
+<!-- Hero search → dispatch to chatbot -->
 <script>
-  function initRevealAnimations() {
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const heroForm = document.getElementById("hero-search-form");
+  const heroInput = document.getElementById("hero-search-input") as HTMLInputElement | null;
+  const heroHints = document.getElementById("hero-search-hints");
 
-    // Card reveals (staggered)
-    const cards = document.querySelectorAll<HTMLElement>(".card-reveal");
-    if (reducedMotion) {
-      cards.forEach((card) => card.classList.add("visible"));
-    } else {
-      let delay = 0;
-      const cardObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          const el = entry.target as HTMLElement;
-          setTimeout(() => el.classList.add("visible"), delay);
-          delay += 30;
-          cardObserver.unobserve(el);
-        });
-      }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+  function submitHeroQuestion(question: string) {
+    if (!question.trim()) return;
+    // Scroll to chat section
+    const chatEl = document.getElementById("chat");
+    if (chatEl) chatEl.scrollIntoView({ behavior: "smooth", block: "start" });
+    // Dispatch to ChatBot
+    setTimeout(() => {
+      window.dispatchEvent(new CustomEvent("hero-ask", { detail: question.trim() }));
+    }, 400);
+    if (heroInput) heroInput.value = "";
+  }
 
-      cards.forEach((card) => cardObserver.observe(card));
+  heroForm?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (heroInput) submitHeroQuestion(heroInput.value);
+  });
+
+  heroHints?.querySelectorAll<HTMLButtonElement>(".hero-hint-chip").forEach((chip) => {
+    chip.addEventListener("click", (e) => {
+      e.preventDefault();
+      const q = chip.dataset.question;
+      if (q) submitHeroQuestion(q);
+    });
+  });
+
+  // Typewriter placeholder effect
+  const placeholderEl = document.getElementById("hero-placeholder");
+  const placeholders = [
+    "Was willst du über Gemischtes Hack wissen?",
+    "Wann hat Felix über seine Tochter gesprochen?",
+    "Was sind die beliebtesten Running Gags?",
+    "Welche Gäste waren in der Sendung?",
+  ];
+  let placeholderIdx = 0;
+  let typewriterTimer: ReturnType<typeof setTimeout>;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function typewrite(text: string, onDone: () => void) {
+    if (!placeholderEl) return;
+    let i = 0;
+    placeholderEl.textContent = "";
+    function tick() {
+      if (!placeholderEl) return;
+      if (document.activeElement === heroInput || (heroInput && heroInput.value)) return;
+      if (i <= text.length) {
+        placeholderEl.textContent = text.slice(0, i) + (i < text.length ? "|" : "");
+        i++;
+        typewriterTimer = setTimeout(tick, 40 + Math.random() * 30);
+      } else {
+        placeholderEl.textContent = text;
+        onDone();
+      }
     }
+    tick();
+  }
 
-    // Section reveals
-    const sections = document.querySelectorAll<HTMLElement>(".section-reveal");
-    if (reducedMotion) {
-      sections.forEach((s) => s.classList.add("visible"));
-    } else {
-      const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("visible");
-          sectionObserver.unobserve(entry.target);
+  function eraseAndType() {
+    if (!placeholderEl) return;
+    if (document.activeElement === heroInput || (heroInput && heroInput.value)) {
+      typewriterTimer = setTimeout(eraseAndType, 2000);
+      return;
+    }
+    const currentText = placeholders[placeholderIdx];
+    let i = currentText.length;
+    function erase() {
+      if (!placeholderEl) return;
+      if (i > 0) {
+        i--;
+        placeholderEl.textContent = currentText.slice(0, i) + "|";
+        typewriterTimer = setTimeout(erase, 25);
+      } else {
+        placeholderIdx = (placeholderIdx + 1) % placeholders.length;
+        typewriterTimer = setTimeout(() => typewrite(placeholders[placeholderIdx], () => {
+          typewriterTimer = setTimeout(eraseAndType, 3000);
+        }), 300);
+      }
+    }
+    erase();
+  }
+
+  if (!reducedMotion) {
+    // Start first typewrite after hero entrance
+    setTimeout(() => typewrite(placeholders[0], () => {
+      typewriterTimer = setTimeout(eraseAndType, 3000);
+    }), 1500);
+  } else {
+    // Reduced motion: just set text, cycle with simple crossfade
+    if (placeholderEl) placeholderEl.textContent = placeholders[0];
+    setInterval(() => {
+      if (!placeholderEl || document.activeElement === heroInput) return;
+      if (heroInput && heroInput.value) return;
+      placeholderEl.classList.add("fading");
+      setTimeout(() => {
+        placeholderIdx = (placeholderIdx + 1) % placeholders.length;
+        if (placeholderEl) placeholderEl.textContent = placeholders[placeholderIdx];
+        placeholderEl?.classList.remove("fading");
+      }, 400);
+    }, 4000);
+  }
+</script>
+
+<!-- Hero parallax -->
+<script>
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const heroBg = document.getElementById("hero-bg");
+    const heroSection = document.getElementById("hero");
+    if (heroBg && heroSection) {
+      let ticking = false;
+      window.addEventListener("scroll", () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          const rect = heroSection.getBoundingClientRect();
+          if (rect.bottom > 0) {
+            heroBg.style.transform = `translateY(${window.scrollY * 0.3}px)`;
+          }
+          ticking = false;
         });
-      }, { threshold: 0.05, rootMargin: "0px 0px -60px 0px" });
+      }, { passive: true });
+    }
+  }
+</script>
 
-      sections.forEach((s) => sectionObserver.observe(s));
+<!-- Animated number counters -->
+<script>
+  const counters = document.querySelectorAll<HTMLElement>(".counter");
+  counters.forEach((el) => {
+    const target = parseInt(el.dataset.target ?? "0", 10);
+    if (!target) return;
+    const duration = 1800;
+    const start = performance.now();
+    function tick(now: number) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      el.textContent = Math.round(eased * target).toLocaleString("de-DE");
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    // Start counting after hero entrance delay
+    setTimeout(() => requestAnimationFrame(tick), 900);
+  });
+</script>
+
+<!-- Topic tag filtering -->
+<script>
+  const topicFilterBar = document.getElementById("topic-filter-bar");
+  const topicFilterLabel = document.getElementById("topic-filter-label");
+  const topicFilterClear = document.getElementById("topic-filter-clear");
+  let activeTopicFilter = "";
+
+  function setTopicFilter(topic: string) {
+    activeTopicFilter = topic;
+    if (topicFilterBar && topicFilterLabel) {
+      topicFilterBar.classList.remove("hidden");
+      topicFilterLabel.textContent = topic;
+    }
+    // Show all episode cards, then hide non-matching
+    document.querySelectorAll<HTMLElement>(".episode-card").forEach((card) => {
+      try {
+        const topics: string[] = JSON.parse(card.dataset.topics ?? "[]");
+        const matches = topics.some((t) => t.toLowerCase() === topic.toLowerCase());
+        card.style.display = matches ? "" : "none";
+      } catch {
+        card.style.display = "none";
+      }
+    });
+    // Expand the "more" grid if hidden
+    const moreGrid = document.getElementById("episode-grid-more");
+    if (moreGrid?.classList.contains("hidden")) {
+      moreGrid.classList.remove("hidden");
     }
   }
 
-  initRevealAnimations();
+  function clearTopicFilter() {
+    activeTopicFilter = "";
+    topicFilterBar?.classList.add("hidden");
+    document.querySelectorAll<HTMLElement>(".episode-card").forEach((card) => {
+      card.style.display = "";
+    });
+  }
+
+  // Delegate click on topic tags
+  document.addEventListener("click", (e) => {
+    const tag = (e.target as HTMLElement).closest<HTMLElement>(".topic-tag");
+    if (!tag) return;
+    e.stopPropagation(); // Prevent episode card click
+    const topic = tag.dataset.topic;
+    if (topic) {
+      if (topic === activeTopicFilter) {
+        clearTopicFilter();
+      } else {
+        setTopicFilter(topic);
+      }
+    }
+  });
+
+  topicFilterClear?.addEventListener("click", clearTopicFilter);
+</script>
+
+<!-- Mouse-tracking spotlight on cards -->
+<script>
+  document.querySelectorAll<HTMLElement>(".card").forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty("--mouse-x", `${e.clientX - rect.left}px`);
+      card.style.setProperty("--mouse-y", `${e.clientY - rect.top}px`);
+    });
+  });
+</script>
+
+<!-- Episode card click → open viewer + exploration tracking -->
+<script>
+  const EXPLORE_KEY = "gh_explored_episodes";
+  const exploreTracker = document.getElementById("explore-tracker");
+  const exploreCount = document.getElementById("explore-count");
+  const exploreBar = document.getElementById("explore-bar");
+  const totalEpisodes = parseInt(exploreCount?.parentElement?.querySelector(".text-gray-400")?.textContent ?? "0", 10);
+
+  function getExploredSet(): Set<string> {
+    try {
+      return new Set(JSON.parse(localStorage.getItem(EXPLORE_KEY) ?? "[]"));
+    } catch { return new Set(); }
+  }
+
+  function updateExploreUI() {
+    const explored = getExploredSet();
+    if (explored.size > 0 && exploreTracker && exploreCount && exploreBar) {
+      exploreTracker.classList.remove("hidden");
+      exploreCount.textContent = String(explored.size);
+      const pct = totalEpisodes > 0 ? (explored.size / totalEpisodes) * 100 : 0;
+      exploreBar.style.width = `${Math.min(pct, 100)}%`;
+    }
+  }
+
+  const MILESTONES: Record<number, string> = {
+    5: "5 Folgen erkundet — das ist offiziell eine Serie",
+    15: "15 Folgen! Du kennst den Podcast besser als die meisten Gäste",
+    30: "30 Folgen — du bist ein echter Gemischtes Hack Experte",
+    50: "50 Folgen — du bist jetzt Honorary Host",
+  };
+  const SHOWN_KEY = "gh_milestones_shown";
+
+  function getShownMilestones(): Set<number> {
+    try { return new Set(JSON.parse(localStorage.getItem(SHOWN_KEY) ?? "[]")); } catch { return new Set(); }
+  }
+
+  function showToast(message: string) {
+    const toast = document.createElement("div");
+    toast.style.cssText = "position:fixed;bottom:5rem;left:50%;transform:translateX(-50%) translateY(20px);z-index:9998;background:#161616;border:1px solid rgba(245,192,0,0.2);border-radius:2px;padding:0.75rem 1.5rem;font-size:12px;color:#F5C000;opacity:0;transition:all 400ms ease;pointer-events:none;max-width:90%;text-align:center;white-space:nowrap;";
+    toast.textContent = message;
+    document.body.appendChild(toast);
+    requestAnimationFrame(() => {
+      toast.style.opacity = "1";
+      toast.style.transform = "translateX(-50%) translateY(0)";
+    });
+    setTimeout(() => {
+      toast.style.opacity = "0";
+      toast.style.transform = "translateX(-50%) translateY(20px)";
+      setTimeout(() => toast.remove(), 400);
+    }, 4000);
+  }
+
+  function checkMilestone(count: number) {
+    const shown = getShownMilestones();
+    for (const [threshold, msg] of Object.entries(MILESTONES)) {
+      const n = Number(threshold);
+      if (count >= n && !shown.has(n)) {
+        shown.add(n);
+        try { localStorage.setItem(SHOWN_KEY, JSON.stringify([...shown])); } catch {}
+        showToast(msg);
+        try { (window as unknown as Record<string, Record<string, () => void>>).__sounds?.ding?.(); } catch {}
+        break;
+      }
+    }
+  }
+
+  function trackEpisode(gltId: string) {
+    const explored = getExploredSet();
+    const isNew = !explored.has(gltId);
+    explored.add(gltId);
+    try { localStorage.setItem(EXPLORE_KEY, JSON.stringify([...explored])); } catch {}
+    updateExploreUI();
+    if (isNew) checkMilestone(explored.size);
+  }
+
+  updateExploreUI();
+
+  document.addEventListener("click", (e) => {
+    const card = (e.target as HTMLElement).closest<HTMLElement>(".episode-card");
+    if (!card) return;
+    // Don't trigger on topic tag clicks
+    if ((e.target as HTMLElement).closest(".topic-tag")) return;
+    const gltId = card.dataset.gltId;
+    if (!gltId) return;
+    try { navigator?.vibrate?.(20); } catch {}
+    try { (window as unknown as Record<string, Record<string, () => void>>).__sounds?.click?.(); } catch {}
+    trackEpisode(gltId);
+    const viewer = (window as unknown as Record<string, { open: (id: string) => void }>).__episodeViewer;
+    if (viewer) viewer.open(gltId);
+  });
+</script>
+
+<!-- Haptic + sound utilities -->
+<script>
+  function haptic(ms = 30) {
+    try { navigator?.vibrate?.(ms); } catch {}
+  }
+  function sfx(name: string) {
+    try {
+      const s = (window as unknown as Record<string, Record<string, () => void>>).__sounds;
+      if (s?.[name]) s[name]();
+    } catch {}
+  }
+  (window as unknown as Record<string, unknown>).__haptic = haptic;
+  (window as unknown as Record<string, unknown>).__sfx = sfx;
+</script>
+
+<!-- Episode grid expand/collapse + random episode -->
+<script>
+  const expandBtn = document.getElementById("episode-expand-btn");
+  const moreGrid = document.getElementById("episode-grid-more");
+  if (expandBtn && moreGrid) {
+    expandBtn.addEventListener("click", () => {
+      const isHidden = moreGrid.classList.contains("hidden");
+      if (isHidden) {
+        moreGrid.classList.remove("hidden");
+        expandBtn.textContent = "Weniger anzeigen";
+        // Staggered cascade reveal
+        if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          const cards = moreGrid.querySelectorAll<HTMLElement>(".card");
+          cards.forEach((card, i) => {
+            card.classList.add("card-stagger");
+            card.style.animationDelay = `${i * 40}ms`;
+          });
+        }
+      } else {
+        moreGrid.classList.add("hidden");
+        expandBtn.textContent = `Alle Folgen anzeigen`;
+        // Clean up stagger classes
+        moreGrid.querySelectorAll<HTMLElement>(".card-stagger").forEach((card) => {
+          card.classList.remove("card-stagger");
+          card.style.animationDelay = "";
+        });
+      }
+    });
+  }
+
+  // Random episode button with slot-machine flicker
+  const randomEpBtn = document.getElementById("random-episode-btn");
+  if (randomEpBtn) {
+    let flickering = false;
+    randomEpBtn.addEventListener("click", () => {
+      if (flickering) return;
+      try { navigator?.vibrate?.(30); } catch {}
+      try { (window as unknown as Record<string, Record<string, () => void>>).__sounds?.tink?.(); } catch {}
+      const allCards = document.querySelectorAll<HTMLElement>(".episode-card[data-glt-id]");
+      if (allCards.length === 0) return;
+      flickering = true;
+
+      const targetCard = allCards[Math.floor(Math.random() * allCards.length)];
+      const targetGltId = targetCard.dataset.gltId;
+      if (!targetGltId) { flickering = false; return; }
+
+      // Slot-machine flicker: cycle through random numbers
+      const btnText = randomEpBtn.querySelector("svg")?.nextSibling;
+      const originalText = "Zufällige Folge";
+      const totalFlicks = 12;
+      let step = 0;
+
+      const flick = () => {
+        const randomIdx = Math.floor(Math.random() * allCards.length);
+        const card = allCards[randomIdx];
+        const epNum = card.querySelector(".font-mono")?.textContent ?? `#${randomIdx + 1}`;
+        if (btnText) btnText.textContent = ` Folge ${epNum.replace("#", "")}...`;
+        step++;
+        if (step < totalFlicks) {
+          const delay = 50 + Math.pow(step / totalFlicks, 2) * 200;
+          setTimeout(flick, delay);
+        } else {
+          if (btnText) btnText.textContent = ` ${originalText}`;
+          flickering = false;
+          const viewer = (window as unknown as Record<string, { open: (id: string) => void }>).__episodeViewer;
+          if (viewer) viewer.open(targetGltId);
+        }
+      };
+      setTimeout(flick, 50);
+    });
+  }
 </script>

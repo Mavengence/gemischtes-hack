@@ -18,6 +18,7 @@ export default function WerHatsSagt() {
   const [guess, setGuess] = useState<string | null>(null);
   const [score, setScore] = useState({ correct: 0, total: 0 });
   const [streak, setStreak] = useState(0);
+  const [bestStreak, setBestStreak] = useState(0);
 
   const fetchQuiz = useCallback(async () => {
     setState("loading");
@@ -37,7 +38,7 @@ export default function WerHatsSagt() {
     fetchQuiz();
   }, [fetchQuiz]);
 
-  const handleGuess = (speaker: string) => {
+  const handleGuess = useCallback((speaker: string) => {
     if (state !== "playing" || !quiz) return;
     setGuess(speaker);
     setState("revealed");
@@ -47,8 +48,26 @@ export default function WerHatsSagt() {
       correct: prev.correct + (isCorrect ? 1 : 0),
       total: prev.total + 1,
     }));
-    setStreak((prev) => (isCorrect ? prev + 1 : 0));
-  };
+    const newStreak = isCorrect ? streak + 1 : 0;
+    setStreak(newStreak);
+    if (newStreak > bestStreak) setBestStreak(newStreak);
+  }, [state, quiz, streak, bestStreak]);
+
+  // Keyboard shortcuts: 1/F = Felix, 2/T = Tommi
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (state === "playing") {
+        if (e.key === "1" || e.key.toLowerCase() === "f") handleGuess("Speaker A");
+        if (e.key === "2" || e.key.toLowerCase() === "t") handleGuess("Speaker B");
+      }
+      if (state === "revealed" && (e.key === "Enter" || e.key === " ")) {
+        e.preventDefault();
+        fetchQuiz();
+      }
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [state, handleGuess, fetchQuiz]);
 
   const isCorrect = guess === quiz?.speaker;
   const speakerName = quiz?.speaker === "Speaker A" ? "Felix" : "Tommi";
@@ -62,19 +81,27 @@ export default function WerHatsSagt() {
             <div className="text-2xl font-display font-bold text-accent tabular-nums">
               {score.correct}/{score.total}
             </div>
-            <div className="text-[10px] text-gray-600 uppercase tracking-[0.2em]">Score</div>
+            <div className="text-[11px] text-gray-500 uppercase tracking-[0.2em]">Score</div>
           </div>
           {streak > 1 && (
             <div className="text-center">
               <div className="text-2xl font-display font-bold text-orange-400 tabular-nums">
                 {streak}x
               </div>
-              <div className="text-[10px] text-gray-600 uppercase tracking-[0.2em]">Streak</div>
+              <div className="text-[11px] text-gray-500 uppercase tracking-[0.2em]">Streak</div>
+            </div>
+          )}
+          {bestStreak > 2 && streak <= 1 && (
+            <div className="text-center">
+              <div className="text-lg font-display font-bold text-gray-600 tabular-nums">
+                {bestStreak}x
+              </div>
+              <div className="text-[11px] text-gray-600 uppercase tracking-[0.2em]">Best</div>
             </div>
           )}
         </div>
         {score.total > 0 && (
-          <div className="text-xs text-gray-600 font-mono">
+          <div className="text-xs text-gray-500 font-mono">
             {Math.round((score.correct / score.total) * 100)}% richtig
           </div>
         )}
@@ -87,7 +114,7 @@ export default function WerHatsSagt() {
           background: "#161616",
           border: "1px solid #2A2A2A",
           borderRadius: "2px",
-          minHeight: "200px",
+          minHeight: "220px",
         }}
       >
         {/* Accent bar on reveal */}
@@ -105,8 +132,17 @@ export default function WerHatsSagt() {
 
         <div className="p-8">
           {state === "loading" && (
-            <div className="flex items-center justify-center py-12">
-              <div className="w-5 h-5 border-2 border-accent/30 border-t-accent rounded-full animate-spin" />
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <div className="h-5 bg-surface-200 animate-pulse rounded-sm w-full" />
+                <div className="h-5 bg-surface-200 animate-pulse rounded-sm w-4/5" />
+                <div className="h-5 bg-surface-200 animate-pulse rounded-sm w-3/5" />
+              </div>
+              <div className="h-3 bg-surface-200 animate-pulse rounded-sm w-1/4 mt-6" />
+              <div className="flex gap-3 mt-4">
+                <div className="flex-1 h-12 bg-surface-200 animate-pulse rounded-sm" />
+                <div className="flex-1 h-12 bg-surface-200 animate-pulse rounded-sm" />
+              </div>
             </div>
           )}
 
@@ -122,9 +158,9 @@ export default function WerHatsSagt() {
           {(state === "playing" || state === "revealed") && quiz && (
             <>
               {/* The quote */}
-              <blockquote className="text-gray-200 text-lg leading-relaxed mb-6 font-light">
+              <blockquote className="text-gray-200 text-lg leading-relaxed mb-8 font-light">
                 <span className="text-accent/60 text-2xl font-display leading-none">&ldquo;</span>
-                <span className="quiz-quote-text">{quiz.quote}</span>
+                <span>{quiz.quote}</span>
                 <span className="text-accent/60 text-2xl font-display leading-none">&rdquo;</span>
               </blockquote>
 
@@ -133,7 +169,7 @@ export default function WerHatsSagt() {
                 <div className="flex gap-3">
                   <button
                     onClick={() => handleGuess("Speaker A")}
-                    className="flex-1 py-4 text-center transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                    className="flex-1 py-4 text-center transition-all duration-200 hover:border-felix/40 active:scale-[0.98] group"
                     style={{
                       background: "#1A1A1A",
                       border: "1px solid #2A2A2A",
@@ -141,14 +177,17 @@ export default function WerHatsSagt() {
                     }}
                   >
                     <span
-                      className="inline-block w-2 h-2 rounded-full mr-2"
+                      className="inline-block w-2.5 h-2.5 rounded-full mr-2.5 transition-transform group-hover:scale-125"
                       style={{ background: "#5B7DC8" }}
                     />
-                    <span className="text-sm font-medium text-gray-300">Felix</span>
+                    <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">
+                      Felix
+                    </span>
+                    <span className="text-[10px] text-gray-600 ml-2 hidden md:inline">[1]</span>
                   </button>
                   <button
                     onClick={() => handleGuess("Speaker B")}
-                    className="flex-1 py-4 text-center transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                    className="flex-1 py-4 text-center transition-all duration-200 hover:border-tommi/40 active:scale-[0.98] group"
                     style={{
                       background: "#1A1A1A",
                       border: "1px solid #2A2A2A",
@@ -156,10 +195,13 @@ export default function WerHatsSagt() {
                     }}
                   >
                     <span
-                      className="inline-block w-2 h-2 rounded-full mr-2"
+                      className="inline-block w-2.5 h-2.5 rounded-full mr-2.5 transition-transform group-hover:scale-125"
                       style={{ background: "#9C40B0" }}
                     />
-                    <span className="text-sm font-medium text-gray-300">Tommi</span>
+                    <span className="text-sm font-medium text-gray-300 group-hover:text-white transition-colors">
+                      Tommi
+                    </span>
+                    <span className="text-[10px] text-gray-600 ml-2 hidden md:inline">[2]</span>
                   </button>
                 </div>
               )}
@@ -175,7 +217,12 @@ export default function WerHatsSagt() {
                       borderRadius: "2px",
                     }}
                   >
-                    <span className="text-2xl">{isCorrect ? "+" : "x"}</span>
+                    <span
+                      className="text-xl font-display font-bold"
+                      style={{ color: isCorrect ? "#22c55e" : "#ef4444" }}
+                    >
+                      {isCorrect ? "✓" : "✗"}
+                    </span>
                     <div>
                       <p
                         className="font-medium text-sm"
@@ -210,7 +257,7 @@ export default function WerHatsSagt() {
 
                   <button
                     onClick={fetchQuiz}
-                    className="w-full py-3 text-sm font-medium tracking-wide uppercase transition-all duration-200 hover:scale-[1.01] active:scale-[0.99]"
+                    className="w-full py-3.5 text-sm font-bold tracking-[0.1em] uppercase transition-all duration-200 hover:brightness-110 active:scale-[0.99]"
                     style={{
                       background: "#F5C000",
                       color: "#0A0A0A",
@@ -218,6 +265,7 @@ export default function WerHatsSagt() {
                     }}
                   >
                     Nächstes Zitat
+                    <span className="text-[10px] ml-2 opacity-60 hidden md:inline">[Enter]</span>
                   </button>
                 </div>
               )}
