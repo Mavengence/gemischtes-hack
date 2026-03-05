@@ -4,8 +4,14 @@
 
 ## File Naming
 
-Files are named by Megaphone GLT ID: `{glt_id}.json` (e.g. `GLT1009653979.json`).
-GLT IDs are not human-readable — use `index.json` to look up episodes by number or title.
+Files use human-readable names:
+
+- Numbered episodes: `episode_{num:03d}_{slug}.json` — e.g. `episode_001_gemischtes_hack.json`
+- Specials: `special_{slug}.json` — e.g. `special_christian_ulmen_5_schnelle_fragen_an.json`
+
+Slugs are derived from the episode title (German umlauts normalized, ASCII only, max 60 chars).
+Use `index.json` to look up episodes by number, title, or GLT ID.
+To rename newly-transcribed GLT files: `make rename`
 
 ## index.json
 

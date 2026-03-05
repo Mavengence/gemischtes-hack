@@ -18,8 +18,14 @@ OUTPUT_FILE = os.path.join(TRANSCRIPTS_DIR, "index.json")
 
 
 def build_index():
-    pattern = os.path.join(TRANSCRIPTS_DIR, "GLT*.json")
-    files = [f for f in glob.glob(pattern) if not f.endswith(".chunks.json")]
+    files = [
+        f for f in (
+            glob.glob(os.path.join(TRANSCRIPTS_DIR, "episode_*.json"))
+            + glob.glob(os.path.join(TRANSCRIPTS_DIR, "special_*.json"))
+            + glob.glob(os.path.join(TRANSCRIPTS_DIR, "GLT*.json"))
+        )
+        if not f.endswith(".chunks.json")
+    ]
 
     episodes = []
     skipped = 0

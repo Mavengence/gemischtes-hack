@@ -1,0 +1,217 @@
+{
+  "meta": {
+    "episode_number": null,
+    "title": "HACK FÄLLT AUS",
+    "pub_date": "Tue, 07 Mar 2023 22:45:00 -0000",
+    "filename": "special_hack_faellt_aus_12279629.json",
+    "glt_id": "GLT4012279629",
+    "model": "mlx-community/whisper-large-v3-turbo",
+    "language": "de",
+    "transcribed_at": "2026-02-28T21:11:17.512666+00:00",
+    "duration_seconds": 145,
+    "processing_seconds": 12.8,
+    "num_speakers": 2,
+    "has_diarization": true
+  },
+  "text": " Leute, ihr seht es an der Kürze der Folge. Es gibt schlechte Nachrichten und zwar muss euer Lieblings-Podcast, gemischtes Hack von Tommi Schmidt und mir, diese Woche leider entfallen und der Schuldige sitzt am Mikrofon, das bin nämlich ich, weil ich es einfach nicht schaffe, diese Woche aufzunehmen. Es ist unmöglich, ich habe kaum noch Stimme. Ich bin crank, ich bin seit 13 Tagen auf Kinotour und es gab einfach kein mögliches Zeitfenster. Die Folge fällt nicht aus, sie wird ja hinten dran gehangen, das heißt, die Sommerpause ist dafür eine Woche kürzer. Also alles in Ordnung, ist jetzt nur ein bisschen blöd, säg auch ein, tut mir auch leid, aber ihr seid ja immer ganz lieb und sagt, ey, pass auf dich auf, mach nicht zu viel, arbeite dich nicht so kaputt und ich probiere jetzt quasi genau das mal eine Woche zu machen, um ihr nicht völlig aus den Natschen zu kippen. Also seht es mir nach, seht es uns nach. Nächste Woche geht es ganz normal weiter mit gemischtes Hack. Vielen Dank für den krassen Support bisher von dem Kinofilm Sonne und Beton, für die tausenden lieben Nachrichten, dass ihr so zahlreich ins Kino gegangen seid. Ich weiß es sehr zu schätzen, ich freue mich da sehr rüber. Vielen Dank. Und wenn ihr richtig auf Turkey seid, ja, ich war letzte Woche bei Tommi in der Fernsehshow bei Studio Schmidt, checkt das in der Mediathek aus, guckt es euch auf YouTube an, das war sehr witzig. Ansonsten könnt ihr Tommi Donnerstag 22.10 Uhr im zweiten DF Neo sehen bei Studio Schmidt. Diese Woche zu Gast ist Katrin Bauerfeind und dann kriegen wir die Woche auch rum. Und dann ist nächste Woche, nächste Woche werden wir darüber lachen, wie traurig wir jetzt alle sind. Okay? Wir denken an euch, wir bleiben euch weiterhin treu. Diese Woche ist wirklich einfach Selfcare. Ich bin Matsch, ich habe keine Stimme mehr. Und Tommi ist auch durch. Wir lieben euch trotzdem. Bleibt gesund, bleibt stabil. Seid lieb zueinander. Bis nächste Woche. Bye, bye. Bis nächste Woche.",
+  "segments": [
+    {
+      "id": 0,
+      "start": 0.0,
+      "end": 5.76,
+      "text": " Leute, ihr seht es an der Kürze der Folge. Es gibt schlechte Nachrichten und zwar muss euer Lieblings-Podcast,",
+      "avg_logprob": -0.1339510212773862,
+      "no_speech_prob": 8.604804369038987e-12,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 1,
+      "start": 5.84,
+      "end": 13.22,
+      "text": " gemischtes Hack von Tommi Schmidt und mir, diese Woche leider entfallen und der Schuldige sitzt am Mikrofon,",
+      "avg_logprob": -0.1339510212773862,
+      "no_speech_prob": 8.604804369038987e-12,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 2,
+      "start": 13.4,
+      "end": 19.0,
+      "text": " das bin nämlich ich, weil ich es einfach nicht schaffe, diese Woche aufzunehmen.",
+      "avg_logprob": -0.1339510212773862,
+      "no_speech_prob": 8.604804369038987e-12,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 3,
+      "start": 19.080000000000002,
+      "end": 24.88,
+      "text": " Es ist unmöglich, ich habe kaum noch Stimme. Ich bin crank, ich bin seit 13 Tagen auf Kinotour",
+      "avg_logprob": -0.1339510212773862,
+      "no_speech_prob": 8.604804369038987e-12,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 4,
+      "start": 24.88,
+      "end": 33.66,
+      "text": " und es gab einfach kein mögliches Zeitfenster. Die Folge fällt nicht aus, sie wird ja hinten dran gehangen,",
+      "avg_logprob": -0.06877235638893257,
+      "no_speech_prob": 1.0043037582119219e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 5,
+      "start": 33.78,
+      "end": 39.66,
+      "text": " das heißt, die Sommerpause ist dafür eine Woche kürzer. Also alles in Ordnung, ist jetzt nur ein bisschen blöd,",
+      "avg_logprob": -0.06877235638893257,
+      "no_speech_prob": 1.0043037582119219e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 6,
+      "start": 39.66,
+      "end": 46.620000000000005,
+      "text": " säg auch ein, tut mir auch leid, aber ihr seid ja immer ganz lieb und sagt, ey, pass auf dich auf, mach nicht zu viel,",
+      "avg_logprob": -0.06877235638893257,
+      "no_speech_prob": 1.0043037582119219e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 7,
+      "start": 46.72,
+      "end": 51.64,
+      "text": " arbeite dich nicht so kaputt und ich probiere jetzt quasi genau das mal eine Woche zu machen,",
+      "avg_logprob": -0.06877235638893257,
+      "no_speech_prob": 1.0043037582119219e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 8,
+      "start": 51.64,
+      "end": 55.84,
+      "text": " um ihr nicht völlig aus den Natschen zu kippen. Also seht es mir nach, seht es uns nach.",
+      "avg_logprob": -0.09517627538636673,
+      "no_speech_prob": 2.0686232241051705e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 9,
+      "start": 56.0,
+      "end": 60.44,
+      "text": " Nächste Woche geht es ganz normal weiter mit gemischtes Hack. Vielen Dank für den krassen Support bisher",
+      "avg_logprob": -0.09517627538636673,
+      "no_speech_prob": 2.0686232241051705e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 10,
+      "start": 60.44,
+      "end": 66.28,
+      "text": " von dem Kinofilm Sonne und Beton, für die tausenden lieben Nachrichten, dass ihr so zahlreich ins Kino gegangen seid.",
+      "avg_logprob": -0.09517627538636673,
+      "no_speech_prob": 2.0686232241051705e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 11,
+      "start": 66.36,
+      "end": 69.36,
+      "text": " Ich weiß es sehr zu schätzen, ich freue mich da sehr rüber. Vielen Dank.",
+      "avg_logprob": -0.09517627538636673,
+      "no_speech_prob": 2.0686232241051705e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 12,
+      "start": 70.38,
+      "end": 75.34,
+      "text": " Und wenn ihr richtig auf Turkey seid, ja, ich war letzte Woche bei Tommi in der Fernsehshow bei Studio Schmidt,",
+      "avg_logprob": -0.09517627538636673,
+      "no_speech_prob": 2.0686232241051705e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 13,
+      "start": 75.86,
+      "end": 79.66,
+      "text": " checkt das in der Mediathek aus, guckt es euch auf YouTube an, das war sehr witzig.",
+      "avg_logprob": -0.09517627538636673,
+      "no_speech_prob": 2.0686232241051705e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 14,
+      "start": 79.66,
+      "end": 85.67999999999999,
+      "text": " Ansonsten könnt ihr Tommi Donnerstag 22.10 Uhr im zweiten DF Neo sehen bei Studio Schmidt.",
+      "avg_logprob": -0.1413233090290981,
+      "no_speech_prob": 2.6665268951231447e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 15,
+      "start": 86.16,
+      "end": 89.74,
+      "text": " Diese Woche zu Gast ist Katrin Bauerfeind und dann kriegen wir die Woche auch rum.",
+      "avg_logprob": -0.1413233090290981,
+      "no_speech_prob": 2.6665268951231447e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 16,
+      "start": 89.94,
+      "end": 93.92,
+      "text": " Und dann ist nächste Woche, nächste Woche werden wir darüber lachen, wie traurig wir jetzt alle sind.",
+      "avg_logprob": -0.1413233090290981,
+      "no_speech_prob": 2.6665268951231447e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 17,
+      "start": 93.92,
+      "end": 99.44,
+      "text": " Okay? Wir denken an euch, wir bleiben euch weiterhin treu.",
+      "avg_logprob": -0.1413233090290981,
+      "no_speech_prob": 2.6665268951231447e-11,
+      "speaker": "Speaker A"
+    },
+    {
+      "id": 18,
+      "start": 100.38,
+      "end": 105.46,
+      "text": " Diese Woche ist wirklich einfach Selfcare. Ich bin Matsch, ich habe keine Stimme mehr.",
+      "avg_logprob": -0.1413233090290981,
+      "no_speech_prob": 2.6665268951231447e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 19,
+      "start": 105.46,
+      "end": 110.53999999999999,
+      "text": " Und Tommi ist auch durch. Wir lieben euch trotzdem.",
+      "avg_logprob": -0.17190501856249432,
+      "no_speech_prob": 1.973382048048311e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 20,
+      "start": 111.11999999999999,
+      "end": 115.32,
+      "text": " Bleibt gesund, bleibt stabil. Seid lieb zueinander. Bis nächste Woche. Bye, bye.",
+      "avg_logprob": -0.17190501856249432,
+      "no_speech_prob": 1.973382048048311e-11,
+      "speaker": "Speaker B"
+    },
+    {
+      "id": 21,
+      "start": 115.32,
+      "end": 145.29999999999998,
+      "text": " Bis nächste Woche.",
+      "avg_logprob": -0.9896024976457868,
+      "no_speech_prob": 1.275738681361105e-10,
+      "speaker": "Speaker B"
+    }
+  ]
+}
