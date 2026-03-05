@@ -1,4 +1,4 @@
-.PHONY: setup setup-web metadata transcribe test-one clean process chunk embed topics summarize upload dev build
+.PHONY: setup setup-web metadata transcribe test-one clean process chunk embed topics summarize upload index dev build
 
 # Python pipeline
 setup:
@@ -34,6 +34,9 @@ summarize:
 
 upload:
 	python -m scripts.upload
+
+index:
+	python -m scripts.build_index
 
 test-one:
 	@echo "Downloading + transcribing episode 333 as a smoke test..."
