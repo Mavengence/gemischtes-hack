@@ -1,0 +1,3165 @@
+{
+  "generated_at": "2026-03-05T20:45:09.516510+00:00",
+  "total_episodes": 351,
+  "episodes": [
+    {
+      "episode_number": 1,
+      "title": "#1 GEMISCHTES HACK",
+      "glt_id": "GLT7330974999",
+      "filename": "episode_001_gemischtes_hack.json",
+      "pub_date": "Wed, 27 Sep 2017 17:32:00 -0000",
+      "duration_seconds": 2323,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 2,
+      "title": "#2 BEREICHSLEITER",
+      "glt_id": "GLT1045527974",
+      "filename": "episode_002_bereichsleiter.json",
+      "pub_date": "Wed, 04 Oct 2017 17:12:00 -0000",
+      "duration_seconds": 2330,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 3,
+      "title": "#3 ALLE ASTRONAUTEN SIND ALKOHOLIKER",
+      "glt_id": "GLT7088670941",
+      "filename": "episode_003_alle_astronauten_sind_alkoholiker.json",
+      "pub_date": "Tue, 10 Oct 2017 23:40:00 -0000",
+      "duration_seconds": 1729,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 4,
+      "title": "#4 MOTORRAD",
+      "glt_id": "GLT2513595873",
+      "filename": "episode_004_motorrad.json",
+      "pub_date": "Tue, 17 Oct 2017 23:44:00 -0000",
+      "duration_seconds": 2650,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 5,
+      "title": "#5 GUCCI-MÜTZE",
+      "glt_id": "GLT4151789514",
+      "filename": "episode_005_gucci_muetze.json",
+      "pub_date": "Tue, 24 Oct 2017 16:38:00 -0000",
+      "duration_seconds": 2823,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 6,
+      "title": "#6 DER RATTENVORFALL",
+      "glt_id": "GLT9376197424",
+      "filename": "episode_006_der_rattenvorfall.json",
+      "pub_date": "Wed, 01 Nov 2017 23:59:00 -0000",
+      "duration_seconds": 2852,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 7,
+      "title": "#7 TOMMIS SEIFENMUSCHEL",
+      "glt_id": "GLT4342766830",
+      "filename": "episode_007_tommis_seifenmuschel.json",
+      "pub_date": "Tue, 07 Nov 2017 21:45:00 -0000",
+      "duration_seconds": 3247,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 8,
+      "title": "#8 RUBBELSCHWEINCHEN",
+      "glt_id": "GLT1231252361",
+      "filename": "episode_008_rubbelschweinchen.json",
+      "pub_date": "Tue, 14 Nov 2017 23:07:00 -0000",
+      "duration_seconds": 3655,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 9,
+      "title": "#9 IHR SEID SCHÖN",
+      "glt_id": "GLT8519613901",
+      "filename": "episode_009_ihr_seid_schoen.json",
+      "pub_date": "Tue, 21 Nov 2017 23:08:00 -0000",
+      "duration_seconds": 3336,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 10,
+      "title": "#10 DEUTSCHES HACK",
+      "glt_id": "GLT2390569502",
+      "filename": "episode_010_deutsches_hack.json",
+      "pub_date": "Tue, 28 Nov 2017 23:07:00 -0000",
+      "duration_seconds": 3121,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 11,
+      "title": "#11 GDM",
+      "glt_id": "GLT9528548859",
+      "filename": "episode_011_gdm.json",
+      "pub_date": "Wed, 06 Dec 2017 00:46:00 -0000",
+      "duration_seconds": 3016,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 12,
+      "title": "#12 LASST EUCH ÜBERRASCHEN",
+      "glt_id": "GLT4816917286",
+      "filename": "episode_012_lasst_euch_ueberraschen.json",
+      "pub_date": "Tue, 12 Dec 2017 23:13:00 -0000",
+      "duration_seconds": 2747,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 13,
+      "title": "#13 DANKE. VIELEN DANK. DANKE.",
+      "glt_id": "GLT8513504380",
+      "filename": "episode_013_danke_vielen_dank_danke.json",
+      "pub_date": "Wed, 20 Dec 2017 00:14:00 -0000",
+      "duration_seconds": 4186,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 14,
+      "title": "#14 DAS IST MEIN TÜRKE",
+      "glt_id": "GLT5697342296",
+      "filename": "episode_014_das_ist_mein_tuerke.json",
+      "pub_date": "Tue, 23 Jan 2018 23:08:42 -0000",
+      "duration_seconds": 2966,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 15,
+      "title": "#15 LATE TWENS",
+      "glt_id": "GLT3271456899",
+      "filename": "episode_015_late_twens.json",
+      "pub_date": "Tue, 30 Jan 2018 21:21:00 -0000",
+      "duration_seconds": 3635,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 16,
+      "title": "#16 DOMINIK.TIM.SVEN",
+      "glt_id": "GLT3003236672",
+      "filename": "episode_016_dominik_tim_sven.json",
+      "pub_date": "Tue, 06 Feb 2018 22:00:00 -0000",
+      "duration_seconds": 3764,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 17,
+      "title": "#17 MITTEN IN DER NACHT",
+      "glt_id": "GLT3833701350",
+      "filename": "episode_017_mitten_in_der_nacht.json",
+      "pub_date": "Tue, 13 Feb 2018 23:20:00 -0000",
+      "duration_seconds": 2981,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 18,
+      "title": "#18 DER KAFFEE BRENNT",
+      "glt_id": "GLT1646335113",
+      "filename": "episode_018_der_kaffee_brennt.json",
+      "pub_date": "Tue, 20 Feb 2018 23:12:00 -0000",
+      "duration_seconds": 3528,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 19,
+      "title": "#19 MAMBA-ALARM",
+      "glt_id": "GLT2401488662",
+      "filename": "episode_019_mamba_alarm.json",
+      "pub_date": "Wed, 28 Feb 2018 18:56:00 -0000",
+      "duration_seconds": 3320,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 20,
+      "title": "#20 BLOWJOB PERSPEKTIVE",
+      "glt_id": "GLT7966046317",
+      "filename": "episode_020_blowjob_perspektive.json",
+      "pub_date": "Wed, 07 Mar 2018 00:01:00 -0000",
+      "duration_seconds": 2939,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 21,
+      "title": "#21 HACK AROUND THE WORLD",
+      "glt_id": "GLT2732868004",
+      "filename": "episode_021_hack_around_the_world.json",
+      "pub_date": "Tue, 13 Mar 2018 23:39:00 -0000",
+      "duration_seconds": 3227,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 22,
+      "title": "#22 GEMISCHTES HUG",
+      "glt_id": "GLT5767917291",
+      "filename": "episode_022_gemischtes_hug.json",
+      "pub_date": "Tue, 20 Mar 2018 22:54:00 -0000",
+      "duration_seconds": 3367,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 23,
+      "title": "#23 FÜNF FRAGEN AN TOMMI SCHMITT",
+      "glt_id": "GLT1113078456",
+      "filename": "episode_023_fuenf_fragen_an_tommi_schmitt.json",
+      "pub_date": "Wed, 04 Apr 2018 00:12:00 -0000",
+      "duration_seconds": 5091,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 24,
+      "title": "#24 FREE CHICO",
+      "glt_id": "GLT7780108188",
+      "filename": "episode_024_free_chico.json",
+      "pub_date": "Wed, 11 Apr 2018 01:25:00 -0000",
+      "duration_seconds": 3696,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 25,
+      "title": "#25 ‘N STELLI",
+      "glt_id": "GLT5488896315",
+      "filename": "episode_025_n_stelli.json",
+      "pub_date": "Tue, 17 Apr 2018 23:52:00 -0000",
+      "duration_seconds": 3162,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 26,
+      "title": "#26 FEST & FLAUSCHIG",
+      "glt_id": "GLT8760016812",
+      "filename": "episode_026_fest_flauschig.json",
+      "pub_date": "Tue, 24 Apr 2018 23:16:00 -0000",
+      "duration_seconds": 5087,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 27,
+      "title": "#27 NICHT ANHÖREN!",
+      "glt_id": "GLT9454284949",
+      "filename": "episode_027_nicht_anhoeren.json",
+      "pub_date": "Wed, 02 May 2018 23:32:00 -0000",
+      "duration_seconds": 2901,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 28,
+      "title": "#28 DER BERÜHMTESTE HACKI",
+      "glt_id": "GLT2477414936",
+      "filename": "episode_028_der_beruehmteste_hacki.json",
+      "pub_date": "Tue, 08 May 2018 23:25:00 -0000",
+      "duration_seconds": 4306,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 29,
+      "title": "#29 DIE RICHTIGSTELLUNG",
+      "glt_id": "GLT4939587456",
+      "filename": "episode_029_die_richtigstellung.json",
+      "pub_date": "Thu, 17 May 2018 23:58:00 -0000",
+      "duration_seconds": 3243,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 30,
+      "title": "#30 ÜBERRASCHUNGSHACK",
+      "glt_id": "GLT3846906364",
+      "filename": "episode_030_ueberraschungshack.json",
+      "pub_date": "Tue, 22 May 2018 23:33:00 -0000",
+      "duration_seconds": 1603,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 31,
+      "title": "#31 RETTUNGSGASSE UND TITTEN",
+      "glt_id": "GLT1553321237",
+      "filename": "episode_031_rettungsgasse_und_titten.json",
+      "pub_date": "Wed, 30 May 2018 02:11:00 -0000",
+      "duration_seconds": 4086,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 32,
+      "title": "#32 WEIBER, ODER?",
+      "glt_id": "GLT6167570995",
+      "filename": "episode_032_weiber_oder.json",
+      "pub_date": "Wed, 06 Jun 2018 00:06:00 -0000",
+      "duration_seconds": 3943,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 33,
+      "title": "#33 SONNENKOPF",
+      "glt_id": "GLT3545105440",
+      "filename": "episode_033_sonnenkopf.json",
+      "pub_date": "Tue, 12 Jun 2018 23:10:00 -0000",
+      "duration_seconds": 2984,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 34,
+      "title": "#34 DIE GEILE BLUMEN-SEX-OMA",
+      "glt_id": "GLT8399097497",
+      "filename": "episode_034_die_geile_blumen_sex_oma.json",
+      "pub_date": "Tue, 19 Jun 2018 23:17:00 -0000",
+      "duration_seconds": 4386,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 35,
+      "title": "#35 HITZEFREI",
+      "glt_id": "GLT7862112885",
+      "filename": "episode_035_hitzefrei.json",
+      "pub_date": "Wed, 27 Jun 2018 02:47:00 -0000",
+      "duration_seconds": 4041,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 36,
+      "title": "#36 DAS SEX-FÜHRER-PRINZIP",
+      "glt_id": "GLT4585956911",
+      "filename": "episode_036_das_sex_fuehrer_prinzip.json",
+      "pub_date": "Tue, 28 Aug 2018 23:04:00 -0000",
+      "duration_seconds": 4570,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 37,
+      "title": "#37 CHEMNITZ UND JAN ULLRICH",
+      "glt_id": "GLT1976860744",
+      "filename": "episode_037_chemnitz_und_jan_ullrich.json",
+      "pub_date": "Wed, 05 Sep 2018 00:09:00 -0000",
+      "duration_seconds": 4404,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 38,
+      "title": "#38 CAPPUCCIO",
+      "glt_id": "GLT8605670158",
+      "filename": "episode_038_cappuccio.json",
+      "pub_date": "Tue, 11 Sep 2018 23:38:00 -0000",
+      "duration_seconds": 4201,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 39,
+      "title": "#39 WENIGER APPLAUS",
+      "glt_id": "GLT2622203430",
+      "filename": "episode_039_weniger_applaus.json",
+      "pub_date": "Wed, 19 Sep 2018 00:10:00 -0000",
+      "duration_seconds": 4610,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 40,
+      "title": "#40 ENGLAND ABSCHAFFEN!",
+      "glt_id": "GLT5091846786",
+      "filename": "episode_040_england_abschaffen.json",
+      "pub_date": "Tue, 25 Sep 2018 23:37:00 -0000",
+      "duration_seconds": 4680,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 41,
+      "title": "#41 TEAM LEGEBATTERIE",
+      "glt_id": "GLT1793564636",
+      "filename": "episode_041_team_legebatterie.json",
+      "pub_date": "Wed, 03 Oct 2018 11:03:00 -0000",
+      "duration_seconds": 4563,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 42,
+      "title": "#42 SEX-BESEN",
+      "glt_id": "GLT8460444384",
+      "filename": "episode_042_sex_besen.json",
+      "pub_date": "Tue, 09 Oct 2018 23:25:00 -0000",
+      "duration_seconds": 3697,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 43,
+      "title": "#43 HEUTE IST MORGENS",
+      "glt_id": "GLT3364180838",
+      "filename": "episode_043_heute_ist_morgens.json",
+      "pub_date": "Wed, 17 Oct 2018 01:41:00 -0000",
+      "duration_seconds": 3439,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 44,
+      "title": "#44 HETERONORMATIVES HACK",
+      "glt_id": "GLT9714575844",
+      "filename": "episode_044_heteronormatives_hack.json",
+      "pub_date": "Thu, 25 Oct 2018 14:08:00 -0000",
+      "duration_seconds": 3827,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 45,
+      "title": "#45 LIVEHACK",
+      "glt_id": "GLT1303150514",
+      "filename": "episode_045_livehack.json",
+      "pub_date": "Wed, 31 Oct 2018 19:59:00 -0000",
+      "duration_seconds": 4614,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 46,
+      "title": "#46 NACHHALTIG BUMSEN",
+      "glt_id": "GLT5306286649",
+      "filename": "episode_046_nachhaltig_bumsen.json",
+      "pub_date": "Tue, 06 Nov 2018 23:07:00 -0000",
+      "duration_seconds": 3809,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 47,
+      "title": "#47 HACK HILFT",
+      "glt_id": "GLT5804714032",
+      "filename": "episode_047_hack_hilft.json",
+      "pub_date": "Tue, 13 Nov 2018 22:28:06 -0000",
+      "duration_seconds": 4208,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 48,
+      "title": "#48 HOW TO HACK",
+      "glt_id": "GLT1352398343",
+      "filename": "episode_048_how_to_hack.json",
+      "pub_date": "Wed, 21 Nov 2018 09:28:00 -0000",
+      "duration_seconds": 4547,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 49,
+      "title": "#49 ES ZIEHT IM PARADIES",
+      "glt_id": "GLT7182338885",
+      "filename": "episode_049_es_zieht_im_paradies.json",
+      "pub_date": "Tue, 27 Nov 2018 23:17:00 -0000",
+      "duration_seconds": 4686,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 50,
+      "title": "#50 FROHE WEIHNACHTEN",
+      "glt_id": "GLT5403047060",
+      "filename": "episode_050_frohe_weihnachten.json",
+      "pub_date": "Tue, 04 Dec 2018 23:52:00 -0000",
+      "duration_seconds": 4514,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 51,
+      "title": "#51 SURPRISE! BESCHERUNG!",
+      "glt_id": "GLT4677853560",
+      "filename": "episode_051_surprise_bescherung.json",
+      "pub_date": "Sun, 16 Dec 2018 20:21:00 -0000",
+      "duration_seconds": 4865,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 52,
+      "title": "#52 TUNNEL BAUEN",
+      "glt_id": "GLT1197892978",
+      "filename": "episode_052_tunnel_bauen.json",
+      "pub_date": "Wed, 16 Jan 2019 00:14:00 -0000",
+      "duration_seconds": 4782,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 53,
+      "title": "#53 LIVE GLORIA HOLE TEIL 2",
+      "glt_id": "GLT6770419674",
+      "filename": "episode_053_live_gloria_hole_teil_2.json",
+      "pub_date": "Tue, 22 Jan 2019 23:35:00 -0000",
+      "duration_seconds": 3656,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 54,
+      "title": "#54 OHNE OBOE KEIN BÄR",
+      "glt_id": "GLT8927322428",
+      "filename": "episode_054_ohne_oboe_kein_baer.json",
+      "pub_date": "Tue, 29 Jan 2019 23:51:00 -0000",
+      "duration_seconds": 3971,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 55,
+      "title": "#55 KAUGUMMI IM GUCCI-SHIRT",
+      "glt_id": "GLT1660346936",
+      "filename": "episode_055_kaugummi_im_gucci_shirt.json",
+      "pub_date": "Tue, 12 Feb 2019 23:42:00 -0000",
+      "duration_seconds": 4711,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 56,
+      "title": "#56 ALLES ALBERN",
+      "glt_id": "GLT4785181162",
+      "filename": "episode_056_alles_albern.json",
+      "pub_date": "Tue, 19 Feb 2019 23:53:00 -0000",
+      "duration_seconds": 4628,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 57,
+      "title": "#57 HITLER AN DER PLAYSI",
+      "glt_id": "GLT9323910547",
+      "filename": "episode_057_hitler_an_der_playsi.json",
+      "pub_date": "Wed, 27 Feb 2019 01:03:00 -0000",
+      "duration_seconds": 4413,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 58,
+      "title": "#58 HAMBURG LIVE ",
+      "glt_id": "GLT3697641481",
+      "filename": "episode_058_hamburg_live.json",
+      "pub_date": "Wed, 06 Mar 2019 00:16:00 -0000",
+      "duration_seconds": 6508,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 59,
+      "title": "#59 LIBANESE ALS ENGLÄNDER",
+      "glt_id": "GLT2512715708",
+      "filename": "episode_059_libanese_als_englaender.json",
+      "pub_date": "Wed, 13 Mar 2019 17:25:51 -0000",
+      "duration_seconds": 3752,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 60,
+      "title": "#60 DICKE MILCHTITTEN",
+      "glt_id": "GLT5357695791",
+      "filename": "episode_060_dicke_milchtitten.json",
+      "pub_date": "Tue, 19 Mar 2019 22:57:22 -0000",
+      "duration_seconds": 4780,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 61,
+      "title": "#61 FLYING TIGER",
+      "glt_id": "GLT8188139058",
+      "filename": "episode_061_flying_tiger.json",
+      "pub_date": "Tue, 26 Mar 2019 22:48:13 -0000",
+      "duration_seconds": 3924,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 62,
+      "title": "#62 MOBBER SIND OPFER",
+      "glt_id": "GLT7688697236",
+      "filename": "episode_062_mobber_sind_opfer.json",
+      "pub_date": "Tue, 02 Apr 2019 21:58:56 -0000",
+      "duration_seconds": 4945,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 63,
+      "title": "#63 POLAROID-PRINZIP",
+      "glt_id": "GLT7672969269",
+      "filename": "episode_063_polaroid_prinzip.json",
+      "pub_date": "Tue, 09 Apr 2019 22:15:32 -0000",
+      "duration_seconds": 4444,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 64,
+      "title": "#64 SLACKLINE DURCHSCHNEIDEN",
+      "glt_id": "GLT4661541504",
+      "filename": "episode_064_slackline_durchschneiden.json",
+      "pub_date": "Tue, 16 Apr 2019 22:07:21 -0000",
+      "duration_seconds": 5017,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 65,
+      "title": "#65 SUPER DURCHGEKOMMEN",
+      "glt_id": "GLT1833510193",
+      "filename": "episode_065_super_durchgekommen.json",
+      "pub_date": "Tue, 23 Apr 2019 21:59:04 -0000",
+      "duration_seconds": 4165,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 66,
+      "title": "#66 WIR HABEN DIE SHISHA ERFUNDEN",
+      "glt_id": "GLT5971541312",
+      "filename": "episode_066_wir_haben_die_shisha_erfunden.json",
+      "pub_date": "Wed, 01 May 2019 15:23:13 -0000",
+      "duration_seconds": 4971,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 67,
+      "title": "#67 EHRE",
+      "glt_id": "GLT2002287831",
+      "filename": "episode_067_ehre.json",
+      "pub_date": "Tue, 07 May 2019 21:23:58 -0000",
+      "duration_seconds": 4630,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 68,
+      "title": "#68 KONTERFEI",
+      "glt_id": "GLT6682036325",
+      "filename": "episode_068_konterfei.json",
+      "pub_date": "Tue, 14 May 2019 21:20:57 -0000",
+      "duration_seconds": 5711,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 69,
+      "title": "#69 KENNST DOCH DIE BRÜDER",
+      "glt_id": "GLT2842385062",
+      "filename": "episode_069_kennst_doch_die_brueder.json",
+      "pub_date": "Tue, 21 May 2019 20:59:12 -0000",
+      "duration_seconds": 4674,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 70,
+      "title": "#70 SCHÄMT EUCH!",
+      "glt_id": "GLT5081116327",
+      "filename": "episode_070_schaemt_euch.json",
+      "pub_date": "Tue, 28 May 2019 22:38:37 -0000",
+      "duration_seconds": 4872,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 71,
+      "title": "#71 UNSERE WEIBER",
+      "glt_id": "GLT4977823658",
+      "filename": "episode_071_unsere_weiber.json",
+      "pub_date": "Tue, 04 Jun 2019 20:34:10 -0000",
+      "duration_seconds": 4586,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 72,
+      "title": "#72 PAUSE KURZ VOR ARSCH",
+      "glt_id": "GLT1307868209",
+      "filename": "episode_072_pause_kurz_vor_arsch.json",
+      "pub_date": "Tue, 11 Jun 2019 22:02:20 -0000",
+      "duration_seconds": 3290,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 73,
+      "title": "#73 WEIZEN IM CLUB",
+      "glt_id": "GLT4196498120",
+      "filename": "episode_073_weizen_im_club.json",
+      "pub_date": "Tue, 10 Sep 2019 22:01:00 -0000",
+      "duration_seconds": 4772,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 74,
+      "title": "#74 ICH BRAUCH NE GUN",
+      "glt_id": "GLT9565945297",
+      "filename": "episode_074_ich_brauch_ne_gun.json",
+      "pub_date": "Tue, 17 Sep 2019 21:50:00 -0000",
+      "duration_seconds": 4808,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 75,
+      "title": "#75 WIR MACHEN GEILERES PAPIER",
+      "glt_id": "GLT9943503944",
+      "filename": "episode_075_wir_machen_geileres_papier.json",
+      "pub_date": "Tue, 24 Sep 2019 21:53:00 -0000",
+      "duration_seconds": 4783,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 76,
+      "title": "#76 SEX-SCHEIDE",
+      "glt_id": "GLT9567009640",
+      "filename": "episode_076_sex_scheide.json",
+      "pub_date": "Tue, 01 Oct 2019 21:53:00 -0000",
+      "duration_seconds": 4356,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 77,
+      "title": "#77 ALLES GUTE UND GESUNDHEIT",
+      "glt_id": "GLT3212310212",
+      "filename": "episode_077_alles_gute_und_gesundheit.json",
+      "pub_date": "Tue, 08 Oct 2019 21:53:00 -0000",
+      "duration_seconds": 3541,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 78,
+      "title": "#78 STEVE ALTER",
+      "glt_id": "GLT4956142529",
+      "filename": "episode_078_steve_alter.json",
+      "pub_date": "Tue, 15 Oct 2019 21:45:00 -0000",
+      "duration_seconds": 4212,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 79,
+      "title": "#79 WIR ROCKEN DAS",
+      "glt_id": "GLT5383296607",
+      "filename": "episode_079_wir_rocken_das.json",
+      "pub_date": "Tue, 22 Oct 2019 21:53:00 -0000",
+      "duration_seconds": 3930,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 80,
+      "title": "#80 LEON GORETZKA",
+      "glt_id": "GLT8586674474",
+      "filename": "episode_080_leon_goretzka.json",
+      "pub_date": "Tue, 29 Oct 2019 22:53:00 -0000",
+      "duration_seconds": 3912,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 81,
+      "title": "#81 ESSEN MACHT DEN BAGGER AUF",
+      "glt_id": "GLT5965025614",
+      "filename": "episode_081_essen_macht_den_bagger_auf.json",
+      "pub_date": "Tue, 05 Nov 2019 22:53:00 -0000",
+      "duration_seconds": 4047,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 82,
+      "title": "#82 SCHWINDIGKEIT",
+      "glt_id": "GLT7383178979",
+      "filename": "episode_082_schwindigkeit.json",
+      "pub_date": "Tue, 12 Nov 2019 22:53:00 -0000",
+      "duration_seconds": 4104,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 83,
+      "title": "#83 GUCCI QUALITÄT",
+      "glt_id": "GLT7774959660",
+      "filename": "episode_083_gucci_qualitaet.json",
+      "pub_date": "Tue, 19 Nov 2019 22:53:00 -0000",
+      "duration_seconds": 3975,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 84,
+      "title": "#84 PELIKAN 36",
+      "glt_id": "GLT9773221908",
+      "filename": "episode_084_pelikan_36.json",
+      "pub_date": "Tue, 26 Nov 2019 22:53:00 -0000",
+      "duration_seconds": 4107,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 85,
+      "title": "#85 BEETHOVEN WAR NICHT TAUB",
+      "glt_id": "GLT4486872669",
+      "filename": "episode_085_beethoven_war_nicht_taub.json",
+      "pub_date": "Tue, 03 Dec 2019 22:53:00 -0000",
+      "duration_seconds": 4410,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 86,
+      "title": "#86 ELEGALANT",
+      "glt_id": "GLT1634523548",
+      "filename": "episode_086_elegalant.json",
+      "pub_date": "Tue, 10 Dec 2019 22:53:00 -0000",
+      "duration_seconds": 4739,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 87,
+      "title": "#87 WIR RASCHEN EUCH ÜBER",
+      "glt_id": "GLT4052957867",
+      "filename": "episode_087_wir_raschen_euch_ueber.json",
+      "pub_date": "Wed, 01 Jan 2020 10:53:00 -0000",
+      "duration_seconds": 3974,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 88,
+      "title": "#88 OPTIMISMUS",
+      "glt_id": "GLT3016118363",
+      "filename": "episode_088_optimismus.json",
+      "pub_date": "Tue, 14 Jan 2020 22:53:00 -0000",
+      "duration_seconds": 4540,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 89,
+      "title": "#89 HENKERSMAHLZEIT",
+      "glt_id": "GLT4326029241",
+      "filename": "episode_089_henkersmahlzeit.json",
+      "pub_date": "Tue, 21 Jan 2020 22:53:00 -0000",
+      "duration_seconds": 4118,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 90,
+      "title": "#90 DÄNISCHE ABWICKLUNG",
+      "glt_id": "GLT9138070089",
+      "filename": "episode_090_daenische_abwicklung.json",
+      "pub_date": "Tue, 28 Jan 2020 22:53:00 -0000",
+      "duration_seconds": 4971,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 91,
+      "title": "#91 BOHRINSEL-VIBES",
+      "glt_id": "GLT8024878463",
+      "filename": "episode_091_bohrinsel_vibes.json",
+      "pub_date": "Tue, 04 Feb 2020 22:53:00 -0000",
+      "duration_seconds": 4975,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 92,
+      "title": "#92 ANS REVERS",
+      "glt_id": "GLT4951063070",
+      "filename": "episode_092_ans_revers.json",
+      "pub_date": "Tue, 11 Feb 2020 22:53:00 -0000",
+      "duration_seconds": 4807,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 93,
+      "title": "#93 SAGT JA ZU BIELEFELD",
+      "glt_id": "GLT9253277759",
+      "filename": "episode_093_sagt_ja_zu_bielefeld.json",
+      "pub_date": "Tue, 18 Feb 2020 22:53:00 -0000",
+      "duration_seconds": 4495,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 94,
+      "title": "#94 SEX-EUTER",
+      "glt_id": "GLT8073270305",
+      "filename": "episode_094_sex_euter.json",
+      "pub_date": "Tue, 25 Feb 2020 22:53:00 -0000",
+      "duration_seconds": 5003,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 95,
+      "title": "#95 UNSER MANU",
+      "glt_id": "GLT4732323272",
+      "filename": "episode_095_unser_manu.json",
+      "pub_date": "Tue, 03 Mar 2020 22:53:00 -0000",
+      "duration_seconds": 5046,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 96,
+      "title": "#96 ICH WILL ABER DA LANG",
+      "glt_id": "GLT6773705587",
+      "filename": "episode_096_ich_will_aber_da_lang.json",
+      "pub_date": "Tue, 17 Mar 2020 22:53:00 -0000",
+      "duration_seconds": 4821,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 97,
+      "title": "#97 MEGA PANNE",
+      "glt_id": "GLT5927108420",
+      "filename": "episode_097_mega_panne.json",
+      "pub_date": "Tue, 31 Mar 2020 21:53:00 -0000",
+      "duration_seconds": 4913,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 98,
+      "title": "#98 VERSANDTASCHE",
+      "glt_id": "GLT5972275941",
+      "filename": "episode_098_versandtasche.json",
+      "pub_date": "Tue, 07 Apr 2020 21:53:00 -0000",
+      "duration_seconds": 5155,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 99,
+      "title": "#99 DAS TISCH",
+      "glt_id": "GLT3674326485",
+      "filename": "episode_099_das_tisch.json",
+      "pub_date": "Tue, 14 Apr 2020 21:53:00 -0000",
+      "duration_seconds": 4541,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 100,
+      "title": "#100 SECHSTAUSENDSECHSHUNDERTSECHSUNDSIEBZIG",
+      "glt_id": "GLT8733321519",
+      "filename": "episode_100_sechstausendsechshundertsechsundsiebzig.json",
+      "pub_date": "Tue, 21 Apr 2020 21:53:00 -0000",
+      "duration_seconds": 4667,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 101,
+      "title": "#101 ERSTMAL HEU",
+      "glt_id": "GLT1787154316",
+      "filename": "episode_101_erstmal_heu.json",
+      "pub_date": "Tue, 28 Apr 2020 21:51:00 -0000",
+      "duration_seconds": 3467,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 102,
+      "title": "#102 IGEL IN DER TASCHE",
+      "glt_id": "GLT4079932467",
+      "filename": "episode_102_igel_in_der_tasche.json",
+      "pub_date": "Tue, 05 May 2020 21:52:00 -0000",
+      "duration_seconds": 4475,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 103,
+      "title": "#103 DIE SUPER SEX-LÜGE",
+      "glt_id": "GLT4580641201",
+      "filename": "episode_103_die_super_sex_luege.json",
+      "pub_date": "Tue, 12 May 2020 21:50:00 -0000",
+      "duration_seconds": 4957,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 104,
+      "title": "#104 MERKEL ODER KOFFER",
+      "glt_id": "GLT2627030019",
+      "filename": "episode_104_merkel_oder_koffer.json",
+      "pub_date": "Tue, 19 May 2020 21:51:00 -0000",
+      "duration_seconds": 4192,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 105,
+      "title": "#105 FRÖSCHE IN DER ELBE",
+      "glt_id": "GLT8222921222",
+      "filename": "episode_105_froesche_in_der_elbe.json",
+      "pub_date": "Tue, 26 May 2020 21:52:00 -0000",
+      "duration_seconds": 4803,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 106,
+      "title": "#106 JOE COCKER",
+      "glt_id": "GLT7605144434",
+      "filename": "episode_106_joe_cocker.json",
+      "pub_date": "Tue, 02 Jun 2020 21:53:00 -0000",
+      "duration_seconds": 4670,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 107,
+      "title": "#107 DIE DRITTE TÜR",
+      "glt_id": "GLT3205478558",
+      "filename": "episode_107_die_dritte_tuer.json",
+      "pub_date": "Tue, 09 Jun 2020 21:52:00 -0000",
+      "duration_seconds": 4276,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 108,
+      "title": "#108 SCHNAPPSCHILDKRÖTE",
+      "glt_id": "GLT7405180865",
+      "filename": "episode_108_schnappschildkroete.json",
+      "pub_date": "Tue, 16 Jun 2020 21:51:00 -0000",
+      "duration_seconds": 4856,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 109,
+      "title": "#109 WASABI ANRÜHREN",
+      "glt_id": "GLT5143634940",
+      "filename": "episode_109_wasabi_anruehren.json",
+      "pub_date": "Tue, 23 Jun 2020 21:51:00 -0000",
+      "duration_seconds": 5518,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 110,
+      "title": "#110 SCHNITT-GEGENSCHNITT-COMEDY",
+      "glt_id": "GLT1847113587",
+      "filename": "episode_110_schnitt_gegenschnitt_comedy.json",
+      "pub_date": "Tue, 30 Jun 2020 21:52:00 -0000",
+      "duration_seconds": 5064,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 111,
+      "title": "#111 JAMES BOND JAMES BOND",
+      "glt_id": "GLT4054314732",
+      "filename": "episode_111_james_bond_james_bond.json",
+      "pub_date": "Tue, 07 Jul 2020 21:52:00 -0000",
+      "duration_seconds": 6334,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 112,
+      "title": "#112 NIL MÖRDER",
+      "glt_id": "GLT7921059138",
+      "filename": "episode_112_nil_moerder.json",
+      "pub_date": "Tue, 01 Sep 2020 21:52:00 -0000",
+      "duration_seconds": 4880,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 113,
+      "title": "#113 BULGAREN-MACRON",
+      "glt_id": "GLT4553773751",
+      "filename": "episode_113_bulgaren_macron.json",
+      "pub_date": "Tue, 08 Sep 2020 21:50:00 -0000",
+      "duration_seconds": 5172,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 114,
+      "title": "#114 ZARTES PANDA-FLEISCH",
+      "glt_id": "GLT8922045856",
+      "filename": "episode_114_zartes_panda_fleisch.json",
+      "pub_date": "Tue, 15 Sep 2020 21:51:00 -0000",
+      "duration_seconds": 4958,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 115,
+      "title": "#115 SEX-KRIEG",
+      "glt_id": "GLT4057146380",
+      "filename": "episode_115_sex_krieg.json",
+      "pub_date": "Tue, 22 Sep 2020 21:50:00 -0000",
+      "duration_seconds": 4919,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 116,
+      "title": "#116 HÖR MAL WER DA BALLERT",
+      "glt_id": "GLT1985490928",
+      "filename": "episode_116_hoer_mal_wer_da_ballert.json",
+      "pub_date": "Tue, 29 Sep 2020 21:51:00 -0000",
+      "duration_seconds": 4905,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 117,
+      "title": "#117 ES WAR UNS EINE EHRE",
+      "glt_id": "GLT2765114921",
+      "filename": "episode_117_es_war_uns_eine_ehre.json",
+      "pub_date": "Tue, 06 Oct 2020 21:51:00 -0000",
+      "duration_seconds": 4726,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 118,
+      "title": "#118 BONG IST GUT WENN MAN ARM IST",
+      "glt_id": "GLT8335219645",
+      "filename": "episode_118_bong_ist_gut_wenn_man_arm_ist.json",
+      "pub_date": "Tue, 13 Oct 2020 21:45:00 -0000",
+      "duration_seconds": 4661,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 119,
+      "title": "#119 LIEBLOS-EFFEKT",
+      "glt_id": "GLT5414359318",
+      "filename": "episode_119_lieblos_effekt.json",
+      "pub_date": "Tue, 20 Oct 2020 21:46:00 -0000",
+      "duration_seconds": 5251,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 120,
+      "title": "#120 WÜTENDE BOSNIER",
+      "glt_id": "GLT7667703034",
+      "filename": "episode_120_wuetende_bosnier.json",
+      "pub_date": "Tue, 27 Oct 2020 22:47:00 -0000",
+      "duration_seconds": 5186,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 121,
+      "title": "#121 j",
+      "glt_id": "GLT9592045650",
+      "filename": "episode_121_j.json",
+      "pub_date": "Wed, 04 Nov 2020 14:15:00 -0000",
+      "duration_seconds": 4215,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 122,
+      "title": "#122 UM KOPF UND DÖDEL",
+      "glt_id": "GLT7451042082",
+      "filename": "episode_122_um_kopf_und_doedel.json",
+      "pub_date": "Tue, 10 Nov 2020 22:46:00 -0000",
+      "duration_seconds": 4139,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 123,
+      "title": "#123 NERZINFARKT",
+      "glt_id": "GLT6748766260",
+      "filename": "episode_123_nerzinfarkt.json",
+      "pub_date": "Tue, 17 Nov 2020 22:45:00 -0000",
+      "duration_seconds": 4936,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 125,
+      "title": "#125 ALLE SEITLICH LEGEN",
+      "glt_id": "GLT7547164779",
+      "filename": "episode_125_alle_seitlich_legen.json",
+      "pub_date": "Tue, 24 Nov 2020 22:47:00 -0000",
+      "duration_seconds": 3736,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 126,
+      "title": "#126 GOTT SPIELEN",
+      "glt_id": "GLT6201026550",
+      "filename": "episode_126_gott_spielen.json",
+      "pub_date": "Tue, 01 Dec 2020 22:46:00 -0000",
+      "duration_seconds": 4747,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 127,
+      "title": "#127 KLEINER MÖRDER",
+      "glt_id": "GLT5778597161",
+      "filename": "episode_127_kleiner_moerder.json",
+      "pub_date": "Tue, 08 Dec 2020 22:46:00 -0000",
+      "duration_seconds": 4855,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 128,
+      "title": "#128 NEW YORK CITY",
+      "glt_id": "GLT6283390440",
+      "filename": "episode_128_new_york_city.json",
+      "pub_date": "Tue, 15 Dec 2020 22:46:00 -0000",
+      "duration_seconds": 4915,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 129,
+      "title": "#129 TATZENHAI",
+      "glt_id": "GLT3280230320",
+      "filename": "episode_129_tatzenhai.json",
+      "pub_date": "Tue, 05 Jan 2021 22:46:00 -0000",
+      "duration_seconds": 4300,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 130,
+      "title": "#130 ÜBERWIEGEND MACHO",
+      "glt_id": "GLT7110555682",
+      "filename": "episode_130_ueberwiegend_macho.json",
+      "pub_date": "Tue, 12 Jan 2021 22:46:00 -0000",
+      "duration_seconds": 4613,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 131,
+      "title": "#131 DAS ANDERE SCHOTTLAND",
+      "glt_id": "GLT1009653979",
+      "filename": "episode_131_das_andere_schottland.json",
+      "pub_date": "Tue, 19 Jan 2021 22:46:00 -0000",
+      "duration_seconds": 6347,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 132,
+      "title": "#132 BOTTOM LINE",
+      "glt_id": "GLT9727838102",
+      "filename": "episode_132_bottom_line.json",
+      "pub_date": "Tue, 26 Jan 2021 22:47:00 -0000",
+      "duration_seconds": 5381,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 133,
+      "title": "#133 TAMAM OKIDOKI",
+      "glt_id": "GLT4964016054",
+      "filename": "episode_133_tamam_okidoki.json",
+      "pub_date": "Tue, 02 Feb 2021 22:46:00 -0000",
+      "duration_seconds": 4272,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 134,
+      "title": "#134 ALTE MÄNNER FUSSELN",
+      "glt_id": "GLT6705069211",
+      "filename": "episode_134_alte_maenner_fusseln.json",
+      "pub_date": "Tue, 09 Feb 2021 22:46:00 -0000",
+      "duration_seconds": 3952,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 135,
+      "title": "#135 AM OBEREN SCHAFT",
+      "glt_id": "GLT2792226153",
+      "filename": "episode_135_am_oberen_schaft.json",
+      "pub_date": "Tue, 16 Feb 2021 22:46:00 -0000",
+      "duration_seconds": 4834,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 136,
+      "title": "#136 MÖWEN IN MONCLER ",
+      "glt_id": "GLT2105604944",
+      "filename": "episode_136_moewen_in_moncler.json",
+      "pub_date": "Tue, 23 Feb 2021 22:46:00 -0000",
+      "duration_seconds": 5052,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 137,
+      "title": "#137 ASTRAZENECA3000",
+      "glt_id": "GLT8860105683",
+      "filename": "episode_137_astrazeneca3000.json",
+      "pub_date": "Tue, 02 Mar 2021 22:46:00 -0000",
+      "duration_seconds": 4528,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 138,
+      "title": "#138 KACKI AM UNTERARM",
+      "glt_id": "GLT1943380949",
+      "filename": "episode_138_kacki_am_unterarm.json",
+      "pub_date": "Tue, 09 Mar 2021 22:46:00 -0000",
+      "duration_seconds": 4407,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 139,
+      "title": "#139 HAUTGEFAHR",
+      "glt_id": "GLT4293236350",
+      "filename": "episode_139_hautgefahr.json",
+      "pub_date": "Tue, 16 Mar 2021 22:49:00 -0000",
+      "duration_seconds": 4925,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 140,
+      "title": "#140 DAHABSACHE",
+      "glt_id": "GLT9738471325",
+      "filename": "episode_140_dahabsache.json",
+      "pub_date": "Tue, 23 Mar 2021 22:47:00 -0000",
+      "duration_seconds": 4467,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 141,
+      "title": "#141 ANDERS LOST",
+      "glt_id": "GLT8022228393",
+      "filename": "episode_141_anders_lost.json",
+      "pub_date": "Tue, 30 Mar 2021 21:48:00 -0000",
+      "duration_seconds": 4542,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 142,
+      "title": "#142 SCHEUERSCHWANZ IM BRENNNESSELFELD",
+      "glt_id": "GLT4380923241",
+      "filename": "episode_142_scheuerschwanz_im_brennnesselfeld.json",
+      "pub_date": "Tue, 06 Apr 2021 21:48:00 -0000",
+      "duration_seconds": 4271,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 143,
+      "title": "#143 DEUTSCH TO THE FULLEST - KLAR GIBTS PERU - SEX",
+      "glt_id": "GLT8254299808",
+      "filename": "episode_143_deutsch_to_the_fullest_klar_gibts_peru_sex.json",
+      "pub_date": "Tue, 13 Apr 2021 21:48:00 -0000",
+      "duration_seconds": 4884,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 144,
+      "title": "#144 GIB MIR PH",
+      "glt_id": "GLT6195573838",
+      "filename": "episode_144_gib_mir_ph.json",
+      "pub_date": "Tue, 20 Apr 2021 21:46:00 -0000",
+      "duration_seconds": 4197,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 145,
+      "title": "#145 GUDE LAUNE",
+      "glt_id": "GLT9104694311",
+      "filename": "episode_145_gude_laune.json",
+      "pub_date": "Tue, 27 Apr 2021 21:46:00 -0000",
+      "duration_seconds": 4389,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 146,
+      "title": "#146 OKKANER LAMBO",
+      "glt_id": "GLT7970825366",
+      "filename": "episode_146_okkaner_lambo.json",
+      "pub_date": "Tue, 04 May 2021 21:43:00 -0000",
+      "duration_seconds": 4218,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 147,
+      "title": "#147 VERGESST MIR DIE SPANIER NICHT",
+      "glt_id": "GLT8490259166",
+      "filename": "episode_147_vergesst_mir_die_spanier_nicht.json",
+      "pub_date": "Tue, 11 May 2021 21:43:00 -0000",
+      "duration_seconds": 3317,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 148,
+      "title": "#148 KOLLEKTIVER RAUSCH",
+      "glt_id": "GLT1101123319",
+      "filename": "episode_148_kollektiver_rausch.json",
+      "pub_date": "Tue, 18 May 2021 21:46:00 -0000",
+      "duration_seconds": 5657,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 149,
+      "title": "#149 UNLOGISCHE LÜGEN",
+      "glt_id": "GLT6748411427",
+      "filename": "episode_149_unlogische_luegen.json",
+      "pub_date": "Tue, 25 May 2021 21:43:00 -0000",
+      "duration_seconds": 4758,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 150,
+      "title": "#150 SEIL SEIL SEIL",
+      "glt_id": "GLT7178626952",
+      "filename": "episode_150_seil_seil_seil.json",
+      "pub_date": "Tue, 01 Jun 2021 21:45:00 -0000",
+      "duration_seconds": 5368,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 151,
+      "title": "#151 ALLE HEISSEN TIM UND ALLES MUSS RAUS",
+      "glt_id": "GLT8062442689",
+      "filename": "episode_151_alle_heissen_tim_und_alles_muss_raus.json",
+      "pub_date": "Tue, 08 Jun 2021 21:47:00 -0000",
+      "duration_seconds": 5401,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 152,
+      "title": "#152 GEMISCHTES HACK IST ÜBERBEWERTET",
+      "glt_id": "GLT4160588794",
+      "filename": "episode_152_gemischtes_hack_ist_ueberbewertet.json",
+      "pub_date": "Tue, 31 Aug 2021 21:46:00 -0000",
+      "duration_seconds": 4160,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 153,
+      "title": "#153 GEDANKEN ZUM AUSDRUCKEN BRINGEN",
+      "glt_id": "GLT7353773889",
+      "filename": "episode_153_gedanken_zum_ausdrucken_bringen.json",
+      "pub_date": "Tue, 07 Sep 2021 21:49:00 -0000",
+      "duration_seconds": 5500,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 154,
+      "title": "#154 DER DEUTSCHE DRAKE",
+      "glt_id": "GLT3193464832",
+      "filename": "episode_154_der_deutsche_drake.json",
+      "pub_date": "Tue, 14 Sep 2021 21:47:00 -0000",
+      "duration_seconds": 4452,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 155,
+      "title": "#155 WO SIND DIE GLORYHOLES? ",
+      "glt_id": "GLT5342403916",
+      "filename": "episode_155_wo_sind_die_gloryholes.json",
+      "pub_date": "Tue, 21 Sep 2021 21:48:00 -0000",
+      "duration_seconds": 4088,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 156,
+      "title": "#156 QUIETSCH-VORFALL",
+      "glt_id": "GLT7348797778",
+      "filename": "episode_156_quietsch_vorfall.json",
+      "pub_date": "Tue, 28 Sep 2021 21:47:00 -0000",
+      "duration_seconds": 4369,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 157,
+      "title": "#157 SUEDKORENO",
+      "glt_id": "GLT3874697212",
+      "filename": "episode_157_suedkoreno.json",
+      "pub_date": "Tue, 12 Oct 2021 21:46:00 -0000",
+      "duration_seconds": 5487,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 158,
+      "title": "#158 ALT-HACKIS MIT HARTEN NIPPELN",
+      "glt_id": "GLT3911240640",
+      "filename": "episode_158_alt_hackis_mit_harten_nippeln.json",
+      "pub_date": "Tue, 19 Oct 2021 21:44:00 -0000",
+      "duration_seconds": 4775,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 159,
+      "title": "#159 FAIRE SEIFE",
+      "glt_id": "GLT2599704305",
+      "filename": "episode_159_faire_seife.json",
+      "pub_date": "Tue, 26 Oct 2021 21:44:00 -0000",
+      "duration_seconds": 4623,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 160,
+      "title": "#160 UNTERSCHÄTZT UNS DIE MENSCHEN NICHT",
+      "glt_id": "GLT6950389415",
+      "filename": "episode_160_unterschaetzt_uns_die_menschen_nicht.json",
+      "pub_date": "Tue, 02 Nov 2021 22:44:00 -0000",
+      "duration_seconds": 4730,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 161,
+      "title": "#161 ICH WEISS NICHT WIE MÜTTER RIECHEN",
+      "glt_id": "GLT3965134766",
+      "filename": "episode_161_ich_weiss_nicht_wie_muetter_riechen.json",
+      "pub_date": "Tue, 09 Nov 2021 22:44:00 -0000",
+      "duration_seconds": 4076,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 162,
+      "title": "#162 SEX-CORONA ",
+      "glt_id": "GLT2294742253",
+      "filename": "episode_162_sex_corona.json",
+      "pub_date": "Tue, 16 Nov 2021 22:44:00 -0000",
+      "duration_seconds": 4974,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 163,
+      "title": "#163 DER MANN AUS GAMBIA",
+      "glt_id": "GLT4872461293",
+      "filename": "episode_163_der_mann_aus_gambia.json",
+      "pub_date": "Tue, 23 Nov 2021 22:44:00 -0000",
+      "duration_seconds": 4318,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 164,
+      "title": "#164 WOLFGANG AIDS",
+      "glt_id": "GLT3284580116",
+      "filename": "episode_164_wolfgang_aids.json",
+      "pub_date": "Tue, 30 Nov 2021 22:44:00 -0000",
+      "duration_seconds": 3769,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 165,
+      "title": "#165 SCHLECHTE VÄTER",
+      "glt_id": "GLT6322822670",
+      "filename": "episode_165_schlechte_vaeter.json",
+      "pub_date": "Tue, 07 Dec 2021 22:42:00 -0000",
+      "duration_seconds": 5473,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 166,
+      "title": "#166 ICH KRIEG X NICHT MEHR RÜBER",
+      "glt_id": "GLT8038929068",
+      "filename": "episode_166_ich_krieg_x_nicht_mehr_rueber.json",
+      "pub_date": "Tue, 14 Dec 2021 22:44:00 -0000",
+      "duration_seconds": 4754,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 167,
+      "title": "#167 ERSTMAL HÄCKSELN",
+      "glt_id": "GLT3177676102",
+      "filename": "episode_167_erstmal_haeckseln.json",
+      "pub_date": "Tue, 04 Jan 2022 22:45:00 -0000",
+      "duration_seconds": 4953,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 168,
+      "title": "#168 SEX-SAFT",
+      "glt_id": "GLT7441269145",
+      "filename": "episode_168_sex_saft.json",
+      "pub_date": "Tue, 11 Jan 2022 22:45:00 -0000",
+      "duration_seconds": 5826,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 169,
+      "title": "#169 ZWISCHENWUSELN",
+      "glt_id": "GLT5474523802",
+      "filename": "episode_169_zwischenwuseln.json",
+      "pub_date": "Tue, 18 Jan 2022 22:45:00 -0000",
+      "duration_seconds": 4160,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 170,
+      "title": "#170 SPRUNGGELENK-ANDI",
+      "glt_id": "GLT5754776041",
+      "filename": "episode_170_sprunggelenk_andi.json",
+      "pub_date": "Tue, 25 Jan 2022 22:45:00 -0000",
+      "duration_seconds": 4765,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 171,
+      "title": "#171 STUDIO PFEILER",
+      "glt_id": "GLT1355568981",
+      "filename": "episode_171_studio_pfeiler.json",
+      "pub_date": "Tue, 01 Feb 2022 22:45:00 -0000",
+      "duration_seconds": 4396,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 172,
+      "title": "#172 KNOPF",
+      "glt_id": "GLT4884262922",
+      "filename": "episode_172_knopf.json",
+      "pub_date": "Tue, 08 Feb 2022 22:45:00 -0000",
+      "duration_seconds": 4695,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 173,
+      "title": "#173 SPAGHETTI FÜR 9",
+      "glt_id": "GLT6465067648",
+      "filename": "episode_173_spaghetti_fuer_9.json",
+      "pub_date": "Tue, 15 Feb 2022 22:45:00 -0000",
+      "duration_seconds": 4355,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 174,
+      "title": "#174 GERARD BUTLERS CHOICE",
+      "glt_id": "GLT4914305224",
+      "filename": "episode_174_gerard_butlers_choice.json",
+      "pub_date": "Tue, 22 Feb 2022 22:45:00 -0000",
+      "duration_seconds": 4444,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 175,
+      "title": "#175 RUCOLA IST WIE BIRNE",
+      "glt_id": "GLT8830958767",
+      "filename": "episode_175_rucola_ist_wie_birne.json",
+      "pub_date": "Tue, 08 Mar 2022 22:45:00 -0000",
+      "duration_seconds": 4329,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 176,
+      "title": "#176 PLATTMACHMATTEN",
+      "glt_id": "GLT3545000896",
+      "filename": "episode_176_plattmachmatten.json",
+      "pub_date": "Tue, 15 Mar 2022 22:45:00 -0000",
+      "duration_seconds": 5429,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 177,
+      "title": "#177 ICH BIN TAPP",
+      "glt_id": "GLT6623549921",
+      "filename": "episode_177_ich_bin_tapp.json",
+      "pub_date": "Tue, 22 Mar 2022 22:45:00 -0000",
+      "duration_seconds": 4421,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 178,
+      "title": "#178 ACHTJÄHRIGER AL FORNO",
+      "glt_id": "GLT9568064213",
+      "filename": "episode_178_achtjaehriger_al_forno.json",
+      "pub_date": "Tue, 29 Mar 2022 21:45:00 -0000",
+      "duration_seconds": 4513,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 179,
+      "title": "#179 EUTER VON INNEN",
+      "glt_id": "GLT4176300265",
+      "filename": "episode_179_euter_von_innen.json",
+      "pub_date": "Tue, 05 Apr 2022 21:45:00 -0000",
+      "duration_seconds": 4172,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 180,
+      "title": "#180 NUSSIGE GRÜßE",
+      "glt_id": "GLT9170997255",
+      "filename": "episode_180_nussige_gruesse.json",
+      "pub_date": "Tue, 12 Apr 2022 21:46:00 -0000",
+      "duration_seconds": 4422,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 181,
+      "title": "#181 SPACKMATT",
+      "glt_id": "GLT5075835839",
+      "filename": "episode_181_spackmatt.json",
+      "pub_date": "Tue, 19 Apr 2022 21:45:00 -0000",
+      "duration_seconds": 5344,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 182,
+      "title": "#182 TOO SOON",
+      "glt_id": "GLT6223016968",
+      "filename": "episode_182_too_soon.json",
+      "pub_date": "Tue, 26 Apr 2022 21:45:00 -0000",
+      "duration_seconds": 4163,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 183,
+      "title": "#183 ICH WILL RIECHEN WIE DU",
+      "glt_id": "GLT5022615134",
+      "filename": "episode_183_ich_will_riechen_wie_du.json",
+      "pub_date": "Tue, 03 May 2022 21:45:00 -0000",
+      "duration_seconds": 3730,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 184,
+      "title": "#184 WET WIE'N DOLPHIN",
+      "glt_id": "GLT6066792367",
+      "filename": "episode_184_wet_wie_n_dolphin.json",
+      "pub_date": "Tue, 10 May 2022 21:45:00 -0000",
+      "duration_seconds": 4942,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 185,
+      "title": "#185 ZU BROTIG",
+      "glt_id": "GLT7845855799",
+      "filename": "episode_185_zu_brotig.json",
+      "pub_date": "Tue, 17 May 2022 21:45:00 -0000",
+      "duration_seconds": 4684,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 186,
+      "title": "#186 PFLEIßIG",
+      "glt_id": "GLT9058579992",
+      "filename": "episode_186_pfleissig.json",
+      "pub_date": "Tue, 24 May 2022 21:45:00 -0000",
+      "duration_seconds": 4086,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 187,
+      "title": "#187 DARSTELLUNGSFORMPROMIS",
+      "glt_id": "GLT9264044139",
+      "filename": "episode_187_darstellungsformpromis.json",
+      "pub_date": "Tue, 31 May 2022 21:45:00 -0000",
+      "duration_seconds": 4045,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 188,
+      "title": "#188 KULT-GEFAHR",
+      "glt_id": "GLT1436291545",
+      "filename": "episode_188_kult_gefahr.json",
+      "pub_date": "Tue, 07 Jun 2022 21:45:00 -0000",
+      "duration_seconds": 4626,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 189,
+      "title": "#189 EI-KONTAKT",
+      "glt_id": "GLT5680393574",
+      "filename": "episode_189_ei_kontakt.json",
+      "pub_date": "Tue, 14 Jun 2022 21:45:00 -0000",
+      "duration_seconds": 4875,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 190,
+      "title": "#190 SAMARITER-SCHEIßE",
+      "glt_id": "GLT7842754865",
+      "filename": "episode_190_samariter_scheisse.json",
+      "pub_date": "Tue, 21 Jun 2022 21:45:00 -0000",
+      "duration_seconds": 4842,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 191,
+      "title": "#191 JENS FCKT HIER",
+      "glt_id": "GLT4489837112",
+      "filename": "episode_191_jens_fckt_hier.json",
+      "pub_date": "Tue, 06 Sep 2022 21:45:00 -0000",
+      "duration_seconds": 5584,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 192,
+      "title": "#192 SELBSTFAHRENDES WOLFSBURG",
+      "glt_id": "GLT8515303052",
+      "filename": "episode_192_selbstfahrendes_wolfsburg.json",
+      "pub_date": "Tue, 13 Sep 2022 21:45:00 -0000",
+      "duration_seconds": 5181,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 193,
+      "title": "#193 WABBELIGER TRAUERKLOß",
+      "glt_id": "GLT2787645552",
+      "filename": "episode_193_wabbeliger_trauerkloss.json",
+      "pub_date": "Tue, 20 Sep 2022 21:45:00 -0000",
+      "duration_seconds": 5209,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 194,
+      "title": "#194 FÜMF",
+      "glt_id": "GLT9259151403",
+      "filename": "episode_194_fuemf.json",
+      "pub_date": "Tue, 27 Sep 2022 21:45:00 -0000",
+      "duration_seconds": 4338,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 195,
+      "title": "#195 SEX-OSTEN",
+      "glt_id": "GLT6281324555",
+      "filename": "episode_195_sex_osten.json",
+      "pub_date": "Tue, 04 Oct 2022 21:45:00 -0000",
+      "duration_seconds": 4959,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 196,
+      "title": "#196 OPA MUSS ARBEITEN",
+      "glt_id": "GLT9816816142",
+      "filename": "episode_196_opa_muss_arbeiten.json",
+      "pub_date": "Tue, 11 Oct 2022 21:45:00 -0000",
+      "duration_seconds": 4760,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 197,
+      "title": "#197 DER WEITWECKESTE",
+      "glt_id": "GLT8319601875",
+      "filename": "episode_197_der_weitweckeste.json",
+      "pub_date": "Tue, 18 Oct 2022 21:45:00 -0000",
+      "duration_seconds": 4512,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 198,
+      "title": "#198 PFLAMMENWERFER",
+      "glt_id": "GLT3270835444",
+      "filename": "episode_198_pflammenwerfer.json",
+      "pub_date": "Tue, 25 Oct 2022 21:45:00 -0000",
+      "duration_seconds": 4489,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 199,
+      "title": "#199 FELIX HÖRT AUF",
+      "glt_id": "GLT5349975239",
+      "filename": "episode_199_felix_hoert_auf.json",
+      "pub_date": "Tue, 01 Nov 2022 22:45:00 -0000",
+      "duration_seconds": 4270,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 200,
+      "title": "#200 FACHABITUR",
+      "glt_id": "GLT7146942900",
+      "filename": "episode_200_fachabitur.json",
+      "pub_date": "Tue, 08 Nov 2022 22:45:00 -0000",
+      "duration_seconds": 4985,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 201,
+      "title": "#201 BEI KARNEVAL",
+      "glt_id": "GLT2671964237",
+      "filename": "episode_201_bei_karneval.json",
+      "pub_date": "Tue, 15 Nov 2022 22:45:00 -0000",
+      "duration_seconds": 5102,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 202,
+      "title": "#202 JA ZUM RAUCHEN",
+      "glt_id": "GLT7591794322",
+      "filename": "episode_202_ja_zum_rauchen.json",
+      "pub_date": "Tue, 22 Nov 2022 22:45:00 -0000",
+      "duration_seconds": 4991,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 203,
+      "title": "#203 KINDER SINDS NICHT",
+      "glt_id": "GLT7593180839",
+      "filename": "episode_203_kinder_sinds_nicht.json",
+      "pub_date": "Tue, 29 Nov 2022 22:45:00 -0000",
+      "duration_seconds": 4730,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 204,
+      "title": "#204 FUßNOTEN AUS DER TÜRKEI",
+      "glt_id": "GLT8483346804",
+      "filename": "episode_204_fussnoten_aus_der_tuerkei.json",
+      "pub_date": "Tue, 06 Dec 2022 22:45:00 -0000",
+      "duration_seconds": 4646,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 205,
+      "title": "#205 PATRICK MESSI",
+      "glt_id": "GLT4048183508",
+      "filename": "episode_205_patrick_messi.json",
+      "pub_date": "Tue, 13 Dec 2022 22:45:00 -0000",
+      "duration_seconds": 4171,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 206,
+      "title": "#206 YVES & AMELIE",
+      "glt_id": "GLT1881677203",
+      "filename": "episode_206_yves_amelie.json",
+      "pub_date": "Tue, 20 Dec 2022 22:45:00 -0000",
+      "duration_seconds": 4952,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 207,
+      "title": "#207 ALEXANDER SITTICH",
+      "glt_id": "GLT1087479608",
+      "filename": "episode_207_alexander_sittich.json",
+      "pub_date": "Tue, 17 Jan 2023 22:45:00 -0000",
+      "duration_seconds": 4563,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 208,
+      "title": "#208 DIEB FÜR EINE SEKUNDE",
+      "glt_id": "GLT3490429274",
+      "filename": "episode_208_dieb_fuer_eine_sekunde.json",
+      "pub_date": "Tue, 24 Jan 2023 22:45:00 -0000",
+      "duration_seconds": 4399,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 209,
+      "title": "#209 VON GUCCI KAM NÜSCHT",
+      "glt_id": "GLT5508335633",
+      "filename": "episode_209_von_gucci_kam_nuescht.json",
+      "pub_date": "Tue, 31 Jan 2023 22:45:00 -0000",
+      "duration_seconds": 4359,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 210,
+      "title": "#210 ZAHLEN IST NICHT MEIN SPORT",
+      "glt_id": "GLT7519417450",
+      "filename": "episode_210_zahlen_ist_nicht_mein_sport.json",
+      "pub_date": "Tue, 07 Feb 2023 22:45:00 -0000",
+      "duration_seconds": 4712,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 211,
+      "title": "#211 UFO-SCHMUSER",
+      "glt_id": "GLT9257544204",
+      "filename": "episode_211_ufo_schmuser.json",
+      "pub_date": "Tue, 14 Feb 2023 22:45:00 -0000",
+      "duration_seconds": 4731,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 212,
+      "title": "#212 PIMMEL AUF 17 UHR",
+      "glt_id": "GLT6000587359",
+      "filename": "episode_212_pimmel_auf_17_uhr.json",
+      "pub_date": "Tue, 21 Feb 2023 22:45:00 -0000",
+      "duration_seconds": 3804,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 213,
+      "title": "#213 SHOUTOUT AN ALLE HUNDE",
+      "glt_id": "GLT4898967314",
+      "filename": "episode_213_shoutout_an_alle_hunde.json",
+      "pub_date": "Tue, 28 Feb 2023 22:45:00 -0000",
+      "duration_seconds": 4376,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 214,
+      "title": "#214 LET'S GAME",
+      "glt_id": "GLT3201195465",
+      "filename": "episode_214_let_s_game.json",
+      "pub_date": "Tue, 14 Mar 2023 22:45:00 -0000",
+      "duration_seconds": 4429,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 215,
+      "title": "#215 SEITLICH",
+      "glt_id": "GLT1352029340",
+      "filename": "episode_215_seitlich.json",
+      "pub_date": "Tue, 21 Mar 2023 22:45:00 -0000",
+      "duration_seconds": 4046,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 216,
+      "title": "#216 FRITZL UND MARMELADE",
+      "glt_id": "GLT5157445511",
+      "filename": "episode_216_fritzl_und_marmelade.json",
+      "pub_date": "Tue, 28 Mar 2023 21:45:00 -0000",
+      "duration_seconds": 4330,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 217,
+      "title": "#217 TOMMI'S KLEINE OASE",
+      "glt_id": "GLT3489774777",
+      "filename": "episode_217_tommi_s_kleine_oase.json",
+      "pub_date": "Tue, 04 Apr 2023 21:40:00 -0000",
+      "duration_seconds": 4310,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 218,
+      "title": "#218 IDEEN-KONDOM",
+      "glt_id": "GLT1766800781",
+      "filename": "episode_218_ideen_kondom.json",
+      "pub_date": "Tue, 11 Apr 2023 21:45:00 -0000",
+      "duration_seconds": 4344,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 219,
+      "title": "#219 TIM SCHMITT",
+      "glt_id": "GLT4405435043",
+      "filename": "episode_219_tim_schmitt.json",
+      "pub_date": "Tue, 18 Apr 2023 21:45:00 -0000",
+      "duration_seconds": 4661,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 220,
+      "title": "#220 SCHAFE SIND WIE KOPFHÖRER",
+      "glt_id": "GLT9109609403",
+      "filename": "episode_220_schafe_sind_wie_kopfhoerer.json",
+      "pub_date": "Tue, 25 Apr 2023 21:45:00 -0000",
+      "duration_seconds": 4494,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 221,
+      "title": "#221 GUMMIHALS 3000",
+      "glt_id": "GLT7824669207",
+      "filename": "episode_221_gummihals_3000.json",
+      "pub_date": "Tue, 02 May 2023 21:45:00 -0000",
+      "duration_seconds": 5447,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 222,
+      "title": "#222 ZWEI HACKEN",
+      "glt_id": "GLT7135210555",
+      "filename": "episode_222_zwei_hacken.json",
+      "pub_date": "Tue, 09 May 2023 21:45:00 -0000",
+      "duration_seconds": 3730,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 223,
+      "title": "#223 VATERLAND",
+      "glt_id": "GLT6641891825",
+      "filename": "episode_223_vaterland.json",
+      "pub_date": "Tue, 16 May 2023 21:45:00 -0000",
+      "duration_seconds": 4259,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 224,
+      "title": "#224 DAS GEWEIH DES TODES",
+      "glt_id": "GLT4362164309",
+      "filename": "episode_224_das_geweih_des_todes.json",
+      "pub_date": "Tue, 23 May 2023 21:45:00 -0000",
+      "duration_seconds": 4603,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 225,
+      "title": "#225 PLAYSTATION GÖNNT NICHT",
+      "glt_id": "GLT8502920401",
+      "filename": "episode_225_playstation_goennt_nicht.json",
+      "pub_date": "Tue, 30 May 2023 21:45:00 -0000",
+      "duration_seconds": 4517,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 226,
+      "title": "#226 TOBI",
+      "glt_id": "GLT4310027630",
+      "filename": "episode_226_tobi.json",
+      "pub_date": "Tue, 06 Jun 2023 21:45:00 -0000",
+      "duration_seconds": 3667,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 227,
+      "title": "#227 VIEL ARBEIT WENIG GELD",
+      "glt_id": "GLT9731062352",
+      "filename": "episode_227_viel_arbeit_wenig_geld.json",
+      "pub_date": "Tue, 13 Jun 2023 21:45:00 -0000",
+      "duration_seconds": 6086,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 228,
+      "title": "#228 BLAUHAKER",
+      "glt_id": "GLT5250149780",
+      "filename": "episode_228_blauhaker.json",
+      "pub_date": "Tue, 20 Jun 2023 21:45:00 -0000",
+      "duration_seconds": 4584,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 229,
+      "title": "#229 MAULWURF",
+      "glt_id": "GLT5571090785",
+      "filename": "episode_229_maulwurf.json",
+      "pub_date": "Tue, 27 Jun 2023 21:45:00 -0000",
+      "duration_seconds": 4825,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 230,
+      "title": "#230 DACHASSEL",
+      "glt_id": "GLT1230939541",
+      "filename": "episode_230_dachassel.json",
+      "pub_date": "Tue, 12 Sep 2023 21:45:00 -0000",
+      "duration_seconds": 6037,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 231,
+      "title": "#231 DEUTSCHE CRANK",
+      "glt_id": "GLT7095805722",
+      "filename": "episode_231_deutsche_crank.json",
+      "pub_date": "Tue, 19 Sep 2023 21:45:00 -0000",
+      "duration_seconds": 5361,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 232,
+      "title": "#232 OFFENLEGUNG",
+      "glt_id": "GLT6344164949",
+      "filename": "episode_232_offenlegung.json",
+      "pub_date": "Tue, 26 Sep 2023 21:45:00 -0000",
+      "duration_seconds": 5465,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 233,
+      "title": "#233 REBER-EFFEKT",
+      "glt_id": "GLT8075397923",
+      "filename": "episode_233_reber_effekt.json",
+      "pub_date": "Tue, 03 Oct 2023 21:45:00 -0000",
+      "duration_seconds": 4695,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 234,
+      "title": "#234 SEXPEINLICHKIEBITZ",
+      "glt_id": "GLT7932270237",
+      "filename": "episode_234_sexpeinlichkiebitz.json",
+      "pub_date": "Tue, 10 Oct 2023 21:47:21 -0000",
+      "duration_seconds": 4766,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 235,
+      "title": "#235 BÜFFELSCHMITT",
+      "glt_id": "GLT2714174511",
+      "filename": "episode_235_bu_ffelschmitt.json",
+      "pub_date": "Tue, 17 Oct 2023 21:45:00 -0000",
+      "duration_seconds": 4819,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 236,
+      "title": "#236 SATT MACHEN",
+      "glt_id": "GLT4378076879",
+      "filename": "episode_236_satt_machen.json",
+      "pub_date": "Tue, 24 Oct 2023 21:45:00 -0000",
+      "duration_seconds": 3546,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 237,
+      "title": "#237 EKELPENNER",
+      "glt_id": "GLT7521873459",
+      "filename": "episode_237_ekelpenner.json",
+      "pub_date": "Tue, 31 Oct 2023 22:45:00 -0000",
+      "duration_seconds": 4597,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 238,
+      "title": "#238 NUR NE AMSEL",
+      "glt_id": "GLT6650349939",
+      "filename": "episode_238_nur_ne_amsel.json",
+      "pub_date": "Tue, 07 Nov 2023 22:45:00 -0000",
+      "duration_seconds": 4292,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 239,
+      "title": "#239 DAS UNTENFACH",
+      "glt_id": "GLT7032172748",
+      "filename": "episode_239_das_untenfach.json",
+      "pub_date": "Tue, 14 Nov 2023 22:45:00 -0000",
+      "duration_seconds": 4649,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 240,
+      "title": "#240 ENTE IN BANK",
+      "glt_id": "GLT8082363732",
+      "filename": "episode_240_ente_in_bank.json",
+      "pub_date": "Tue, 21 Nov 2023 22:45:00 -0000",
+      "duration_seconds": 3973,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 241,
+      "title": "#241 ADLER VON VORNE",
+      "glt_id": "GLT3587111971",
+      "filename": "episode_241_adler_von_vorne.json",
+      "pub_date": "Tue, 28 Nov 2023 22:50:00 -0000",
+      "duration_seconds": 5790,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 242,
+      "title": "#242 DU BIST AUCH SO NE BURG",
+      "glt_id": "GLT7236632930",
+      "filename": "episode_242_du_bist_auch_so_ne_burg.json",
+      "pub_date": "Tue, 05 Dec 2023 22:50:00 -0000",
+      "duration_seconds": 4901,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 243,
+      "title": "#243 HI DER KAI!",
+      "glt_id": "GLT6965851869",
+      "filename": "episode_243_hi_der_kai.json",
+      "pub_date": "Tue, 12 Dec 2023 22:50:00 -0000",
+      "duration_seconds": 4280,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 244,
+      "title": "#244 WENN DU GLÜCK HAST, 8 JAHRE",
+      "glt_id": "GLT6162225314",
+      "filename": "episode_244_wenn_du_glu_ck_hast_8_jahre.json",
+      "pub_date": "Tue, 19 Dec 2023 22:50:00 -0000",
+      "duration_seconds": 4481,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 245,
+      "title": "#245 ABGEBÜRGERT",
+      "glt_id": "GLT6758973617",
+      "filename": "episode_245_abgebu_rgert.json",
+      "pub_date": "Tue, 09 Jan 2024 22:50:00 -0000",
+      "duration_seconds": 4197,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 246,
+      "title": "#246 KNIBBELPODCAST",
+      "glt_id": "GLT2463608562",
+      "filename": "episode_246_knibbelpodcast.json",
+      "pub_date": "Tue, 16 Jan 2024 22:50:00 -0000",
+      "duration_seconds": 5084,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 247,
+      "title": "#247 SEX-PAUKENSCHLAG",
+      "glt_id": "GLT6716227116",
+      "filename": "episode_247_sex_paukenschlag.json",
+      "pub_date": "Tue, 23 Jan 2024 22:50:00 -0000",
+      "duration_seconds": 4597,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 248,
+      "title": "#248 SCHWEINEMANN",
+      "glt_id": "GLT8825393816",
+      "filename": "episode_248_schweinemann.json",
+      "pub_date": "Tue, 30 Jan 2024 22:50:00 -0000",
+      "duration_seconds": 4363,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 249,
+      "title": "#249 CHMAL",
+      "glt_id": "GLT4745949864",
+      "filename": "episode_249_chmal.json",
+      "pub_date": "Tue, 06 Feb 2024 22:50:00 -0000",
+      "duration_seconds": 5958,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 250,
+      "title": "#250 FETTBABY",
+      "glt_id": "GLT9938757672",
+      "filename": "episode_250_fettbaby.json",
+      "pub_date": "Tue, 13 Feb 2024 22:50:00 -0000",
+      "duration_seconds": 4518,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 251,
+      "title": "#251 CKARSDN",
+      "glt_id": "GLT2410101738",
+      "filename": "episode_251_ckarsdn.json",
+      "pub_date": "Tue, 20 Feb 2024 22:50:00 -0000",
+      "duration_seconds": 4786,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 252,
+      "title": "#252 READY TO SHOOT",
+      "glt_id": "GLT1596688817",
+      "filename": "episode_252_ready_to_shoot.json",
+      "pub_date": "Tue, 27 Feb 2024 22:50:00 -0000",
+      "duration_seconds": 3990,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 253,
+      "title": "#253 JURASSIC QUARK",
+      "glt_id": "GLT9758055792",
+      "filename": "episode_253_jurassic_quark.json",
+      "pub_date": "Tue, 05 Mar 2024 22:50:00 -0000",
+      "duration_seconds": 4359,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 254,
+      "title": "#254 PECH GEHABT",
+      "glt_id": "GLT5597630243",
+      "filename": "episode_254_pech_gehabt.json",
+      "pub_date": "Tue, 12 Mar 2024 22:50:00 -0000",
+      "duration_seconds": 4902,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 255,
+      "title": "#255 PERLEN VOR DEN SÄULEN",
+      "glt_id": "GLT5932381927",
+      "filename": "episode_255_perlen_vor_den_sa_ulen.json",
+      "pub_date": "Tue, 19 Mar 2024 22:50:00 -0000",
+      "duration_seconds": 4495,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 256,
+      "title": "#256 RAPPEL LEER",
+      "glt_id": "GLT3879226145",
+      "filename": "episode_256_rappel_leer.json",
+      "pub_date": "Tue, 26 Mar 2024 22:50:00 -0000",
+      "duration_seconds": 4293,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 257,
+      "title": "#257 PROMIFIRMA",
+      "glt_id": "GLT8833944301",
+      "filename": "episode_257_promifirma.json",
+      "pub_date": "Tue, 02 Apr 2024 21:50:00 -0000",
+      "duration_seconds": 4668,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 258,
+      "title": "#258 DÜSSELDORF",
+      "glt_id": "GLT1743894496",
+      "filename": "episode_258_du_sseldorf.json",
+      "pub_date": "Tue, 09 Apr 2024 21:50:00 -0000",
+      "duration_seconds": 3883,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 259,
+      "title": "#259 DEIN HANDY LIEFERT NICHT ",
+      "glt_id": "GLT9992933257",
+      "filename": "episode_259_dein_handy_liefert_nicht.json",
+      "pub_date": "Tue, 16 Apr 2024 21:50:00 -0000",
+      "duration_seconds": 4860,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 260,
+      "title": "#260 WAS BRAUCH ICH IN SCHINA",
+      "glt_id": "GLT1599242785",
+      "filename": "episode_260_was_brauch_ich_in_schina.json",
+      "pub_date": "Tue, 23 Apr 2024 21:50:00 -0000",
+      "duration_seconds": 4149,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 261,
+      "title": "#261 VERKÜRZTE BROS",
+      "glt_id": "GLT3191367614",
+      "filename": "episode_261_verku_rzte_bros.json",
+      "pub_date": "Tue, 30 Apr 2024 21:50:00 -0000",
+      "duration_seconds": 4159,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 262,
+      "title": "#262 DEUTSCHLAND NIMMT DEN GLAMOUR",
+      "glt_id": "GLT9407592816",
+      "filename": "episode_262_deutschland_nimmt_den_glamour.json",
+      "pub_date": "Tue, 07 May 2024 21:50:00 -0000",
+      "duration_seconds": 4350,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 263,
+      "title": "#263 IST FELIX TOT?",
+      "glt_id": "GLT8058445707",
+      "filename": "episode_263_ist_felix_tot.json",
+      "pub_date": "Tue, 14 May 2024 21:50:00 -0000",
+      "duration_seconds": 4672,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 264,
+      "title": "#264 ALTES HACK",
+      "glt_id": "GLT1675817874",
+      "filename": "episode_264_altes_hack.json",
+      "pub_date": "Tue, 21 May 2024 21:50:00 -0000",
+      "duration_seconds": 4113,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 265,
+      "title": "#265 REDEN WIE IM INTERNET",
+      "glt_id": "GLT7103517692",
+      "filename": "episode_265_reden_wie_im_internet.json",
+      "pub_date": "Tue, 28 May 2024 21:50:00 -0000",
+      "duration_seconds": 3998,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 266,
+      "title": "#266 LORENZO SCHMERLE",
+      "glt_id": "GLT1788866495",
+      "filename": "episode_266_lorenzo_schmerle.json",
+      "pub_date": "Tue, 04 Jun 2024 21:50:00 -0000",
+      "duration_seconds": 4599,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 267,
+      "title": "#267 SIEHT DAS WIEN FERNSEHER AUS",
+      "glt_id": "GLT7951896419",
+      "filename": "episode_267_sieht_das_wien_fernseher_aus.json",
+      "pub_date": "Tue, 11 Jun 2024 21:50:00 -0000",
+      "duration_seconds": 4086,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 268,
+      "title": "#268 CHACHÉ",
+      "glt_id": "GLT5737967550",
+      "filename": "episode_268_chache.json",
+      "pub_date": "Tue, 18 Jun 2024 21:50:00 -0000",
+      "duration_seconds": 5165,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 269,
+      "title": "#269 ICH LIEBE KNÖPFE",
+      "glt_id": "GLT4743245603",
+      "filename": "episode_269_ich_liebe_knoepfe.json",
+      "pub_date": "Tue, 17 Sep 2024 21:50:00 -0000",
+      "duration_seconds": 6453,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 270,
+      "title": "#270 DEUTSCHE KENNEDY",
+      "glt_id": "GLT6894528099",
+      "filename": "episode_270_deutsche_kennedy.json",
+      "pub_date": "Tue, 24 Sep 2024 22:02:00 -0000",
+      "duration_seconds": 4884,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 271,
+      "title": "#271 SEX–KARPFEN",
+      "glt_id": "GLT4201870487",
+      "filename": "episode_271_sex_karpfen.json",
+      "pub_date": "Tue, 01 Oct 2024 21:50:00 -0000",
+      "duration_seconds": 5461,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 272,
+      "title": "#272 SCHINAPFANNE",
+      "glt_id": "GLT8758372243",
+      "filename": "episode_272_schinapfanne.json",
+      "pub_date": "Tue, 08 Oct 2024 21:50:00 -0000",
+      "duration_seconds": 4734,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 273,
+      "title": "#273 GENTLEMEN'S CLUB",
+      "glt_id": "GLT5187225417",
+      "filename": "episode_273_gentlemen_s_club.json",
+      "pub_date": "Tue, 15 Oct 2024 21:50:00 -0000",
+      "duration_seconds": 3949,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 274,
+      "title": "#274 HALT MA KURZ DEIN MAUL",
+      "glt_id": "GLT4243240029",
+      "filename": "episode_274_halt_ma_kurz_dein_maul.json",
+      "pub_date": "Tue, 22 Oct 2024 21:50:00 -0000",
+      "duration_seconds": 5274,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 275,
+      "title": "#275 DER GEMEINSAME ZÄHLER",
+      "glt_id": "GLT3725649732",
+      "filename": "episode_275_der_gemeinsame_zaehler.json",
+      "pub_date": "Tue, 29 Oct 2024 22:50:00 -0000",
+      "duration_seconds": 5594,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 276,
+      "title": "#276 WOMBAT-HÄCKSEL-QUOTE",
+      "glt_id": "GLT2283790614",
+      "filename": "episode_276_wombat_haecksel_quote.json",
+      "pub_date": "Tue, 05 Nov 2024 22:50:00 -0000",
+      "duration_seconds": 3963,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 277,
+      "title": "#277 DOPPEL-JOTT",
+      "glt_id": "GLT8768194965",
+      "filename": "episode_277_doppel_jott.json",
+      "pub_date": "Tue, 12 Nov 2024 22:50:00 -0000",
+      "duration_seconds": 4762,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 278,
+      "title": "#278 ARMIN WAR WAS?!",
+      "glt_id": "GLT8663721376",
+      "filename": "episode_278_armin_war_was.json",
+      "pub_date": "Tue, 19 Nov 2024 22:50:00 -0000",
+      "duration_seconds": 4080,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 279,
+      "title": "#279 HABECK PLATTE",
+      "glt_id": "GLT5499455799",
+      "filename": "episode_279_habeck_platte.json",
+      "pub_date": "Tue, 26 Nov 2024 22:50:00 -0000",
+      "duration_seconds": 5098,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 280,
+      "title": "#280 WÄSCHE MIT RESPEKT",
+      "glt_id": "GLT5468948283",
+      "filename": "episode_280_waesche_mit_respekt.json",
+      "pub_date": "Tue, 03 Dec 2024 22:50:00 -0000",
+      "duration_seconds": 4332,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 281,
+      "title": "#281 HÖRROR",
+      "glt_id": "GLT5584845429",
+      "filename": "episode_281_hoerror.json",
+      "pub_date": "Tue, 10 Dec 2024 22:50:00 -0000",
+      "duration_seconds": 4418,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 282,
+      "title": "#282 DIE WEIHNACHTSFOLGE",
+      "glt_id": "GLT1091441909",
+      "filename": "episode_282_die_weihnachtsfolge.json",
+      "pub_date": "Tue, 17 Dec 2024 22:50:00 -0000",
+      "duration_seconds": 4028,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 283,
+      "title": "#283 WELPENSCHNEIDER",
+      "glt_id": "GLT4586067712",
+      "filename": "episode_283_welpenschneider.json",
+      "pub_date": "Tue, 07 Jan 2025 22:50:00 -0000",
+      "duration_seconds": 4455,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 284,
+      "title": "#284 MUFFEL",
+      "glt_id": "GLT3116961464",
+      "filename": "episode_284_muffel.json",
+      "pub_date": "Tue, 14 Jan 2025 22:50:00 -0000",
+      "duration_seconds": 4560,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 285,
+      "title": "#285 WECKER MIT FELL",
+      "glt_id": "GLT1959396530",
+      "filename": "episode_285_wecker_mit_fell.json",
+      "pub_date": "Tue, 21 Jan 2025 22:50:00 -0000",
+      "duration_seconds": 5309,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 286,
+      "title": "#286 BEZAHLBARE MAMMUTS",
+      "glt_id": "GLT5744958254",
+      "filename": "episode_286_bezahlbare_mammuts.json",
+      "pub_date": "Tue, 28 Jan 2025 22:50:00 -0000",
+      "duration_seconds": 6441,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 287,
+      "title": "#287 ER’N DA AN",
+      "glt_id": "GLT4143122373",
+      "filename": "episode_287_er_n_da_an.json",
+      "pub_date": "Tue, 04 Feb 2025 22:50:00 -0000",
+      "duration_seconds": 4362,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 288,
+      "title": "#288 SCHWEINEPUDEL",
+      "glt_id": "GLT6753026727",
+      "filename": "episode_288_schweinepudel.json",
+      "pub_date": "Tue, 11 Feb 2025 22:50:00 -0000",
+      "duration_seconds": 5024,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 289,
+      "title": "#289 ABSEXEN",
+      "glt_id": "GLT3268141863",
+      "filename": "episode_289_absexen.json",
+      "pub_date": "Tue, 18 Feb 2025 22:50:00 -0000",
+      "duration_seconds": 5118,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 290,
+      "title": "#290 DEUTSCHE DRACHEN",
+      "glt_id": "GLT6861120048",
+      "filename": "episode_290_deutsche_drachen.json",
+      "pub_date": "Tue, 25 Feb 2025 22:50:00 -0000",
+      "duration_seconds": 4546,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 291,
+      "title": "#291 TARANTEL",
+      "glt_id": "GLT3895242160",
+      "filename": "episode_291_tarantel.json",
+      "pub_date": "Tue, 04 Mar 2025 22:50:00 -0000",
+      "duration_seconds": 5020,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 292,
+      "title": "#292 SUPERDUPERCOOL",
+      "glt_id": "GLT8481960839",
+      "filename": "episode_292_superdupercool.json",
+      "pub_date": "Tue, 11 Mar 2025 22:50:00 -0000",
+      "duration_seconds": 4185,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 293,
+      "title": "#293 KÖNNTA EUCH BEI SVEN BEDANKEN",
+      "glt_id": "GLT8918821668",
+      "filename": "episode_293_koennta_euch_bei_sven_bedanken.json",
+      "pub_date": "Tue, 18 Mar 2025 22:55:00 -0000",
+      "duration_seconds": 4372,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 294,
+      "title": "#294 RICHTIG VIELE USBEKEN",
+      "glt_id": "GLT4410455813",
+      "filename": "episode_294_richtig_viele_usbeken.json",
+      "pub_date": "Tue, 25 Mar 2025 22:55:00 -0000",
+      "duration_seconds": 4631,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 295,
+      "title": "#295 TKOMMI",
+      "glt_id": "GLT9703559579",
+      "filename": "episode_295_tkommi.json",
+      "pub_date": "Tue, 01 Apr 2025 21:55:00 -0000",
+      "duration_seconds": 3897,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 296,
+      "title": "#296 BIN DOCH KEIN BÄR",
+      "glt_id": "GLT4284756254",
+      "filename": "episode_296_bin_doch_kein_baer.json",
+      "pub_date": "Tue, 08 Apr 2025 21:55:00 -0000",
+      "duration_seconds": 4603,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 297,
+      "title": "#297 OSTERHACK",
+      "glt_id": "GLT3871969493",
+      "filename": "episode_297_osterhack.json",
+      "pub_date": "Tue, 15 Apr 2025 21:55:00 -0000",
+      "duration_seconds": 4342,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 298,
+      "title": "#298 DREIFLUSSHACKBANK",
+      "glt_id": "GLT2092538686",
+      "filename": "episode_298_dreiflusshackbank.json",
+      "pub_date": "Tue, 22 Apr 2025 21:55:00 -0000",
+      "duration_seconds": 5463,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 299,
+      "title": "#299 LEBERKÄSPFLICHT",
+      "glt_id": "GLT8387695146",
+      "filename": "episode_299_leberkaespflicht.json",
+      "pub_date": "Tue, 29 Apr 2025 22:00:00 -0000",
+      "duration_seconds": 4732,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 300,
+      "title": "#300 DREIHUNDERT",
+      "glt_id": "GLT4018369492",
+      "filename": "episode_300_dreihundert.json",
+      "pub_date": "Tue, 06 May 2025 21:55:00 -0000",
+      "duration_seconds": 6047,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 301,
+      "title": "#301 NEUN DANK",
+      "glt_id": "GLT8498771920",
+      "filename": "episode_301_neun_dank.json",
+      "pub_date": "Tue, 13 May 2025 21:55:00 -0000",
+      "duration_seconds": 4389,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 302,
+      "title": "#302 DU ZUPPELST ZU VIEL",
+      "glt_id": "GLT6128220125",
+      "filename": "episode_302_du_zuppelst_zu_viel.json",
+      "pub_date": "Tue, 20 May 2025 21:55:00 -0000",
+      "duration_seconds": 5219,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 303,
+      "title": "#303 SCHEIßE MEIN EIS",
+      "glt_id": "GLT2647978504",
+      "filename": "episode_303_scheisse_mein_eis.json",
+      "pub_date": "Tue, 27 May 2025 21:55:00 -0000",
+      "duration_seconds": 4717,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 304,
+      "title": "#304 MARTIN DER WOHNUNGSMANN",
+      "glt_id": "GLT2085928491",
+      "filename": "episode_304_martin_der_wohnungsmann.json",
+      "pub_date": "Tue, 03 Jun 2025 21:55:00 -0000",
+      "duration_seconds": 3961,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 305,
+      "title": "#305 HACK SENDET DURCH",
+      "glt_id": "GLT2572705824",
+      "filename": "episode_305_hack_sendet_durch.json",
+      "pub_date": "Tue, 10 Jun 2025 21:55:00 -0000",
+      "duration_seconds": 4301,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 306,
+      "title": "#306 SEHR ÜBERLEBT",
+      "glt_id": "GLT1397155511",
+      "filename": "episode_306_sehr_ueberlebt.json",
+      "pub_date": "Tue, 17 Jun 2025 21:55:00 -0000",
+      "duration_seconds": 7712,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 307,
+      "title": "#307 SHAWN MC SEAL",
+      "glt_id": "GLT9934693061",
+      "filename": "episode_307_shawn_mc_seal.json",
+      "pub_date": "Tue, 24 Jun 2025 21:55:00 -0000",
+      "duration_seconds": 5152,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 308,
+      "title": "#308  I-PÜNKTELCHEN",
+      "glt_id": "GLT6435999964",
+      "filename": "episode_308_i_puenktelchen.json",
+      "pub_date": "Tue, 02 Sep 2025 21:55:00 -0000",
+      "duration_seconds": 4811,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 309,
+      "title": "#309 ALLES KACKE UND TITTEN",
+      "glt_id": "GLT2355691809",
+      "filename": "episode_309_alles_kacke_und_titten.json",
+      "pub_date": "Tue, 09 Sep 2025 21:55:00 -0000",
+      "duration_seconds": 4515,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 310,
+      "title": "#310 WUBBELWABBA",
+      "glt_id": "GLT2236662719",
+      "filename": "episode_310_wubbelwabba.json",
+      "pub_date": "Tue, 16 Sep 2025 21:55:00 -0000",
+      "duration_seconds": 5448,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 311,
+      "title": "#311  BUTTERPISTOLE",
+      "glt_id": "GLT3505596872",
+      "filename": "episode_311_butterpistole.json",
+      "pub_date": "Tue, 23 Sep 2025 21:55:00 -0000",
+      "duration_seconds": 4882,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 312,
+      "title": "#312 SCHAL",
+      "glt_id": "GLT4201504854",
+      "filename": "episode_312_schal.json",
+      "pub_date": "Tue, 30 Sep 2025 21:55:00 -0000",
+      "duration_seconds": 5363,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 313,
+      "title": "#313 DEUTSCHLAND WIRD BEIGE",
+      "glt_id": "GLT9120676976",
+      "filename": "episode_313_deutschland_wird_beige.json",
+      "pub_date": "Tue, 07 Oct 2025 21:55:00 -0000",
+      "duration_seconds": 5170,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 314,
+      "title": "#314 WESPEN SIND IMMER NEWCOMER",
+      "glt_id": "GLT4883689869",
+      "filename": "episode_314_wespen_sind_immer_newcomer.json",
+      "pub_date": "Tue, 14 Oct 2025 21:55:00 -0000",
+      "duration_seconds": 5342,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 315,
+      "title": "#315 ZUM FREUNDLICHEN DRACHEN (KEIN CHINARESTAURANT)",
+      "glt_id": "GLT8456918010",
+      "filename": "episode_315_zum_freundlichen_drachen_kein_chinarestaurant.json",
+      "pub_date": "Tue, 21 Oct 2025 21:55:00 -0000",
+      "duration_seconds": 5266,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 316,
+      "title": "#316 RUCOLA FSK 16",
+      "glt_id": "GLT2157063338",
+      "filename": "episode_316_rucola_fsk_16.json",
+      "pub_date": "Tue, 28 Oct 2025 22:55:00 -0000",
+      "duration_seconds": 5917,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 317,
+      "title": "#317 SACKSACK",
+      "glt_id": "GLT2268439914",
+      "filename": "episode_317_sacksack.json",
+      "pub_date": "Tue, 04 Nov 2025 22:55:00 -0000",
+      "duration_seconds": 5207,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 318,
+      "title": "#318 OHNE NEUN",
+      "glt_id": "GLT8973232935",
+      "filename": "episode_318_ohne_neun.json",
+      "pub_date": "Tue, 11 Nov 2025 22:55:00 -0000",
+      "duration_seconds": 4482,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 319,
+      "title": "#319 BAMBENDE",
+      "glt_id": "GLT6798612312",
+      "filename": "episode_319_bambende.json",
+      "pub_date": "Tue, 18 Nov 2025 22:55:00 -0000",
+      "duration_seconds": 5186,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 320,
+      "title": "#320 ICH BIN GAR NICHT DA",
+      "glt_id": "GLT6665987656",
+      "filename": "episode_320_ich_bin_gar_nicht_da.json",
+      "pub_date": "Tue, 25 Nov 2025 22:55:00 -0000",
+      "duration_seconds": 4571,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 321,
+      "title": "#321 SCHNAPPI GEMACHT",
+      "glt_id": "GLT7465571844",
+      "filename": "episode_321_schnappi_gemacht.json",
+      "pub_date": "Tue, 02 Dec 2025 22:55:00 -0000",
+      "duration_seconds": 5190,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 322,
+      "title": "#322 UNWIRTSCHAFTLICH ABSCHNEIDEN",
+      "glt_id": "GLT1307434321",
+      "filename": "episode_322_unwirtschaftlich_abschneiden.json",
+      "pub_date": "Tue, 09 Dec 2025 22:55:00 -0000",
+      "duration_seconds": 5417,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 323,
+      "title": "#323 BOWLING FOR FREE",
+      "glt_id": "GLT2607810224",
+      "filename": "episode_323_bowling_for_free.json",
+      "pub_date": "Tue, 16 Dec 2025 22:55:00 -0000",
+      "duration_seconds": 3736,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 324,
+      "title": "#324 DER GROßHANDJUNGE",
+      "glt_id": "GLT3551123847",
+      "filename": "episode_324_der_grosshandjunge.json",
+      "pub_date": "Tue, 23 Dec 2025 22:55:00 -0000",
+      "duration_seconds": 4140,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 325,
+      "title": "#325 SILVESTERFOLGE ",
+      "glt_id": "GLT6394007998",
+      "filename": "episode_325_silvesterfolge.json",
+      "pub_date": "Tue, 30 Dec 2025 22:55:00 -0000",
+      "duration_seconds": 4313,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 326,
+      "title": "#326 NEU. JETZT NOCH GEILER",
+      "glt_id": "GLT5977904326",
+      "filename": "episode_326_neu_jetzt_noch_geiler.json",
+      "pub_date": "Tue, 06 Jan 2026 22:55:00 -0000",
+      "duration_seconds": 5152,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 327,
+      "title": "#327 AUGEN AUF BEI DER KRABBENWAHL",
+      "glt_id": "GLT3633623862",
+      "filename": "episode_327_augen_auf_bei_der_krabbenwahl.json",
+      "pub_date": "Tue, 13 Jan 2026 22:55:00 -0000",
+      "duration_seconds": 6443,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 328,
+      "title": "#328 NRSEE",
+      "glt_id": "GLT9487264331",
+      "filename": "episode_328_nrsee.json",
+      "pub_date": "Tue, 20 Jan 2026 22:55:00 -0000",
+      "duration_seconds": 6629,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 329,
+      "title": "#329 IRGENDWAS IST IMMER",
+      "glt_id": "GLT1796588148",
+      "filename": "episode_329_irgendwas_ist_immer.json",
+      "pub_date": "Tue, 27 Jan 2026 22:55:00 -0000",
+      "duration_seconds": 4786,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 330,
+      "title": "#330 ALLE NATÜRLICHEN KINDERFARBEN",
+      "glt_id": "GLT5552206340",
+      "filename": "episode_330_alle_natuerlichen_kinderfarben.json",
+      "pub_date": "Tue, 03 Feb 2026 22:55:00 -0000",
+      "duration_seconds": 5997,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 331,
+      "title": "#331  KOHLRABIWASSER",
+      "glt_id": "GLT5095020465",
+      "filename": "episode_331_kohlrabiwasser.json",
+      "pub_date": "Tue, 10 Feb 2026 22:55:00 -0000",
+      "duration_seconds": 6227,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 332,
+      "title": "#332 FEUERFERD",
+      "glt_id": "GLT2200436808",
+      "filename": "episode_332_feuerferd.json",
+      "pub_date": "Tue, 17 Feb 2026 22:55:00 -0000",
+      "duration_seconds": 5149,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 333,
+      "title": "#333 DEUTSCHE WATERGATE",
+      "glt_id": "GLT7925754406",
+      "filename": "episode_333_deutsche_watergate.json",
+      "pub_date": "Tue, 24 Feb 2026 22:55:00 -0000",
+      "duration_seconds": 6285,
+      "has_diarization": true
+    },
+    {
+      "episode_number": 334,
+      "title": "#334 FORELLE AUF DREI",
+      "glt_id": "GLT5484758011",
+      "filename": "episode_334_forelle_auf_drei.json",
+      "pub_date": "Tue, 03 Mar 2026 22:55:00 -0000",
+      "duration_seconds": 4844,
+      "has_diarization": true
+    },
+    {
+      "episode_number": null,
+      "title": "LINDA ZERVAKIS (5 SCHNELLE FRAGEN AN)",
+      "glt_id": "GLT5686885911",
+      "filename": "special_linda_zervakis_5_schnelle_fragen_an.json",
+      "pub_date": "Fri, 22 May 2020 21:53:00 -0000",
+      "duration_seconds": 5036,
+      "has_diarization": true
+    },
+    {
+      "episode_number": null,
+      "title": "RIN (5 SCHNELLE FRAGEN AN)",
+      "glt_id": "GLT1447802275",
+      "filename": "special_rin_5_schnelle_fragen_an.json",
+      "pub_date": "Fri, 09 Oct 2020 21:51:00 -0000",
+      "duration_seconds": 4081,
+      "has_diarization": true
+    },
+    {
+      "episode_number": null,
+      "title": "JUJU (5 SCHNELLE FRAGEN AN)",
+      "glt_id": "GLT1609001577",
+      "filename": "special_juju_5_schnelle_fragen_an.json",
+      "pub_date": "Fri, 08 May 2020 21:49:00 -0000",
+      "duration_seconds": 3995,
+      "has_diarization": true
+    },
+    {
+      "episode_number": null,
+      "title": "Hack fällt aus",
+      "glt_id": "GLT5665814913",
+      "filename": "special_hack_faellt_aus.json",
+      "pub_date": "Tue, 05 Oct 2021 21:47:00 -0000",
+      "duration_seconds": 219,
+      "has_diarization": true
+    },
+    {
+      "episode_number": null,
+      "title": "NOCH KEINE FOLGE",
+      "glt_id": "GLT6579513618",
+      "filename": "special_noch_keine_folge.json",
+      "pub_date": "Tue, 10 Jan 2023 22:45:00 -0000",
+      "duration_seconds": 123,
+      "has_diarization": true
+    },
+    {
+      "episode_number": null,
+      "title": "HACK FÄLLT AUS",
+      "glt_id": "GLT4012279629",
+      "filename": "special_hack_faellt_aus_12279629.json",
+      "pub_date": "Tue, 07 Mar 2023 22:45:00 -0000",
+      "duration_seconds": 145,
+      "has_diarization": true
+    },
+    {
+      "episode_number": null,
+      "title": "SIMON BÖHNLEIN (5 SCHNELLE FRAGEN AN)",
+      "glt_id": "GLT4214683359",
+      "filename": "special_simon_boehnlein_5_schnelle_fragen_an.json",
+      "pub_date": "Fri, 01 May 2020 21:51:00 -0000",
+      "duration_seconds": 5495,
+      "has_diarization": true
+    },
+    {
+      "episode_number": null,
+      "title": "LUISA NEUBAUER (5 SCHNELLE FRAGEN AN) ",
+      "glt_id": "GLT6413779869",
+      "filename": "special_luisa_neubauer_5_schnelle_fragen_an.json",
+      "pub_date": "Fri, 06 Nov 2020 22:46:00 -0000",
+      "duration_seconds": 4392,
+      "has_diarization": true
+    },
+    {
+      "episode_number": null,
+      "title": "CHRISTIAN ULMEN (5 SCHNELLE FRAGEN AN)",
+      "glt_id": "GLT3890563300",
+      "filename": "special_christian_ulmen_5_schnelle_fragen_an.json",
+      "pub_date": "Fri, 15 May 2020 21:51:00 -0000",
+      "duration_seconds": 4743,
+      "has_diarization": true
+    },
+    {
+      "episode_number": null,
+      "title": "MAI THI NGUYEN-KIM (5 SCHNELLE FRAGEN AN)",
+      "glt_id": "GLT1652988096",
+      "filename": "special_mai_thi_nguyen_kim_5_schnelle_fragen_an.json",
+      "pub_date": "Fri, 17 Apr 2020 21:53:00 -0000",
+      "duration_seconds": 5347,
+      "has_diarization": true
+    },
+    {
+      "episode_number": null,
+      "title": "RAUL KRAUTHAUSEN (5 SCHNELLE FRAGEN AN)",
+      "glt_id": "GLT8075539635",
+      "filename": "special_raul_krauthausen_5_schnelle_fragen_an.json",
+      "pub_date": "Fri, 23 Oct 2020 21:47:00 -0000",
+      "duration_seconds": 4960,
+      "has_diarization": true
+    },
+    {
+      "episode_number": null,
+      "title": "SARA NURU (5 SCHNELLE FRAGEN AN)",
+      "glt_id": "GLT7917409170",
+      "filename": "special_sara_nuru_5_schnelle_fragen_an.json",
+      "pub_date": "Fri, 16 Oct 2020 21:46:00 -0000",
+      "duration_seconds": 4030,
+      "has_diarization": true
+    },
+    {
+      "episode_number": null,
+      "title": "Die Woche wird einfach nicht besser",
+      "glt_id": "GLT2199720539",
+      "filename": "special_die_woche_wird_einfach_nicht_besser.json",
+      "pub_date": "Tue, 01 Mar 2022 22:45:00 -0000",
+      "duration_seconds": 372,
+      "has_diarization": true
+    },
+    {
+      "episode_number": null,
+      "title": "1 LIVE KRONE SPEZIAL",
+      "glt_id": "GLT5955665745",
+      "filename": "special_1_live_krone_spezial.json",
+      "pub_date": "Sun, 22 Nov 2020 22:46:00 -0000",
+      "duration_seconds": 2996,
+      "has_diarization": true
+    },
+    {
+      "episode_number": null,
+      "title": "$ICK (5 SCHNELLE FRAGEN AN)",
+      "glt_id": "GLT6136933416",
+      "filename": "special_ick_5_schnelle_fragen_an.json",
+      "pub_date": "Fri, 30 Oct 2020 22:46:00 -0000",
+      "duration_seconds": 4502,
+      "has_diarization": true
+    },
+    {
+      "episode_number": null,
+      "title": "MATS HUMMELS (5 SCHNELLE FRAGEN AN)",
+      "glt_id": "GLT4037289517",
+      "filename": "special_mats_hummels_5_schnelle_fragen_an.json",
+      "pub_date": "Fri, 24 Apr 2020 21:53:00 -0000",
+      "duration_seconds": 4317,
+      "has_diarization": true
+    },
+    {
+      "episode_number": null,
+      "title": "HASSAN AKKOUCH (5 SCHNELLE FRAGEN AN)",
+      "glt_id": "GLT9348455459",
+      "filename": "special_hassan_akkouch_5_schnelle_fragen_an.json",
+      "pub_date": "Fri, 13 Nov 2020 22:46:00 -0000",
+      "duration_seconds": 5152,
+      "has_diarization": true
+    },
+    {
+      "episode_number": null,
+      "title": "BEST OF 2020",
+      "glt_id": "GLT4662530867",
+      "filename": "special_best_of_2020.json",
+      "pub_date": "Wed, 23 Dec 2020 22:48:00 -0000",
+      "duration_seconds": 3503,
+      "has_diarization": true
+    }
+  ]
+}

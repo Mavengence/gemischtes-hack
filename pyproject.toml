@@ -1,0 +1,30 @@
+[project]
+name = "gemischtes-hack"
+version = "0.1.0"
+description = "Download, transcribe, and analyze Gemischtes Hack podcast episodes"
+requires-python = ">=3.13"
+dependencies = [
+    "mlx-whisper>=0.4",
+    "pydantic>=2.0",
+    "resemblyzer>=0.1.4",
+    "rich>=13.0",
+    "scikit-learn>=1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff",
+    "pytest",
+]
+web = [
+    "sentence-transformers>=3.0",
+    "bertopic>=0.16",
+    "umap-learn>=0.5",
+    "hdbscan>=0.8",
+    "ollama>=0.4",
+    "supabase>=2.0",
+    "numpy>=1.26",
+]
+
+[tool.setuptools]
+packages = ["scripts"]
