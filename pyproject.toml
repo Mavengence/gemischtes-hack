@@ -25,6 +25,11 @@ web = [
     "supabase>=2.0",
     "numpy>=1.26",
 ]
+graph = [
+    "openai>=1.0",
+    "numpy>=1.26",
+    "rich>=13.0",
+]
 
 [tool.setuptools]
 packages = ["scripts"]

@@ -24,6 +24,7 @@ Transcripts for every episode of **Gemischtes Hack** — the German comedy podca
 - [Quick start](#quick-start)
 - [Transcript format](#transcript-format)
 - [Reproducing the dataset](#reproducing-the-dataset)
+- [Knowledge graph](#knowledge-graph)
 - [Requirements](#requirements)
 - [License](#license)
 
@@ -180,6 +181,21 @@ make index
 | `scripts/pipeline.py` | Batch orchestrator — download → transcribe → delete MP3 |
 | `scripts/rename_transcripts.py` | Rename `GLT*.json` → `episode_NNN_slug.json` |
 | `scripts/build_index.py` | Regenerate `transcripts/index.json` |
+
+---
+
+## Knowledge graph
+
+An interactive topic explorer built on top of this transcript dataset.
+GPT-5.4 extracts topics from every episode, embeddings are clustered into
+120 super-topics via k-means, and the result is visualised as a 2-level
+D3.js force-directed graph with drill-down from clusters to episodes.
+
+<p align="center">
+  <img src="knowledge-graph/docs/images/cluster-overview.png" alt="Topic cluster overview" width="720">
+</p>
+
+See [`knowledge-graph/README.md`](knowledge-graph/README.md) for setup, pipeline details, and cost estimates.
 
 ---
 

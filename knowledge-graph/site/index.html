@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemischtes Hack — Topic Universe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,400&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header id="topbar">
+            <div class="logo">
+                <div class="logo-icon">🎙</div>
+                <div class="logo-text">Gemischtes <span>Hack</span></div>
+            </div>
+            <div id="breadcrumb" class="hidden"></div>
+            <div id="search-container">
+                <input type="text" id="search" placeholder="Thema oder Episode suchen..." autocomplete="off">
+                <div id="search-results"></div>
+            </div>
+            <div class="header-right">
+                <div class="meta-pill" id="meta-episodes"></div>
+                <div class="meta-pill" id="meta-topics"></div>
+                <button id="btn-reset" title="Ansicht zurücksetzen">⟲</button>
+            </div>
+        </header>
+
+        <!-- Graph area -->
+        <div id="graph-container">
+            <svg id="graph"></svg>
+
+            <!-- Floating stats -->
+            <div class="stats-bar">
+                <div class="stat-card"><span class="stat-val" id="stat-clusters">—</span><div class="stat-lbl">Themen</div></div>
+                <div class="stat-card"><span class="stat-val" id="stat-episodes">—</span><div class="stat-lbl">Episoden</div></div>
+            </div>
+
+            <!-- Tooltip -->
+            <div id="tooltip"></div>
+
+            <!-- Zoom controls -->
+            <div class="zoom-controls">
+                <button class="zoom-btn" id="zoom-in" title="Vergrößern">+</button>
+                <button class="zoom-btn" id="zoom-out" title="Verkleinern">−</button>
+                <button class="zoom-btn" id="zoom-reset" title="Zurücksetzen">↺</button>
+            </div>
+
+            <!-- Side panel -->
+            <aside id="panel" class="hidden">
+                <button id="panel-close">✕</button>
+                <div id="panel-content"></div>
+            </aside>
+        </div>
+
+        <!-- Stats bar (bottom) -->
+        <footer id="statsbar">
+            <span id="stats"></span>
+        </footer>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="graph.js"></script>
+</body>
+</html>
